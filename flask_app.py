@@ -62,7 +62,11 @@ def create_app(app_name='YAMOOD_API'):
     def songs_history():
         if 'access_token' in session:
             sngs = SongProcessing(session['access_token'])
-            return json.dumps(sngs.get_user_songs_history())
+            hist = sngs.get_user_songs_history()
+            hist_w_lyrics = sngs.get_tracks_full_info(hist,10)
+            feat = sngs.get_music_features()
+            emotions = sngs.get_music_emotions(feat)
+            return str(emotions)
         else:
             return redirect('/')
 

@@ -9,6 +9,7 @@ pytz
 requests
 datetime
 yandex_music
+librosa
 sentencepiece
 unidecode
 emoji

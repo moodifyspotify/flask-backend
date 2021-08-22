@@ -93,18 +93,15 @@ def create_app(app_name='YAMOOD_API'):
         if request.method == "POST":
             request_data = request.get_json()
             texts = request_data['texts']
-            fns = []
-            for t in texts:
-                fn = f'dl/data/data{uuid.uuid4()}.csv'
-                with open(fn, 'w') as f:
-                    f.write('text\n' + t.replace("\n", " "))
-                fns.append(fn)
-            with mp.Pool(2) as pool:
-                results = pool.map(sd_model.classify, fns)
+            fn = f'dl/data/data{uuid.uuid4()}.csv'
+            with open(fn, 'w') as f:
+                f.write('text\n')
+                for t in texts:
+                    f.write(t.replace("\n", " ")+"\n")
+            res = np.round(sd_model.classify(fn)[1], 2)
 
-            print(results)
-            results = list(map(lambda x: np.round(x[1], 2), results))
-            return {'result': str(results)}, 200
+            print(res)
+            return {'result': str(res)}, 200
         return jsonify({
             'statusCode': 400
         }), 400
@@ -130,7 +127,7 @@ def create_app(app_name='YAMOOD_API'):
     def get_client_from_cred(un, pwd):
         return Client.from_credentials(un, pwd).token
 
-    @app.route('/auth', methods=['POST','GET'])
+    @app.route('/auth', methods=['POST', 'GET'])
     @cross_origin()
     def auth():
         if request.method == "GET":

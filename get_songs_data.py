@@ -24,13 +24,13 @@ class SongProcessing:
         return None
 
     def get_user_songs_history(self):
-
         def get_history_formatted(history):
             res = {}
             for context in history['contexts']:
                 for track in context['tracks']:
                     res[datetime.timestamp(datetime.strptime(track['timestamp'], '%Y-%m-%dT%H:%M:%S%z')) + 3600 * 3] = \
                     track['track_id']
+            print(res)
             return dict(sorted(res.items(),reverse=True))
 
         req_str = 'https://api.music.yandex.net/users/{0}/contexts?types=album,artist,playlist&contextCount=30'.format(self.uid)

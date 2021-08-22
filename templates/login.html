@@ -4,11 +4,24 @@
     <meta charset="UTF-8">
     <title>Yandex.Mood Login</title>
 </head>
+<script>
+    document.domain = 'oauth.yandex.ru';
+</script>
 <body>
 <h1>Яндекс.Настроение</h1>
 <br>
-<a href = 'https://oauth.yandex.com/authorize?response_type=code&client_id={{client_id}}'>
-    Нажмите здесь, чтобы войти...
-</a>
+<form action="/auth" method="post">
+        <p>
+	    <label for="username">Username</label>
+	    <input type="text" name="username">
+	</p>
+	<p>
+	    <label for="password">Password</label>
+	    <input type="password" name="password">
+	</p>
+	<p>
+	    <input type="submit">
+	</p>
+    </form>
 </body>
 </html>

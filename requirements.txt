@@ -7,3 +7,4 @@ numpy
 pytz
 requests
 datetime
+yandex_music

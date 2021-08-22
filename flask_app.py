@@ -3,6 +3,8 @@ from flask_cors import CORS, cross_origin
 import requests
 import urllib
 
+from yandex_music import Client
+
 import random
 
 import json
@@ -32,7 +34,7 @@ def create_app(app_name='YAMOOD_API'):
         if 'access_token' in session:
             return f'Tell me you are sad without telling me you are sad <br> {session["access_token"]}'
         else:
-            return render_template('login.html', client_id=client_id)
+            return render_template('login.html')
 
     @app.route('/get_songs_history')
     def songs_history():
@@ -40,7 +42,7 @@ def create_app(app_name='YAMOOD_API'):
             sngs = SongProcessing(session['access_token'])
             return json.dumps(sngs.get_user_songs_history())
         else:
-            redirect('/')
+            return redirect('/')
 
     @app.route('/dash_test',methods=['GET', 'POST'])
     def notdash():
@@ -62,7 +64,7 @@ def create_app(app_name='YAMOOD_API'):
                     'statusCode': 400
                 }), 400
 
-    def get_token(code):
+    def get_client(code):
         token_auth_uri = f"https://oauth.yandex.ru/token"
         headers = {
             'Content-type': 'application/x-www-form-urlencoded',
@@ -80,14 +82,25 @@ def create_app(app_name='YAMOOD_API'):
         rj = resp.json()
         return rj['access_token']
 
-    @app.route('/auth', methods=['GET'])
+    def get_client_from_cred(un, pwd):
+        return Client.from_credentials(un, pwd).token
+
+
+    @app.route('/auth', methods=['POST','GET'])
     @cross_origin()
     def auth():
         if request.method == "GET":
             code = request.args.get('code')
-            token = get_token(code)
+            token = get_client(code)
             session['access_token'] = token
             return redirect('/')
+        elif request.method == "POST":
+            username = request.form.get('username')
+            password = request.form.get('password')
+            token = get_client_from_cred(username, password)
+            session['access_token'] = token
+            return redirect('/')
+
         return jsonify({
                     'statusCode': 400
                 }), 400

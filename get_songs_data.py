@@ -38,10 +38,10 @@ class SongProcessing:
         user_history_w_lyrics = {}
         tracks_info = self.ya_client.tracks(list(user_history.values())[:tracks_count])
 
-        mp3savepath = '/Users/roma/Desktop/flask-mood/mp3s/{0}'.format(str(time.time())+str(self.uid))
+        mp3savepath = 'mp3s/{0}'.format(str(time.time())+str(self.uid))
         self.mp3savepath = mp3savepath
         Path(self.mp3savepath).mkdir(parents=True, exist_ok=True)
-        songs_w_lyrics = pd.read_csv('/Users/roma/Desktop/flask-mood/songs_files/lyrics.csv')
+        songs_w_lyrics = pd.read_csv('songs_files/lyrics.csv')
 
         for id,track in enumerate(tracks_info):
 
@@ -59,7 +59,7 @@ class SongProcessing:
                 'file_path': track_path
             }
 
-        songs_w_lyrics.to_csv('/Users/roma/Desktop/flask-mood/songs_files/lyrics.csv', index=None)
+        songs_w_lyrics.to_csv('songs_files/lyrics.csv', index=None)
 
         return user_history_w_lyrics
 
@@ -67,13 +67,13 @@ class SongProcessing:
     def get_music_features(self):
         features_set = extract_feature(self.mp3savepath+'/')
         shutil.rmtree(self.mp3savepath)
-        return features_set
+        return features_set[[r for r in features_set.columns if r != 'song_name']]
 
-    def get_lyrics_emotions(lyrics):
+    def get_lyrics_emotions(self,lyrics):
         return None
 
-    def get_music_emotions(music_features):
-        loaded_model = pickle.load(open('/Users/roma/Desktop/flask-mood/dl/music_classifier_knn/knnpickle_file', 'rb'))
+    def get_music_emotions(self,music_features):
+        loaded_model = pickle.load(open('dl/music_classifier_knn/knnpickle_file', 'rb'))
         result = loaded_model.predict(music_features)
         return result
 

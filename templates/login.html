@@ -1,27 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Yandex.Mood Login</title>
-</head>
-<script>
-    document.domain = 'oauth.yandex.ru';
-</script>
-<body>
-<h1>Яндекс.Настроение</h1>
-<br>
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Авторизация{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
 <form action="/auth" method="post">
         <p>
 	    <label for="username">Username</label>
-	    <input type="text" name="username">
+	    <input type="text" name="username" required>
 	</p>
 	<p>
 	    <label for="password">Password</label>
-	    <input type="password" name="password">
+	    <input type="password" name="password" required>
 	</p>
 	<p>
-	    <input type="submit">
+	    <input type="submit" value="Войти">
 	</p>
     </form>
-</body>
-</html>
+{% endblock %}

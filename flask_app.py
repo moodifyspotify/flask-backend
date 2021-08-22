@@ -1,9 +1,9 @@
-from flask import Flask, jsonify, request, render_template, session, redirect
+from flask import Flask, jsonify, request, render_template, session, redirect, g, flash, url_for
 from flask_cors import CORS, cross_origin
 import requests
 import urllib
 
-from yandex_music import Client
+from yandex_music import Client, exceptions
 
 import random
 
@@ -23,6 +23,14 @@ import json
 client_id = '0a5c1ff2ba7e4bdd83ee228720efacb5'
 client_secret = 'ab444188a16e471cbbdd48965449dff3'
 
+def get_test_plot():
+    df = pd.DataFrame({
+        "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
+        "Amount": [4, 1, 2, 2, 4, 5],
+        "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]
+    })
+    fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
+    return json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
 def create_app(app_name='YAMOOD_API'):
     app = Flask(app_name)
@@ -32,7 +40,12 @@ def create_app(app_name='YAMOOD_API'):
     @app.route('/')
     def main_page():
         if 'access_token' in session:
-            return f'Tell me you are sad without telling me you are sad <br> {session["access_token"]}'
+            y_clnt = Client(session['access_token'])
+            g.user = {
+                'username': y_clnt.me.account.login
+            }
+            graphJSON = get_test_plot()
+            return render_template('notdash.html', graphJSON=graphJSON)
         else:
             return render_template('login.html')
 
@@ -46,13 +59,7 @@ def create_app(app_name='YAMOOD_API'):
 
     @app.route('/dash_test',methods=['GET', 'POST'])
     def notdash():
-        df = pd.DataFrame({
-            "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
-            "Amount": [4, 1, 2, 2, 4, 5],
-            "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]
-        })
-        fig = px.bar(df, x="Fruit", y="Amount", color="City",    barmode="group")
-        graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+        graphJSON = get_test_plot()
         return render_template('notdash.html', graphJSON=graphJSON)
 
     @app.route('/api', methods=['GET'])
@@ -85,7 +92,6 @@ def create_app(app_name='YAMOOD_API'):
     def get_client_from_cred(un, pwd):
         return Client.from_credentials(un, pwd).token
 
-
     @app.route('/auth', methods=['POST','GET'])
     @cross_origin()
     def auth():
@@ -97,13 +103,30 @@ def create_app(app_name='YAMOOD_API'):
         elif request.method == "POST":
             username = request.form.get('username')
             password = request.form.get('password')
-            token = get_client_from_cred(username, password)
-            session['access_token'] = token
-            return redirect('/')
 
-        return jsonify({
-                    'statusCode': 400
-                }), 400
+            error = None
+
+            if not username:
+                error = 'Введите логин'
+            elif not password:
+                error = 'Введите пароль'
+            if error is None:
+                try:
+                    token = get_client_from_cred(username, password)
+                    session['access_token'] = token
+                    return redirect('/')
+                except exceptions.BadRequest:
+                    error = "Неудалось войти... Вероятный диагноз -- неверный пароль("
+
+            flash(error)
+
+            return render_template('login.html')
+
+    @app.route('/logout', methods=['POST', 'GET'])
+    @cross_origin()
+    def logout():
+        session.clear()
+        return redirect(url_for('main_page'))
 
     return app
 

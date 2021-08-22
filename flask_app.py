@@ -1,22 +1,11 @@
 from flask import Flask, jsonify, request,render_template
 from flask_cors import CORS, cross_origin
-import json
-
-import random
-
-import json
-from datetime import datetime
-import time
-import ssl
-import pymongo
-from urllib.parse import quote_plus as quote
-from bson.objectid import ObjectId
-import base64
-import secrets
 import pandas as pd
 import json
 import plotly
 import plotly.express as px
+from get_songs_data import SongProcessing
+import json
 
 
 
@@ -27,7 +16,13 @@ def create_app(app_name='YAMOOD_API'):
 
     @app.route('/')
     def main_page():
-        return 'Tell me you are sad without telling me you are sad'
+        return "heh"
+
+    @app.route('/get_songs_history')
+    def songs_history():
+        sngs = SongProcessing('AQAAAAAkI_QrAAG8Xhhgt83_bk-OlbRo6xG86wM')
+        return json.dumps(sngs.get_user_songs_history())
+        # return str(sngs.ya_client.me.account.uid)
 
     @app.route('/dash_test',methods=['GET', 'POST'])
     def notdash():
@@ -56,29 +51,3 @@ def create_app(app_name='YAMOOD_API'):
 if __name__ == "__main__":
     app = create_app()
     app.run(host='0.0.0.0',debug=True)
-
-# import dash
-# import dash_core_components as dcc
-# import dash_html_components as html
-# import plotly.express as px
-# import pandas as pd
-# app = dash.Dash(__name__)
-# df = pd.DataFrame({
-#    "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
-#    "Amount": [4, 1, 2, 2, 4, 5],
-#    "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]
-# })
-# fig = px.bar(df, x="Fruit", y="Amount", color="City",  
-#    barmode="group")
-# app.layout = html.Div(children=[
-#    html.H1(children="Hello Dash"),
-#    html.Div(children="""
-#    Dash: A web application framework for Python.
-#    """),
-#    dcc.Graph(
-#       id="example-graph",
-#       figure=fig
-#    )
-# ]) 
-# if __name__ == "__main__":
-#    app.run_server(debug=True)

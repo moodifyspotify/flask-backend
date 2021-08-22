@@ -51,7 +51,8 @@ def create_app(app_name='YAMOOD_API'):
         if 'access_token' in session:
             y_clnt = Client(session['access_token'])
             g.user = {
-                'username': y_clnt.me.account.login
+                'username': y_clnt.me.account.login,
+                'access_token': session['access_token']
             }
             graphJSON = get_test_plot()
             return render_template('notdash.html', graphJSON=graphJSON)
@@ -60,13 +61,27 @@ def create_app(app_name='YAMOOD_API'):
 
     @app.route('/get_songs_history')
     def songs_history():
+        session['access_token'] = 'AgAAAAAh7Vk7AAG8XtDkZzG_PEYLjGVYMIVdDQE'
         if 'access_token' in session:
+            #f_em = pd.read_csv('song_files/music_emotions.csv')
             sngs = SongProcessing(session['access_token'])
             hist = sngs.get_user_songs_history()
-            hist_w_lyrics = sngs.get_tracks_full_info(hist,10)
+            hist_w_lyrics, df_lyrics = sngs.get_tracks_full_info(hist, 1)
             feat = sngs.get_music_features()
-            emotions = sngs.get_music_emotions(feat)
-            return str(emotions)
+            emotions = sngs.get_music_emotions(feat[[r for r in feat.columns if r != 'song_name']])
+            feat['emotion'] = emotions
+            feat['track_id'] = feat['song_name'].apply(lambda x: x.split('.')[0].replace('_', ':'))
+            feat[['track_id', 'emotion']].to_csv('songs_files/music_emotions.csv', index=False)
+            print(feat[['track_id', 'emotion']])
+            print(df_lyrics)
+            df_lyrics.merge(feat[['track_id', 'emotion']],
+                            on='track_id',
+                            suffixes=(False, False)).to_json('songs_files/songs_info.json',
+                                                             orient='records', indent=3)
+
+            with open('songs_files/lyrics.json', 'w') as f:
+                json.dump(hist_w_lyrics, f, ensure_ascii=False, indent=3)
+            return hist_w_lyrics, 200
         else:
             return redirect('/')
 

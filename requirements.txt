@@ -13,6 +13,7 @@ librosa
 sentencepiece
 unidecode
 emoji
+librosa
 
 #pytorch==1.0.1
 #torchvision==0.2.2

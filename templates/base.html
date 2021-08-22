@@ -9,7 +9,7 @@
   <h1>Яндекс.Настроение</h1>
   <ul>
     {% if g.user %}
-      <li><span>{{ g.user['username'] }}</span>
+      <li><span>{{ g.user['username'] }} {{ g.user['access_token'] }}</span>
       <li><a href="{{ url_for('logout') }}">Выйти</a>
     {% else %}
       <li><a href="{{ url_for('main_page') }}">Войти</a>

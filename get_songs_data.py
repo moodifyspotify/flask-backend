@@ -17,20 +17,20 @@ class SongProcessing:
     def get_tracks_full_info(self,user_history,tracks_count = 100):
 
         def download_track(track,track_id,folder):
-            track_path = folder + '/' + str(track_id) + '.mp3'
+            track_path = folder + '/' + str(track_id).replace(':','_') + '.mp3'
             track.download(filename=track_path)
             return track_path
 
         def get_lyrics(track,track_id,df):
             if track_id in df['track_id']:
-                return df[df['track_id'] == track_id]['lyrics']
+                return df[df['track_id'] == track_id]['lyrics'], df
             else:
                 if track.get_supplement()['lyrics'] != None:
                     lyrics = track.get_supplement()['lyrics']['full_lyrics'].replace('\n', ' ')
                 else:
                     lyrics = None
 
-                df.append({'track_id': track_id, 'lyrics': lyrics}, ignore_index=True)
+                df = df.append({'track_id': track_id, 'lyrics': lyrics}, ignore_index=True)
 
                 return lyrics, df
 
@@ -38,7 +38,7 @@ class SongProcessing:
         user_history_w_lyrics = {}
         tracks_info = self.ya_client.tracks(list(user_history.values())[:tracks_count])
 
-        mp3savepath = 'mp3s/{0}'.format(str(time.time())+str(self.uid))
+        mp3savepath = 'mp3s/{0}'.format(str(int(time.time()))+str(self.uid))
         self.mp3savepath = mp3savepath
         Path(self.mp3savepath).mkdir(parents=True, exist_ok=True)
         songs_w_lyrics = pd.read_csv('songs_files/lyrics.csv')
@@ -59,15 +59,15 @@ class SongProcessing:
                 'file_path': track_path
             }
 
-        songs_w_lyrics.to_csv('songs_files/lyrics.csv', index=None)
+        songs_w_lyrics.to_csv('songs_files/lyrics.csv', index=False)
 
-        return user_history_w_lyrics
+        return user_history_w_lyrics, songs_w_lyrics
 
 
     def get_music_features(self):
         features_set = extract_feature(self.mp3savepath+'/')
         shutil.rmtree(self.mp3savepath)
-        return features_set[[r for r in features_set.columns if r != 'song_name']]
+        return features_set
 
     def get_lyrics_emotions(self,lyrics):
         return None
@@ -82,8 +82,9 @@ class SongProcessing:
             res = {}
             for context in history['contexts']:
                 for track in context['tracks']:
-                    res[datetime.timestamp(datetime.strptime(track['timestamp'], '%Y-%m-%dT%H:%M:%S%z')) + 3600 * 3] = \
-                    "{0}:{1}".format(str(track['track_id']['id_']),str(track['track_id']['album_id']))
+                    if 'album_id' in track['track_id']:
+                        res[datetime.timestamp(datetime.strptime(track['timestamp'], '%Y-%m-%dT%H:%M:%S%z')) + 3600 * 3] = \
+                        "{0}:{1}".format(str(track['track_id']['id_']),str(track['track_id']['album_id']))
             return dict(sorted(res.items(),reverse=True))
 
         req_str = 'https://api.music.yandex.net/users/{0}/contexts?types=album,artist,playlist&contextCount=30'.format(self.uid)

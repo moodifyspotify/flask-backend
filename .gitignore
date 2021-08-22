@@ -131,3 +131,5 @@ dmypy.json
 
 #models
 *.clf
+mp3s
+dl/data/

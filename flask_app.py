@@ -69,11 +69,10 @@ def create_app(app_name='YAMOOD_API'):
             hist_w_lyrics, df_lyrics = sngs.get_tracks_full_info(hist, 1)
             feat = sngs.get_music_features()
             emotions = sngs.get_music_emotions(feat[[r for r in feat.columns if r != 'song_name']])
+            emotions_lyrics = sngs.get_lyrics_emotions(sd_model, [l['track_lyrics'] for l in list(hist_w_lyrics.values())])
             feat['emotion'] = emotions
             feat['track_id'] = feat['song_name'].apply(lambda x: x.split('.')[0].replace('_', ':'))
             feat[['track_id', 'emotion']].to_csv('songs_files/music_emotions.csv', index=False)
-            print(feat[['track_id', 'emotion']])
-            print(df_lyrics)
             df_lyrics.merge(feat[['track_id', 'emotion']],
                             on='track_id',
                             suffixes=(False, False)).to_json('songs_files/songs_info.json',
@@ -81,7 +80,8 @@ def create_app(app_name='YAMOOD_API'):
 
             with open('songs_files/lyrics.json', 'w') as f:
                 json.dump(hist_w_lyrics, f, ensure_ascii=False, indent=3)
-            return hist_w_lyrics, 200
+
+            return json.dumps(emotions_lyrics), 200
         else:
             return redirect('/')
 
@@ -106,24 +106,24 @@ def create_app(app_name='YAMOOD_API'):
                     'statusCode': 400
                 }), 400
 
-    @app.route('/api/get_text_emotions_batch', methods=['POST'])
-    @cross_origin()
-    def text_emotions_batch():
-        if request.method == "POST":
-            request_data = request.get_json()
-            texts = request_data['texts']
-            fn = f'dl/data/data{uuid.uuid4()}.csv'
-            with open(fn, 'w') as f:
-                f.write('text\n')
-                for t in texts:
-                    f.write(t.replace("\n", " ")+"\n")
-            res = np.round(sd_model.classify(fn)[1], 2)
-
-            print(res)
-            return {'result': str(res)}, 200
-        return jsonify({
-            'statusCode': 400
-        }), 400
+    # @app.route('/api/get_text_emotions_batch', methods=['POST'])
+    # @cross_origin()
+    # def text_emotions_batch():
+    #     if request.method == "POST":
+    #         request_data = request.get_json()
+    #         texts = request_data['texts']
+    #         fn = f'dl/data/data{uuid.uuid4()}.csv'
+    #         with open(fn, 'w') as f:
+    #             f.write('text\n')
+    #             for t in texts:
+    #                 f.write(t.replace("\n", " ")+"\n")
+    #         res = np.round(sd_model.classify(fn)[1], 2)
+    #
+    #         print(res)
+    #         return {'result': str(res)}, 200
+    #     return jsonify({
+    #         'statusCode': 400
+    #     }), 400
 
     def get_client(code):
         token_auth_uri = f"https://oauth.yandex.ru/token"

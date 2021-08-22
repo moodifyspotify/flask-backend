@@ -6,6 +6,9 @@ from extract_music_features import extract_feature
 import shutil
 import pandas as pd
 import pickle
+import numpy as np
+import uuid
+
 
 class SongProcessing:
     def __init__(self,token):
@@ -22,8 +25,8 @@ class SongProcessing:
             return track_path
 
         def get_lyrics(track,track_id,df):
-            if track_id in df['track_id']:
-                return df[df['track_id'] == track_id]['lyrics'], df
+            if track_id in list(df['track_id']):
+                return df[df['track_id'] == track_id]['lyrics'][0], df
             else:
                 if track.get_supplement()['lyrics'] != None:
                     lyrics = track.get_supplement()['lyrics']['full_lyrics'].replace('\n', ' ')
@@ -69,8 +72,17 @@ class SongProcessing:
         shutil.rmtree(self.mp3savepath)
         return features_set
 
-    def get_lyrics_emotions(self,lyrics):
-        return None
+    def get_lyrics_emotions(self,sd_model,texts):
+
+        fn = f'dl/data/data{uuid.uuid4()}.csv'
+        with open(fn, 'w') as f:
+            f.write('text\n')
+            for t in texts:
+                f.write(t.replace("\n", " ")+"\n")
+        res = np.round(sd_model.classify(fn)[1], 2)
+
+        return {'result': str(res)}
+
 
     def get_music_emotions(self,music_features):
         loaded_model = pickle.load(open('dl/music_classifier_knn/knnpickle_file', 'rb'))

@@ -11,10 +11,12 @@ import time
 import ssl
 import base64
 import secrets
+
 import pandas as pd
-import json
 import plotly
 import plotly.express as px
+from get_songs_data import SongProcessing
+import json
 
 client_id = '0a5c1ff2ba7e4bdd83ee228720efacb5'
 client_secret = 'ab444188a16e471cbbdd48965449dff3'
@@ -30,8 +32,15 @@ def create_app(app_name='YAMOOD_API'):
         if 'access_token' in session:
             return f'Tell me you are sad without telling me you are sad <br> {session["access_token"]}'
         else:
-
             return render_template('login.html', client_id=client_id)
+
+    @app.route('/get_songs_history')
+    def songs_history():
+        if 'access_token' in session:
+            sngs = SongProcessing(session['access_token'])
+            return json.dumps(sngs.get_user_songs_history())
+        else:
+            redirect('/')
 
     @app.route('/dash_test',methods=['GET', 'POST'])
     def notdash():
@@ -89,29 +98,3 @@ def create_app(app_name='YAMOOD_API'):
 if __name__ == "__main__":
     app = create_app()
     app.run(host='0.0.0.0',debug=True)
-
-# import dash
-# import dash_core_components as dcc
-# import dash_html_components as html
-# import plotly.express as px
-# import pandas as pd
-# app = dash.Dash(__name__)
-# df = pd.DataFrame({
-#    "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
-#    "Amount": [4, 1, 2, 2, 4, 5],
-#    "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]
-# })
-# fig = px.bar(df, x="Fruit", y="Amount", color="City",  
-#    barmode="group")
-# app.layout = html.Div(children=[
-#    html.H1(children="Hello Dash"),
-#    html.Div(children="""
-#    Dash: A web application framework for Python.
-#    """),
-#    dcc.Graph(
-#       id="example-graph",
-#       figure=fig
-#    )
-# ]) 
-# if __name__ == "__main__":
-#    app.run_server(debug=True)

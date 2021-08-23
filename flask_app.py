@@ -100,7 +100,7 @@ def create_app(app_name='YAMOOD_API'):
             final_res_user = []
 
             if len(hist) > 0:
-                hist_w_lyrics, df_lyrics = sngs.get_tracks_full_info(hist, num_tracks)
+                hist_w_lyrics = sngs.get_tracks_full_info(hist, num_tracks)
                 feat = sngs.get_music_features()
                 emotions = sngs.get_music_emotions(feat[[r for r in feat.columns if r != 'song_name']])
                 emotions_lyrics = sngs.get_lyrics_emotions(sd_model, [l['track_lyrics'] for l in list(hist_w_lyrics.values())])

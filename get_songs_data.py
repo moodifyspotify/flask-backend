@@ -24,18 +24,24 @@ class SongProcessing:
             track.download(filename=track_path)
             return track_path
 
-        def get_lyrics(track,track_id,df):
-            if track_id in list(df['track_id']):
-                return df[df['track_id'] == track_id]['lyrics'][0], df
+        def get_lyrics(track):
+            if track.get_supplement()['lyrics'] != None:
+                return track.get_supplement()['lyrics']['full_lyrics'].replace('\n', ' ')
             else:
-                if track.get_supplement()['lyrics'] != None:
-                    lyrics = track.get_supplement()['lyrics']['full_lyrics'].replace('\n', ' ')
-                else:
-                    lyrics = None
+                return None
 
-                df = df.append({'track_id': track_id, 'lyrics': lyrics}, ignore_index=True)
 
-                return lyrics, df
+            # if track_id in list(df['track_id']):
+            #     return df[df['track_id'] == track_id]['lyrics'][0], df
+            # else:
+            #     if track.get_supplement()['lyrics'] != None:
+            #         lyrics = track.get_supplement()['lyrics']['full_lyrics'].replace('\n', ' ')
+            #     else:
+            #         lyrics = None
+            #
+            #     df = df.append({'track_id': track_id, 'lyrics': lyrics}, ignore_index=True)
+            #
+            #     return lyrics, df
 
 
         user_history_w_lyrics = {}
@@ -44,27 +50,23 @@ class SongProcessing:
         mp3savepath = 'mp3s/{0}'.format(str(int(time.time()))+str(self.uid))
         self.mp3savepath = mp3savepath
         Path(self.mp3savepath).mkdir(parents=True, exist_ok=True)
-        songs_w_lyrics = pd.read_csv('songs_files/lyrics.csv')
 
-        for id,track in enumerate(tracks_info):
+        for k,track in enumerate(tracks_info):
 
-            lyrics,songs_w_lyrics = get_lyrics(
-                track, list(user_history.values())[id], songs_w_lyrics
-            )
+            lyrics = get_lyrics(track)
 
-            track_path = download_track(track, list(user_history.values())[id], self.mp3savepath)
+            track_path = download_track(track, list(user_history.values())[k], self.mp3savepath)
 
-            user_history_w_lyrics[list(user_history.keys())[id]] = {
-                'track_id': list(user_history.values())[id],
+            user_history_w_lyrics[list(user_history.keys())[k]] = {
+                'track_id': list(user_history.values())[k],
                 'track_name': track['title'],
                 'track_duration': track['duration_ms'],
                 'track_lyrics': lyrics,
                 'file_path': track_path
             }
 
-        songs_w_lyrics.to_csv('songs_files/lyrics.csv', index=False)
 
-        return user_history_w_lyrics, songs_w_lyrics
+        return user_history_w_lyrics
 
 
     def get_music_features(self):

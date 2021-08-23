@@ -8,88 +8,91 @@ from concurrent.futures import ThreadPoolExecutor
 
 def extract_feature(path):
     def get_features_for_track(path):
-        y, sr = librosa.load(path, duration=60)
-        S = np.abs(librosa.stft(y))
+        try:
+            y, sr = librosa.load(path, duration=60)
+            S = np.abs(librosa.stft(y))
 
-        # Extracting Features
-        tempo, beats = librosa.beat.beat_track(y=y, sr=sr)
-        chroma_stft = librosa.feature.chroma_stft(y=y, sr=sr)
-        chroma_cq = librosa.feature.chroma_cqt(y=y, sr=sr)
-        chroma_cens = librosa.feature.chroma_cens(y=y, sr=sr)
-        melspectrogram = librosa.feature.melspectrogram(y=y, sr=sr)
-        rmse = librosa.feature.rms(y=y)
-        cent = librosa.feature.spectral_centroid(y=y, sr=sr)
-        spec_bw = librosa.feature.spectral_bandwidth(y=y, sr=sr)
-        contrast = librosa.feature.spectral_contrast(S=S, sr=sr)
-        rolloff = librosa.feature.spectral_rolloff(y=y, sr=sr)
-        poly_features = librosa.feature.poly_features(S=S, sr=sr)
-        tonnetz = librosa.feature.tonnetz(y=y, sr=sr)
-        zcr = librosa.feature.zero_crossing_rate(y)
-        harmonic = librosa.effects.harmonic(y)
-        percussive = librosa.effects.percussive(y)
+            # Extracting Features
+            tempo, beats = librosa.beat.beat_track(y=y, sr=sr)
+            chroma_stft = librosa.feature.chroma_stft(y=y, sr=sr)
+            chroma_cq = librosa.feature.chroma_cqt(y=y, sr=sr)
+            chroma_cens = librosa.feature.chroma_cens(y=y, sr=sr)
+            melspectrogram = librosa.feature.melspectrogram(y=y, sr=sr)
+            rmse = librosa.feature.rms(y=y)
+            cent = librosa.feature.spectral_centroid(y=y, sr=sr)
+            spec_bw = librosa.feature.spectral_bandwidth(y=y, sr=sr)
+            contrast = librosa.feature.spectral_contrast(S=S, sr=sr)
+            rolloff = librosa.feature.spectral_rolloff(y=y, sr=sr)
+            poly_features = librosa.feature.poly_features(S=S, sr=sr)
+            tonnetz = librosa.feature.tonnetz(y=y, sr=sr)
+            zcr = librosa.feature.zero_crossing_rate(y)
+            harmonic = librosa.effects.harmonic(y)
+            percussive = librosa.effects.percussive(y)
 
-        mfcc = librosa.feature.mfcc(y=y, sr=sr)
-        mfcc_delta = librosa.feature.delta(mfcc)
+            mfcc = librosa.feature.mfcc(y=y, sr=sr)
+            mfcc_delta = librosa.feature.delta(mfcc)
 
-        onset_frames = librosa.onset.onset_detect(y=y, sr=sr)
-        frames_to_time = librosa.frames_to_time(onset_frames[:20], sr=sr)
+            onset_frames = librosa.onset.onset_detect(y=y, sr=sr)
+            frames_to_time = librosa.frames_to_time(onset_frames[:20], sr=sr)
 
-        # Transforming Features
-        return [path,  # song name
-                tempo,  # tempo
-                sum(beats),  # beats
-                np.average(beats),
-                np.mean(chroma_stft),  # chroma stft
-                np.std(chroma_stft),
-                np.var(chroma_stft),
-                np.mean(chroma_cq),  # chroma cq
-                np.std(chroma_cq),
-                np.var(chroma_cq),
-                np.mean(chroma_cens),  # chroma cens
-                np.std(chroma_cens),
-                np.var(chroma_cens),
-                np.mean(melspectrogram),  # melspectrogram
-                np.std(melspectrogram),
-                np.var(melspectrogram),
-                np.mean(mfcc),  # mfcc
-                np.std(mfcc),
-                np.var(mfcc),
-                np.mean(mfcc_delta),  # mfcc delta
-                np.std(mfcc_delta),
-                np.var(mfcc_delta),
-                np.mean(rmse),  # rmse
-                np.std(rmse),
-                np.var(rmse),
-                np.mean(cent),  # cent
-                np.std(cent),
-                np.var(cent),
-                np.mean(spec_bw),  # spectral bandwidth
-                np.std(spec_bw),
-                np.var(spec_bw),
-                np.mean(contrast),  # contrast
-                np.std(contrast),
-                np.var(contrast),
-                np.mean(rolloff),  # rolloff
-                np.std(rolloff),
-                np.var(rolloff),
-                np.mean(poly_features),  # poly features
-                np.std(poly_features),
-                np.var(poly_features),
-                np.mean(tonnetz),  # tonnetz
-                np.std(tonnetz),
-                np.var(tonnetz),
-                np.mean(zcr),  # zero crossing rate
-                np.std(zcr),
-                np.var(zcr),
-                np.mean(harmonic),  # harmonic
-                np.std(harmonic),
-                np.var(harmonic),
-                np.mean(percussive),  # percussive
-                np.std(percussive),
-                np.var(percussive),
-                np.mean(frames_to_time),  # frames
-                np.std(frames_to_time),
-                np.var(frames_to_time)]
+            # Transforming Features
+            return [path,  # song name
+                    tempo,  # tempo
+                    sum(beats),  # beats
+                    np.average(beats),
+                    np.mean(chroma_stft),  # chroma stft
+                    np.std(chroma_stft),
+                    np.var(chroma_stft),
+                    np.mean(chroma_cq),  # chroma cq
+                    np.std(chroma_cq),
+                    np.var(chroma_cq),
+                    np.mean(chroma_cens),  # chroma cens
+                    np.std(chroma_cens),
+                    np.var(chroma_cens),
+                    np.mean(melspectrogram),  # melspectrogram
+                    np.std(melspectrogram),
+                    np.var(melspectrogram),
+                    np.mean(mfcc),  # mfcc
+                    np.std(mfcc),
+                    np.var(mfcc),
+                    np.mean(mfcc_delta),  # mfcc delta
+                    np.std(mfcc_delta),
+                    np.var(mfcc_delta),
+                    np.mean(rmse),  # rmse
+                    np.std(rmse),
+                    np.var(rmse),
+                    np.mean(cent),  # cent
+                    np.std(cent),
+                    np.var(cent),
+                    np.mean(spec_bw),  # spectral bandwidth
+                    np.std(spec_bw),
+                    np.var(spec_bw),
+                    np.mean(contrast),  # contrast
+                    np.std(contrast),
+                    np.var(contrast),
+                    np.mean(rolloff),  # rolloff
+                    np.std(rolloff),
+                    np.var(rolloff),
+                    np.mean(poly_features),  # poly features
+                    np.std(poly_features),
+                    np.var(poly_features),
+                    np.mean(tonnetz),  # tonnetz
+                    np.std(tonnetz),
+                    np.var(tonnetz),
+                    np.mean(zcr),  # zero crossing rate
+                    np.std(zcr),
+                    np.var(zcr),
+                    np.mean(harmonic),  # harmonic
+                    np.std(harmonic),
+                    np.var(harmonic),
+                    np.mean(percussive),  # percussive
+                    np.std(percussive),
+                    np.var(percussive),
+                    np.mean(frames_to_time),  # frames
+                    np.std(frames_to_time),
+                    np.var(frames_to_time)]
+        except:
+            return [0.0]*55
 
     # Traversing over each file in path
     file_data = [f for f in listdir(path) if isfile(join(path, f))]

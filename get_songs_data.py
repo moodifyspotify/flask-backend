@@ -78,10 +78,21 @@ class SongProcessing:
         with open(fn, 'w') as f:
             f.write('text\n')
             for t in texts:
-                f.write(t.replace("\n", " ")+"\n")
-        res = np.round(sd_model.classify(fn)[1], 2)
+                if t != None:
+                    f.write(t.replace("\n", " ")+"\n")
 
-        return {'result': str(res)}
+        classes = np.round(sd_model.classify(fn)[1], 2)
+        res = []
+        classes_res_id = 0
+
+        for t in texts:
+            if t != None:
+                res.append(list(classes[classes_res_id]))
+                classes_res_id = classes_res_id + 1
+            else:
+                res.append([0.0]*8)
+
+        return res
 
 
     def get_music_emotions(self,music_features):
@@ -89,16 +100,16 @@ class SongProcessing:
         result = loaded_model.predict(music_features)
         return result
 
-    def get_user_songs_history(self):
-        def get_history_formatted(history):
+    def get_user_songs_history(self,numberOfTracks=1):
+        def get_history_formatted(history,numberOfTracks):
             res = {}
             for context in history['contexts']:
                 for track in context['tracks']:
                     if 'album_id' in track['track_id']:
                         res[datetime.timestamp(datetime.strptime(track['timestamp'], '%Y-%m-%dT%H:%M:%S%z')) + 3600 * 3] = \
                         "{0}:{1}".format(str(track['track_id']['id_']),str(track['track_id']['album_id']))
-            return dict(sorted(res.items(),reverse=True))
+            return dict(sorted(res.items(),reverse=True)[:numberOfTracks])
 
         req_str = 'https://api.music.yandex.net/users/{0}/contexts?types=album,artist,playlist&contextCount=30'.format(self.uid)
-        user_history = get_history_formatted(self.ya_client.request.get(req_str))
+        user_history = get_history_formatted(self.ya_client.request.get(req_str),numberOfTracks)
         return user_history

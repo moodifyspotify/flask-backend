@@ -3,7 +3,7 @@
     <script src="https://cdn.plot.ly/plotly-2.3.1.js"></script>
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script>
-
+      console.log('{{ g.user['access_token'] }}');
       $( document ).ready(function() {
         console.log("keke")
         var graphs = {{graphJSON | safe}};
@@ -16,5 +16,9 @@
 {% endblock %}
 
 {% block content %}
-    <div id="chart" class="chart"></div>
+<h1>Статистика</h1>
+    <div id="tip" class="chart-50"></div>
+    <div id="pie-chart" class="chart-50"></div>
+    <div id="line-chart" class="chart-100"></div>
+    <div id="hist-chart" class="chart-100"></div>
 {% endblock %}

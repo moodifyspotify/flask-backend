@@ -1,0 +1,251 @@
+@font-face {
+	font-family: rub-arial-regular;
+	src: local("rub-arial-regular");
+	src: url(//yastatic.net/islands/_/sIJpt2WHDXpNt0Pyuj-a0ZnY-h8.woff), url(//yastatic.net/islands/_/iOX23Z1CHz6YYv5o-NPNJCMNEco.ttf)
+}
+
+@font-face {
+	font-family: YS Text;
+	font-weight: 300;
+	font-style: normal;
+	src: url(https://yastat.net/s3/plus/landing/fonts/YS_Text-Light.woff2) format("woff2"), url(https://yastat.net/s3/plus/landing/fonts/YS_Text-Light.woff) format("woff")
+}
+
+@font-face {
+	font-family: YS Text;
+	font-weight: 400;
+	font-style: normal;
+	src: url(//yastatic.net/islands/_/PyVcRbwHetz0gOVWLonWH7Od8zM.woff2) format("woff2"), url(//yastatic.net/islands/_/bIx8jOfCEfR-mECoDUEZywDBuHA.woff) format("woff")
+}
+
+@font-face {
+	font-family: YS Text;
+	font-weight: 500;
+	font-style: normal;
+	src: url(//yastatic.net/islands/_/7_GKBdKFbUPzKlghJRv55xgz0FQ.woff2) format("woff2"), url(//yastatic.net/islands/_/SmqPmIMEXrW4lOY8QrhTUVDbrro.woff) format("woff")
+}
+
+@font-face {
+	font-family: YS Text;
+	font-weight: 700;
+	font-style: normal;
+	src: url(//yastatic.net/islands/_/6Roy0LCd05cK4nNCipgzheYcNVU.woff2) format("woff2"), url(//yastatic.net/islands/_/KtHQR1erf3spayoIM4M4ngg0e2E.woff) format("woff")
+}
+
+@font-face {
+	font-family: YS Display;
+	font-weight: 300;
+	font-style: normal;
+	src: url(https://yastat.net/s3/plus/landing/fonts/YS_Display-Light.woff2) format("woff2"), url(https://yastat.net/s3/plus/landing/fonts/YS_Display-Light.woff) format("woff")
+}
+
+@font-face {
+	font-family: YS Display;
+	font-weight: 400;
+	font-style: normal;
+	src: url(https://yastat.net/s3/plus/landing/fonts/YS_Display-Regular.woff2) format("woff2"), url(https://yastat.net/s3/plus/landing/fonts/YS_Display-Regular.woff) format("woff")
+}
+
+@font-face {
+	font-family: YS Display;
+	font-weight: 500;
+	font-style: normal;
+	src: url(https://yastat.net/s3/plus/landing/fonts/YS_Display-Medium.woff2) format("woff2"), url(https://yastat.net/s3/plus/landing/fonts/YS_Display-Medium.woff) format("woff")
+}
+
+@font-face {
+	font-family: YS Display;
+	font-weight: 700;
+	font-style: normal;
+	src: url(https://yastat.net/s3/plus/landing/fonts/YS_Display-Bold.woff2) format("woff2"), url(https://yastat.net/s3/plus/landing/fonts/YS_Display-Bold.woff) format("woff")
+}
+
+@font-face {
+	font-family: YS Display;
+	font-weight: 800;
+	font-style: normal;
+	src: url(https://yastat.net/s3/plus/landing/fonts/YS_Display-Heavy.woff2) format("woff2"), url(https://yastat.net/s3/plus/landing/fonts/YS_Display-Heavy.woff) format("woff")
+}
+
+@font-face {
+	font-family: "Yandex Serif Display";
+	font-weight: 400;
+	font-style: normal;
+	src: url(https://yastat.net/s3/plus/landing/fonts/YandexSerifDisplay-Regular.woff2) format("woff2"), url(https://yastat.net/s3/plus/landing/fonts/YandexSerifDisplay-Regular.woff) format("woff")
+}
+
+@font-face {
+	font-family: "Yandex Serif Display";
+	font-weight: 700;
+	font-style: normal;
+	src: url(https://yastat.net/s3/plus/landing/fonts/YandexSerifDisplay-Black.woff2) format("woff2"), url(https://yastat.net/s3/plus/landing/fonts/YandexSerifDisplay-Black.woff) format("woff")
+}
+
+@font-face {
+	font-family: YS Logotype;
+	font-weight: 300;
+	font-style: normal;
+	src: url(https://yastat.net/s3/plus/landing/fonts/YS_Logotype-Light.woff2) format("woff2"), url(https://yastat.net/s3/plus/landing/fonts/YS_Logotype-Light.woff) format("woff")
+}
+
+html {
+    font-family: YS Text,Arial,sans-serif;
+    background: #292E43;
+    padding: 0px;
+}
+body {
+    max-width: 960px;
+    margin: 0 auto;
+    background: #292E43;
+}
+h1 {
+    font-family: YS Text,Arial,sans-serif;
+    color: #FFFFFF;
+    margin: 1rem 0;
+    }
+a {
+    color: #FFFFFF;
+    }
+hr {
+    border: none; border-top: 1px solid lightgray;
+    }
+nav {
+    background: #333B59;
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+    height: 50px;
+    margin-bottom: 10px
+
+ }
+nav h1 {
+    flex: auto;
+    margin: 0;
+    color: #FFFFFF;
+    font-family: YS Logotype
+   }
+nav h1 a {
+    text-decoration: none;
+    color: #FFFFFF
+    padding: 0.25rem 0.5rem;
+    }
+nav ul  {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li a, nav ul li span, header .action {
+    display: block;
+    padding: 0.5rem;
+    color: #FFFFFF;
+ }
+
+ form {
+    text-align: center;
+ }
+
+.content {
+    padding: 0 1rem 1rem;
+    background: #292E43;
+    color: #FFFFFF
+   }
+.content > header {
+    /* border-bottom: 1px solid #333B59; */
+    display: flex;
+    align-items: flex-end;
+ }
+.content > header h1 { flex: auto; margin: 1rem 0 0.25rem 0; color: #FFFFFF}
+.flash {
+    margin: 1em 0;
+    color: #FFFFFF;
+    padding: 1em;
+    background: #FFCA2D;
+    border-radius: 10px;
+ }
+.post > header {
+    display: flex;
+    align-items:
+    flex-end; font-size: 0.85em;
+}
+.post > header > div:first-of-type {
+    flex: auto;
+   }
+.post > header h1 {
+    font-size: 1.5em;
+    margin-bottom: 0;
+   }
+.post .about {
+    color: slategray;
+    font-style: italic;
+   }
+.post .body {
+    white-space: pre-line;
+   }
+.content:last-child {
+    margin-bottom: 0;
+   }
+.content form {
+    margin: 1em 0;
+    display: flex;
+    flex-direction: column;
+   }
+.content label {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+   }
+.content input, .content textarea {
+    margin-bottom: 1em;
+   }
+.content textarea {
+    min-height: 12em;
+    resize: vertical;
+   }
+input.danger {
+    color: #cc2f2e;
+    }
+input[type=submit] {
+    align-self: start;
+    min-width: 10em;
+   }
+
+.btn {
+  background-image:linear-gradient(92.78deg, #8CE7F0  0%, #99F6FF  9.9%
+,#E8C9F0  19.27%
+,#FFA6BA  26.61%
+,#FF896F  33.15%
+,#FF6F75  36.31%
+,#DB72FF  45.09%
+,#9A8AFF  49.73%
+,#62A1FF  53.77%
+,#47A4FB  57.96%
+,#5FDC91  63.28%
+,#D8D12F  70.55%
+,#FFCF23  75.8%
+,#FEBF46  79.71%
+,#FF9999  83.89%
+,#F49F9F  88.47%
+,#C790BB  93.24%
+,#8D92A5  96.95%
+,#8D92A5  100%);
+-webkit-border-radius: 15;
+  -moz-border-radius: 15;
+  border-radius: 19px;
+  color: #000000;
+  font-size: 25px;
+  padding: 15px 30px 15px 30px;
+  text-decoration: none;
+  background-size: 200% auto;
+  transition: 4s;
+}
+.btn:hover {
+      background-position: right center;
+      }
+
+.chart, .plot-container {
+    border-radius: 20px;
+}
+
+svg {
+border-radius: 20px;
+}

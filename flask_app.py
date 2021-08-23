@@ -6,18 +6,10 @@ import urllib
 from yandex_music import Client, exceptions
 from dl.models import SentimentDiscovery
 
-import multiprocessing as mp
-import numpy as np
-
 import random
 import uuid
 
-import json
-from datetime import datetime
-import time
-import ssl
-import base64
-import secrets
+import numpy as np
 
 import pandas as pd
 import plotly
@@ -38,6 +30,7 @@ def get_test_plot():
         "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]
     })
     fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
+    fig.update_layout(template='plotly_dark')
     return json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
 
@@ -59,11 +52,14 @@ def create_app(app_name='YAMOOD_API'):
         else:
             return render_template('login.html')
 
+    @app.route('/figma')
+    def figma_page():
+        return render_template('vertida.html')
+
     @app.route('/get_songs_history')
     def songs_history():
         session['access_token'] = 'AgAAAAAh7Vk7AAG8XtDkZzG_PEYLjGVYMIVdDQE'
         if 'access_token' in session:
-            #f_em = pd.read_csv('song_files/music_emotions.csv')
             sngs = SongProcessing(session['access_token'])
             hist = sngs.get_user_songs_history()
             hist_w_lyrics, df_lyrics = sngs.get_tracks_full_info(hist, 1)
@@ -72,11 +68,9 @@ def create_app(app_name='YAMOOD_API'):
             emotions_lyrics = sngs.get_lyrics_emotions(sd_model, [l['track_lyrics'] for l in list(hist_w_lyrics.values())])
             feat['emotion'] = emotions
             feat['track_id'] = feat['song_name'].apply(lambda x: x.split('.')[0].replace('_', ':'))
-            feat[['track_id', 'emotion']].to_csv('songs_files/music_emotions.csv', index=False)
             df_lyrics.merge(feat[['track_id', 'emotion']],
                             on='track_id',
-                            suffixes=(False, False)).to_json('songs_files/songs_info.json',
-                                                             orient='records', indent=3)
+                            suffixes=(False, False)).to_json(orient='records')
 
             with open('songs_files/lyrics.json', 'w') as f:
                 json.dump(hist_w_lyrics, f, ensure_ascii=False, indent=3)
@@ -106,24 +100,24 @@ def create_app(app_name='YAMOOD_API'):
                     'statusCode': 400
                 }), 400
 
-    # @app.route('/api/get_text_emotions_batch', methods=['POST'])
-    # @cross_origin()
-    # def text_emotions_batch():
-    #     if request.method == "POST":
-    #         request_data = request.get_json()
-    #         texts = request_data['texts']
-    #         fn = f'dl/data/data{uuid.uuid4()}.csv'
-    #         with open(fn, 'w') as f:
-    #             f.write('text\n')
-    #             for t in texts:
-    #                 f.write(t.replace("\n", " ")+"\n")
-    #         res = np.round(sd_model.classify(fn)[1], 2)
-    #
-    #         print(res)
-    #         return {'result': str(res)}, 200
-    #     return jsonify({
-    #         'statusCode': 400
-    #     }), 400
+    @app.route('/api/get_text_emotions_batch', methods=['POST'])
+    @cross_origin()
+    def text_emotions_batch():
+        if request.method == "POST":
+            request_data = request.get_json()
+            texts = request_data['texts']
+            fn = f'dl/data/data{uuid.uuid4()}.csv'
+            with open(fn, 'w') as f:
+                f.write('text\n')
+                for t in texts:
+                    f.write(t.replace("\n", " ")+"\n")
+            res = np.round(sd_model.classify(fn)[1], 2)
+
+            print(res)
+            return {'result': str(res)}, 200
+        return jsonify({
+            'statusCode': 400
+        }), 400
 
     def get_client(code):
         token_auth_uri = f"https://oauth.yandex.ru/token"
@@ -151,8 +145,9 @@ def create_app(app_name='YAMOOD_API'):
     def auth():
         if request.method == "GET":
             code = request.args.get('code')
-            token = get_client(code)
-            session['access_token'] = token
+            if code:
+                token = get_client(code)
+                session['access_token'] = token
             return redirect('/')
         elif request.method == "POST":
             username = request.form.get('username')
@@ -170,7 +165,7 @@ def create_app(app_name='YAMOOD_API'):
                     session['access_token'] = token
                     return redirect('/')
                 except exceptions.BadRequest:
-                    error = "Неудалось войти... Вероятный диагноз -- неверный пароль("
+                    error = "Не удалось войти... <br>Вероятный диагноз -- неверный пароль("
 
             flash(error)
 

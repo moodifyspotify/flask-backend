@@ -7,15 +7,15 @@
 {% block content %}
 <form action="/auth" method="post">
         <p>
-	    <label for="username">Username</label>
+	    <label for="username">Логин</label><br>
 	    <input type="text" name="username" required>
 	</p>
 	<p>
-	    <label for="password">Password</label>
+	    <label for="password">Пароль</label><br>
 	    <input type="password" name="password" required>
 	</p>
 	<p>
-	    <input type="submit" value="Войти">
+	    <input class="btn" type="submit" value="Войти">
 	</p>
     </form>
 {% endblock %}

@@ -3,78 +3,12 @@ import numpy as np
 import pandas as pd
 from os import listdir
 from os.path import isfile, join
+from concurrent.futures import ThreadPoolExecutor
 
 
 def extract_feature(path):
-    id = 1  # Song ID
-    feature_set = pd.DataFrame()  # Feature Matrix
-
-    # Individual Feature Vectors
-    songname_vector = pd.Series()
-    tempo_vector = pd.Series()
-    total_beats = pd.Series()
-    average_beats = pd.Series()
-    chroma_stft_mean = pd.Series()
-    chroma_stft_std = pd.Series()
-    chroma_stft_var = pd.Series()
-    chroma_cq_mean = pd.Series()
-    chroma_cq_std = pd.Series()
-    chroma_cq_var = pd.Series()
-    chroma_cens_mean = pd.Series()
-    chroma_cens_std = pd.Series()
-    chroma_cens_var = pd.Series()
-    mel_mean = pd.Series()
-    mel_std = pd.Series()
-    mel_var = pd.Series()
-    mfcc_mean = pd.Series()
-    mfcc_std = pd.Series()
-    mfcc_var = pd.Series()
-    mfcc_delta_mean = pd.Series()
-    mfcc_delta_std = pd.Series()
-    mfcc_delta_var = pd.Series()
-    rmse_mean = pd.Series()
-    rmse_std = pd.Series()
-    rmse_var = pd.Series()
-    cent_mean = pd.Series()
-    cent_std = pd.Series()
-    cent_var = pd.Series()
-    spec_bw_mean = pd.Series()
-    spec_bw_std = pd.Series()
-    spec_bw_var = pd.Series()
-    contrast_mean = pd.Series()
-    contrast_std = pd.Series()
-    contrast_var = pd.Series()
-    rolloff_mean = pd.Series()
-    rolloff_std = pd.Series()
-    rolloff_var = pd.Series()
-    poly_mean = pd.Series()
-    poly_std = pd.Series()
-    poly_var = pd.Series()
-    tonnetz_mean = pd.Series()
-    tonnetz_std = pd.Series()
-    tonnetz_var = pd.Series()
-    zcr_mean = pd.Series()
-    zcr_std = pd.Series()
-    zcr_var = pd.Series()
-    harm_mean = pd.Series()
-    harm_std = pd.Series()
-    harm_var = pd.Series()
-    perc_mean = pd.Series()
-    perc_std = pd.Series()
-    perc_var = pd.Series()
-    frame_mean = pd.Series()
-    frame_std = pd.Series()
-    frame_var = pd.Series()
-
-    # Traversing over each file in path
-    file_data = [f for f in listdir(path) if isfile(join(path, f))]
-    for line in file_data:
-        if (line[-1:] == '\n'):
-            line = line[:-1]
-
-        # Reading Song
-        songname = path + line
-        y, sr = librosa.load(songname, duration=60)
+    def get_features_for_track(path):
+        y, sr = librosa.load(path, duration=60)
         S = np.abs(librosa.stft(y))
 
         # Extracting Features
@@ -101,119 +35,83 @@ def extract_feature(path):
         frames_to_time = librosa.frames_to_time(onset_frames[:20], sr=sr)
 
         # Transforming Features
-        songname_vector.at[id] = line  # song name
-        tempo_vector.at[id] = tempo  # tempo
-        total_beats.at[id] = sum(beats)  # beats
-        average_beats.at[id] = np.average(beats)
-        chroma_stft_mean.at[id] = np.mean(chroma_stft)  # chroma stft
-        chroma_stft_std.at[id] = np.std(chroma_stft)
-        chroma_stft_var.at[id] = np.var(chroma_stft)
-        chroma_cq_mean.at[id] = np.mean(chroma_cq)  # chroma cq
-        chroma_cq_std.at[id] = np.std(chroma_cq)
-        chroma_cq_var.at[id] = np.var(chroma_cq)
-        chroma_cens_mean.at[id] = np.mean(chroma_cens)  # chroma cens
-        chroma_cens_std.at[id] = np.std(chroma_cens)
-        chroma_cens_var.at[id] = np.var(chroma_cens)
-        mel_mean.at[id] = np.mean(melspectrogram)  # melspectrogram
-        mel_std.at[id] = np.std(melspectrogram)
-        mel_var.at[id] = np.var(melspectrogram)
-        mfcc_mean.at[id] = np.mean(mfcc)  # mfcc
-        mfcc_std.at[id] = np.std(mfcc)
-        mfcc_var.at[id] = np.var(mfcc)
-        mfcc_delta_mean.at[id] = np.mean(mfcc_delta)  # mfcc delta
-        mfcc_delta_std.at[id] = np.std(mfcc_delta)
-        mfcc_delta_var.at[id] = np.var(mfcc_delta)
-        rmse_mean.at[id] = np.mean(rmse)  # rmse
-        rmse_std.at[id] = np.std(rmse)
-        rmse_var.at[id] = np.var(rmse)
-        cent_mean.at[id] = np.mean(cent)  # cent
-        cent_std.at[id] = np.std(cent)
-        cent_var.at[id] = np.var(cent)
-        spec_bw_mean.at[id] = np.mean(spec_bw)  # spectral bandwidth
-        spec_bw_std.at[id] = np.std(spec_bw)
-        spec_bw_var.at[id] = np.var(spec_bw)
-        contrast_mean.at[id] = np.mean(contrast)  # contrast
-        contrast_std.at[id] = np.std(contrast)
-        contrast_var.at[id] = np.var(contrast)
-        rolloff_mean.at[id] = np.mean(rolloff)  # rolloff
-        rolloff_std.at[id] = np.std(rolloff)
-        rolloff_var.at[id] = np.var(rolloff)
-        poly_mean.at[id] = np.mean(poly_features)  # poly features
-        poly_std.at[id] = np.std(poly_features)
-        poly_var.at[id] = np.var(poly_features)
-        tonnetz_mean.at[id] = np.mean(tonnetz)  # tonnetz
-        tonnetz_std.at[id] = np.std(tonnetz)
-        tonnetz_var.at[id] = np.var(tonnetz)
-        zcr_mean.at[id] = np.mean(zcr)  # zero crossing rate
-        zcr_std.at[id] = np.std(zcr)
-        zcr_var.at[id] = np.var(zcr)
-        harm_mean.at[id] = np.mean(harmonic)  # harmonic
-        harm_std.at[id] = np.std(harmonic)
-        harm_var.at[id] = np.var(harmonic)
-        perc_mean.at[id] = np.mean(percussive)  # percussive
-        perc_std.at[id] = np.std(percussive)
-        perc_var.at[id] = np.var(percussive)
-        frame_mean.at[id] = np.mean(frames_to_time)  # frames
-        frame_std.at[id] = np.std(frames_to_time)
-        frame_var.at[id] = np.var(frames_to_time)
+        return [path,  # song name
+                tempo,  # tempo
+                sum(beats),  # beats
+                np.average(beats),
+                np.mean(chroma_stft),  # chroma stft
+                np.std(chroma_stft),
+                np.var(chroma_stft),
+                np.mean(chroma_cq),  # chroma cq
+                np.std(chroma_cq),
+                np.var(chroma_cq),
+                np.mean(chroma_cens),  # chroma cens
+                np.std(chroma_cens),
+                np.var(chroma_cens),
+                np.mean(melspectrogram),  # melspectrogram
+                np.std(melspectrogram),
+                np.var(melspectrogram),
+                np.mean(mfcc),  # mfcc
+                np.std(mfcc),
+                np.var(mfcc),
+                np.mean(mfcc_delta),  # mfcc delta
+                np.std(mfcc_delta),
+                np.var(mfcc_delta),
+                np.mean(rmse),  # rmse
+                np.std(rmse),
+                np.var(rmse),
+                np.mean(cent),  # cent
+                np.std(cent),
+                np.var(cent),
+                np.mean(spec_bw),  # spectral bandwidth
+                np.std(spec_bw),
+                np.var(spec_bw),
+                np.mean(contrast),  # contrast
+                np.std(contrast),
+                np.var(contrast),
+                np.mean(rolloff),  # rolloff
+                np.std(rolloff),
+                np.var(rolloff),
+                np.mean(poly_features),  # poly features
+                np.std(poly_features),
+                np.var(poly_features),
+                np.mean(tonnetz),  # tonnetz
+                np.std(tonnetz),
+                np.var(tonnetz),
+                np.mean(zcr),  # zero crossing rate
+                np.std(zcr),
+                np.var(zcr),
+                np.mean(harmonic),  # harmonic
+                np.std(harmonic),
+                np.var(harmonic),
+                np.mean(percussive),  # percussive
+                np.std(percussive),
+                np.var(percussive),
+                np.mean(frames_to_time),  # frames
+                np.std(frames_to_time),
+                np.var(frames_to_time)]
 
-        id = id + 1
+    # Traversing over each file in path
+    file_data = [f for f in listdir(path) if isfile(join(path, f))]
+    res = []
+    file_data = map(lambda line: path + line[:-1] if line[-1:] == '\n' else path + line, file_data)
 
-    # Concatenating Features into one csv and json format
-    feature_set['song_name'] = songname_vector  # song name
-    feature_set['tempo'] = tempo_vector  # tempo
-    feature_set['total_beats'] = total_beats  # beats
-    feature_set['average_beats'] = average_beats
-    feature_set['chroma_stft_mean'] = chroma_stft_mean  # chroma stft
-    feature_set['chroma_stft_std'] = chroma_stft_std
-    feature_set['chroma_stft_var'] = chroma_stft_var
-    feature_set['chroma_cq_mean'] = chroma_cq_mean  # chroma cq
-    feature_set['chroma_cq_std'] = chroma_cq_std
-    feature_set['chroma_cq_var'] = chroma_cq_var
-    feature_set['chroma_cens_mean'] = chroma_cens_mean  # chroma cens
-    feature_set['chroma_cens_std'] = chroma_cens_std
-    feature_set['chroma_cens_var'] = chroma_cens_var
-    feature_set['melspectrogram_mean'] = mel_mean  # melspectrogram
-    feature_set['melspectrogram_std'] = mel_std
-    feature_set['melspectrogram_var'] = mel_var
-    feature_set['mfcc_mean'] = mfcc_mean  # mfcc
-    feature_set['mfcc_std'] = mfcc_std
-    feature_set['mfcc_var'] = mfcc_var
-    feature_set['mfcc_delta_mean'] = mfcc_delta_mean  # mfcc delta
-    feature_set['mfcc_delta_std'] = mfcc_delta_std
-    feature_set['mfcc_delta_var'] = mfcc_delta_var
-    feature_set['rmse_mean'] = rmse_mean  # rmse
-    feature_set['rmse_std'] = rmse_std
-    feature_set['rmse_var'] = rmse_var
-    feature_set['cent_mean'] = cent_mean  # cent
-    feature_set['cent_std'] = cent_std
-    feature_set['cent_var'] = cent_var
-    feature_set['spec_bw_mean'] = spec_bw_mean  # spectral bandwidth
-    feature_set['spec_bw_std'] = spec_bw_std
-    feature_set['spec_bw_var'] = spec_bw_var
-    feature_set['contrast_mean'] = contrast_mean  # contrast
-    feature_set['contrast_std'] = contrast_std
-    feature_set['contrast_var'] = contrast_var
-    feature_set['rolloff_mean'] = rolloff_mean  # rolloff
-    feature_set['rolloff_std'] = rolloff_std
-    feature_set['rolloff_var'] = rolloff_var
-    feature_set['poly_mean'] = poly_mean  # poly features
-    feature_set['poly_std'] = poly_std
-    feature_set['poly_var'] = poly_var
-    feature_set['tonnetz_mean'] = tonnetz_mean  # tonnetz
-    feature_set['tonnetz_std'] = tonnetz_std
-    feature_set['tonnetz_var'] = tonnetz_var
-    feature_set['zcr_mean'] = zcr_mean  # zero crossing rate
-    feature_set['zcr_std'] = zcr_std
-    feature_set['zcr_var'] = zcr_var
-    feature_set['harm_mean'] = harm_mean  # harmonic
-    feature_set['harm_std'] = harm_std
-    feature_set['harm_var'] = harm_var
-    feature_set['perc_mean'] = perc_mean  # percussive
-    feature_set['perc_std'] = perc_std
-    feature_set['perc_var'] = perc_var
-    feature_set['frame_mean'] = frame_mean  # frames
-    feature_set['frame_std'] = frame_std
-    feature_set['frame_var'] = frame_var
+    with ThreadPoolExecutor(64) as executor:
+        exec_result = executor.map(get_features_for_track, file_data)
 
-    return feature_set
+    for i in exec_result:
+        res.append(i)
+
+    return pd.DataFrame(res, columns=['song_name', 'tempo', 'total_beats', 'average_beats',
+                                      'chroma_stft_mean', 'chroma_stft_std', 'chroma_stft_var',
+                                      'chroma_cq_mean', 'chroma_cq_std', 'chroma_cq_var', 'chroma_cens_mean',
+                                      'chroma_cens_std', 'chroma_cens_var', 'melspectrogram_mean',
+                                      'melspectrogram_std', 'melspectrogram_var', 'mfcc_mean', 'mfcc_std',
+                                      'mfcc_var', 'mfcc_delta_mean', 'mfcc_delta_std', 'mfcc_delta_var',
+                                      'rmse_mean', 'rmse_std', 'rmse_var', 'cent_mean', 'cent_std',
+                                      'cent_var', 'spec_bw_mean', 'spec_bw_std', 'spec_bw_var',
+                                      'contrast_mean', 'contrast_std', 'contrast_var', 'rolloff_mean',
+                                      'rolloff_std', 'rolloff_var', 'poly_mean', 'poly_std', 'poly_var',
+                                      'tonnetz_mean', 'tonnetz_std', 'tonnetz_var', 'zcr_mean', 'zcr_std',
+                                      'zcr_var', 'harm_mean', 'harm_std', 'harm_var', 'perc_mean', 'perc_std',
+                                      'perc_var', 'frame_mean', 'frame_std', 'frame_var'])

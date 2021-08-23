@@ -133,3 +133,4 @@ dmypy.json
 *.clf
 mp3s
 dl/data/
+songs_files/

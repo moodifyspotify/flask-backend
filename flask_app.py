@@ -24,11 +24,30 @@ import plotly
 import plotly.express as px
 from get_songs_data import SongProcessing
 import json
+from json import JSONEncoder
 
 client_id = '0a5c1ff2ba7e4bdd83ee228720efacb5'
 client_secret = 'ab444188a16e471cbbdd48965449dff3'
 
 sd_model = SentimentDiscovery()
+
+
+class NumpyEncoder(JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, np.float32):
+            return obj.astype(float)
+        elif isinstance(obj, np.float16):
+            return obj.astype(float)
+        elif isinstance(obj, np.float64):
+            return obj.astype(float)
+        elif isinstance(obj, np.int32):
+            return obj.astype(int)
+        elif isinstance(obj, np.int64):
+            return obj.astype(int)
+        elif isinstance(obj, np.ndarray):
+            return obj.tolist()
+        else:
+            return JSONEncoder.default(self, obj)
 
 
 def get_test_plot():
@@ -63,52 +82,52 @@ def create_app(app_name='YAMOOD_API'):
     def songs_history():
         session['access_token'] = 'AgAAAAAh7Vk7AAG8XtDkZzG_PEYLjGVYMIVdDQE'
         if 'access_token' in session:
-            #f_em = pd.read_csv('song_files/music_emotions.csv')
             with open('songs_files/songs_info.json', 'r') as f:
                 songs_info = json.load(f)
 
+            num_tracks = 400
+
             sngs = SongProcessing(session['access_token'])
-            hist = sngs.get_user_songs_history(1)
+            hist = sngs.get_user_songs_history(num_tracks)
             hist_processed = {}
-            for timestamp,track_id in hist.items():
+            temp_i = hist.copy().items()
+            for timestamp,track_id in temp_i:
                 if track_id in songs_info:
                     hist_processed[timestamp] = songs_info[track_id]
-                    del hist[track_id]
-
-
-
-            hist_w_lyrics, df_lyrics = sngs.get_tracks_full_info(hist, 1)
-            feat = sngs.get_music_features()
-            emotions = sngs.get_music_emotions(feat[[r for r in feat.columns if r != 'song_name']])
-            emotions_lyrics = sngs.get_lyrics_emotions(sd_model, [l['track_lyrics'] for l in list(hist_w_lyrics.values())])
-
-
-
+                    del hist[timestamp]
+            del temp_i
 
             final_res_user = []
 
-            for id,track_id in enumerate(hist_w_lyrics):
-                final_res_user.append({
-                    'timestamp': datetime.utcfromtimestamp(track_id).strftime('%Y-%m-%d'),
-                    'is_angry_music': int(emotions[id] == 'angry'),
-                    'is_happy_music': int(emotions[id] == 'happy'),
-                    'is_sad_music': int(emotions[id] == 'sad'),
-                    'is_relaxed_music': int(emotions[id] == 'relaxed'),
-                    'anger_lyrics': emotions_lyrics[id][0],
-                    'anticipation_lyrics': emotions_lyrics[id][1],
-                    'disgust_lyrics': emotions_lyrics[id][2],
-                    'fear_lyrics': emotions_lyrics[id][3],
-                    'joy_lyrics': emotions_lyrics[id][4],
-                    'sadness_lyrics': emotions_lyrics[id][5],
-                    'surprise_lyrics': emotions_lyrics[id][6],
-                    'trust_lyrics': emotions_lyrics[id][7]
-                })
+            if len(hist) > 0:
+                hist_w_lyrics, df_lyrics = sngs.get_tracks_full_info(hist, num_tracks)
+                feat = sngs.get_music_features()
+                emotions = sngs.get_music_emotions(feat[[r for r in feat.columns if r != 'song_name']])
+                emotions_lyrics = sngs.get_lyrics_emotions(sd_model, [l['track_lyrics'] for l in list(hist_w_lyrics.values())])
 
-                songs_info[hist_w_lyrics[track_id]['track_id']] = {
-                    'track_name': hist_w_lyrics[track_id]['track_name'],
-                    'music_emotion': emotions[id],
-                    'lyrics_emotion': emotions_lyrics[id]
-                }
+                for k,track_id in enumerate(hist_w_lyrics):
+                    print(type(k))
+                    final_res_user.append({
+                        'timestamp': datetime.utcfromtimestamp(track_id).strftime('%Y-%m-%d'),
+                        'is_angry_music': int(emotions[k] == 'angry'),
+                        'is_happy_music': int(emotions[k] == 'happy'),
+                        'is_sad_music': int(emotions[k] == 'sad'),
+                        'is_relaxed_music': int(emotions[k] == 'relaxed'),
+                        'anger_lyrics': emotions_lyrics[k][0],
+                        'anticipation_lyrics': emotions_lyrics[k][1],
+                        'disgust_lyrics': emotions_lyrics[k][2],
+                        'fear_lyrics': emotions_lyrics[k][3],
+                        'joy_lyrics': emotions_lyrics[k][4],
+                        'sadness_lyrics': emotions_lyrics[k][5],
+                        'surprise_lyrics': emotions_lyrics[k][6],
+                        'trust_lyrics': emotions_lyrics[k][7]
+                    })
+
+                    songs_info[hist_w_lyrics[track_id]['track_id']] = {
+                        'track_name': hist_w_lyrics[track_id]['track_name'],
+                        'music_emotion': emotions[k],
+                        'lyrics_emotion': emotions_lyrics[k]
+                    }
 
             for hist_track in hist_processed:
                 final_res_user.append({
@@ -126,14 +145,6 @@ def create_app(app_name='YAMOOD_API'):
                     'surprise_lyrics': hist_processed[hist_track]['lyrics_emotion'][6],
                     'trust_lyrics': hist_processed[hist_track]['lyrics_emotion'][7]
                 })
-
-            # feat['emotion'] = emotions
-            # feat['track_id'] = feat['song_name'].apply(lambda x: x.split('.')[0].replace('_', ':'))
-            # feat[['track_id', 'emotion']].to_csv('songs_files/music_emotions.csv', index=False)
-            # df_lyrics.merge(feat[['track_id', 'emotion']],
-            #                 on='track_id',
-            #                 suffixes=(False, False)).to_json('songs_files/songs_info.json',
-            #                                                  orient='records', indent=3)
 
             df_to_charts = pd.DataFrame(final_res_user).groupby('timestamp').agg(
                 {
@@ -183,14 +194,15 @@ def create_app(app_name='YAMOOD_API'):
 
             final_chart_json = {}
             for i in df_to_charts.columns:
-                final_chart_json[i] = list(df_to_charts[i].values)
-
-
+                if i not in ['timestamp', 'main_mood']:
+                    final_chart_json[i] = list(df_to_charts[i].values.astype(float))
+                else:
+                    final_chart_json[i] = list(df_to_charts[i].values)
 
             with open('songs_files/songs_info.json', 'w') as f:
-                json.dump(songs_info, f, ensure_ascii=False, indent=3)
+                json.dump(songs_info, f, ensure_ascii=False, indent=3, cls=NumpyEncoder)
 
-            return json.dumps(final_chart_json), 200
+            return final_chart_json, 200
         else:
             return redirect('/')
 

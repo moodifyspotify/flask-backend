@@ -199,7 +199,7 @@ def create_app(app_name='YAMOOD_API'):
                 else:
                     final_chart_json[i] = list(df_to_charts[i].values)
 
-            with open('songs_files/songs_info.json', 'w') as f:
+            with open('songs_files/songs_info.json', 'w', encoding='utf-8') as f:
                 json.dump(songs_info, f, ensure_ascii=False, indent=3, cls=NumpyEncoder)
 
             return final_chart_json, 200

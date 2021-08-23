@@ -6,10 +6,18 @@ import urllib
 from yandex_music import Client, exceptions
 from dl.models import SentimentDiscovery
 
+import multiprocessing as mp
+import numpy as np
+
 import random
 import uuid
 
-import numpy as np
+import json
+from datetime import datetime
+import time
+import ssl
+import base64
+import secrets
 
 import pandas as pd
 import plotly
@@ -30,7 +38,6 @@ def get_test_plot():
         "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]
     })
     fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
-    fig.update_layout(template='plotly_dark')
     return json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
 
@@ -52,30 +59,138 @@ def create_app(app_name='YAMOOD_API'):
         else:
             return render_template('login.html')
 
-    @app.route('/figma')
-    def figma_page():
-        return render_template('vertida.html')
-
     @app.route('/get_songs_history')
     def songs_history():
         session['access_token'] = 'AgAAAAAh7Vk7AAG8XtDkZzG_PEYLjGVYMIVdDQE'
         if 'access_token' in session:
+            #f_em = pd.read_csv('song_files/music_emotions.csv')
+            with open('songs_files/songs_info.json', 'r') as f:
+                songs_info = json.load(f)
+
             sngs = SongProcessing(session['access_token'])
-            hist = sngs.get_user_songs_history()
+            hist = sngs.get_user_songs_history(1)
+            hist_processed = {}
+            for timestamp,track_id in hist.items():
+                if track_id in songs_info:
+                    hist_processed[timestamp] = songs_info[track_id]
+                    del hist[track_id]
+
+
+
             hist_w_lyrics, df_lyrics = sngs.get_tracks_full_info(hist, 1)
             feat = sngs.get_music_features()
             emotions = sngs.get_music_emotions(feat[[r for r in feat.columns if r != 'song_name']])
             emotions_lyrics = sngs.get_lyrics_emotions(sd_model, [l['track_lyrics'] for l in list(hist_w_lyrics.values())])
-            feat['emotion'] = emotions
-            feat['track_id'] = feat['song_name'].apply(lambda x: x.split('.')[0].replace('_', ':'))
-            df_lyrics.merge(feat[['track_id', 'emotion']],
-                            on='track_id',
-                            suffixes=(False, False)).to_json(orient='records')
 
-            with open('songs_files/lyrics.json', 'w') as f:
-                json.dump(hist_w_lyrics, f, ensure_ascii=False, indent=3)
 
-            return json.dumps(emotions_lyrics), 200
+
+
+            final_res_user = []
+
+            for id,track_id in enumerate(hist_w_lyrics):
+                final_res_user.append({
+                    'timestamp': datetime.utcfromtimestamp(track_id).strftime('%Y-%m-%d'),
+                    'is_angry_music': int(emotions[id] == 'angry'),
+                    'is_happy_music': int(emotions[id] == 'happy'),
+                    'is_sad_music': int(emotions[id] == 'sad'),
+                    'is_relaxed_music': int(emotions[id] == 'relaxed'),
+                    'anger_lyrics': emotions_lyrics[id][0],
+                    'anticipation_lyrics': emotions_lyrics[id][1],
+                    'disgust_lyrics': emotions_lyrics[id][2],
+                    'fear_lyrics': emotions_lyrics[id][3],
+                    'joy_lyrics': emotions_lyrics[id][4],
+                    'sadness_lyrics': emotions_lyrics[id][5],
+                    'surprise_lyrics': emotions_lyrics[id][6],
+                    'trust_lyrics': emotions_lyrics[id][7]
+                })
+
+                songs_info[hist_w_lyrics[track_id]['track_id']] = {
+                    'track_name': hist_w_lyrics[track_id]['track_name'],
+                    'music_emotion': emotions[id],
+                    'lyrics_emotion': emotions_lyrics[id]
+                }
+
+            for hist_track in hist_processed:
+                final_res_user.append({
+                    'timestamp': datetime.utcfromtimestamp(hist_track).strftime('%Y-%m-%d'),
+                    'is_angry_music': int(hist_processed[hist_track]['music_emotion'] == 'angry'),
+                    'is_happy_music': int(hist_processed[hist_track]['music_emotion'] == 'happy'),
+                    'is_sad_music': int(hist_processed[hist_track]['music_emotion'] == 'sad'),
+                    'is_relaxed_music': int(hist_processed[hist_track]['music_emotion'] == 'relaxed'),
+                    'anger_lyrics': hist_processed[hist_track]['lyrics_emotion'][0],
+                    'anticipation_lyrics': hist_processed[hist_track]['lyrics_emotion'][1],
+                    'disgust_lyrics': hist_processed[hist_track]['lyrics_emotion'][2],
+                    'fear_lyrics': hist_processed[hist_track]['lyrics_emotion'][3],
+                    'joy_lyrics': hist_processed[hist_track]['lyrics_emotion'][4],
+                    'sadness_lyrics': hist_processed[hist_track]['lyrics_emotion'][5],
+                    'surprise_lyrics': hist_processed[hist_track]['lyrics_emotion'][6],
+                    'trust_lyrics': hist_processed[hist_track]['lyrics_emotion'][7]
+                })
+
+            # feat['emotion'] = emotions
+            # feat['track_id'] = feat['song_name'].apply(lambda x: x.split('.')[0].replace('_', ':'))
+            # feat[['track_id', 'emotion']].to_csv('songs_files/music_emotions.csv', index=False)
+            # df_lyrics.merge(feat[['track_id', 'emotion']],
+            #                 on='track_id',
+            #                 suffixes=(False, False)).to_json('songs_files/songs_info.json',
+            #                                                  orient='records', indent=3)
+
+            df_to_charts = pd.DataFrame(final_res_user).groupby('timestamp').agg(
+                {
+                    'is_angry_music': 'sum',
+                    'is_happy_music': 'sum',
+                    'is_sad_music': 'sum',
+                    'is_relaxed_music': 'sum',
+                    'anger_lyrics': 'mean',
+                    'anticipation_lyrics':  'mean',
+                    'disgust_lyrics': 'mean',
+                    'fear_lyrics': 'mean',
+                    'joy_lyrics': 'mean',
+                    'sadness_lyrics': 'mean',
+                    'surprise_lyrics': 'mean',
+                    'trust_lyrics': 'mean'
+                }
+            )
+
+            df_to_charts.fillna(0, inplace=True)
+            df_to_charts.reset_index(inplace=True)
+
+            def get_main_emotion(x):
+                lyrics_emtions_list = [
+                    'anger',
+                    'anticipation',
+                    'disgust',
+                    'fear',
+                    'joy',
+                    'sadness',
+                    'surprise',
+                    'trust',
+                ]
+                music_emotions_list = [
+                    'anger',
+                    'joy',
+                    'sadness',
+                    'trust'
+                ]
+                lyrics_values = list(x[5:])
+                if max(lyrics_values) > 0:
+                    return lyrics_emtions_list[lyrics_values.index(max(lyrics_values))]
+                else:
+                    music_values = list(x[1:5])
+                    return music_emotions_list[music_values.index(max(music_values))]
+
+            df_to_charts['main_mood'] = df_to_charts.apply(get_main_emotion,axis=1)
+
+            final_chart_json = {}
+            for i in df_to_charts.columns:
+                final_chart_json[i] = list(df_to_charts[i].values)
+
+
+
+            with open('songs_files/songs_info.json', 'w') as f:
+                json.dump(songs_info, f, ensure_ascii=False, indent=3)
+
+            return json.dumps(final_chart_json), 200
         else:
             return redirect('/')
 
@@ -100,24 +215,24 @@ def create_app(app_name='YAMOOD_API'):
                     'statusCode': 400
                 }), 400
 
-    @app.route('/api/get_text_emotions_batch', methods=['POST'])
-    @cross_origin()
-    def text_emotions_batch():
-        if request.method == "POST":
-            request_data = request.get_json()
-            texts = request_data['texts']
-            fn = f'dl/data/data{uuid.uuid4()}.csv'
-            with open(fn, 'w') as f:
-                f.write('text\n')
-                for t in texts:
-                    f.write(t.replace("\n", " ")+"\n")
-            res = np.round(sd_model.classify(fn)[1], 2)
-
-            print(res)
-            return {'result': str(res)}, 200
-        return jsonify({
-            'statusCode': 400
-        }), 400
+    # @app.route('/api/get_text_emotions_batch', methods=['POST'])
+    # @cross_origin()
+    # def text_emotions_batch():
+    #     if request.method == "POST":
+    #         request_data = request.get_json()
+    #         texts = request_data['texts']
+    #         fn = f'dl/data/data{uuid.uuid4()}.csv'
+    #         with open(fn, 'w') as f:
+    #             f.write('text\n')
+    #             for t in texts:
+    #                 f.write(t.replace("\n", " ")+"\n")
+    #         res = np.round(sd_model.classify(fn)[1], 2)
+    #
+    #         print(res)
+    #         return {'result': str(res)}, 200
+    #     return jsonify({
+    #         'statusCode': 400
+    #     }), 400
 
     def get_client(code):
         token_auth_uri = f"https://oauth.yandex.ru/token"
@@ -145,9 +260,8 @@ def create_app(app_name='YAMOOD_API'):
     def auth():
         if request.method == "GET":
             code = request.args.get('code')
-            if code:
-                token = get_client(code)
-                session['access_token'] = token
+            token = get_client(code)
+            session['access_token'] = token
             return redirect('/')
         elif request.method == "POST":
             username = request.form.get('username')
@@ -165,7 +279,7 @@ def create_app(app_name='YAMOOD_API'):
                     session['access_token'] = token
                     return redirect('/')
                 except exceptions.BadRequest:
-                    error = "Не удалось войти... <br>Вероятный диагноз -- неверный пароль("
+                    error = "Неудалось войти... Вероятный диагноз -- неверный пароль("
 
             flash(error)
 

@@ -104,7 +104,7 @@ class SongProcessing:
             f.write('text\n')
             for t in texts:
                 if t != None:
-                    f.write(t.replace("\n", " ")+"\n")
+                    f.write('"'+t.replace("\n", " ").replace('"', '\\"')+'"\n')
 
         classes = np.round(sd_model.classify(fn)[1], 2)
         res = []

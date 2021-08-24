@@ -286,7 +286,7 @@ def create_app(app_name='YAMOOD_API'):
             with open(fn, 'w') as f:
                 f.write('text\n')
                 for t in texts:
-                    f.write(t.replace("\n", " ")+"\n")
+                    f.write('"'+t.replace("\n", " ").replace('"', '\\"')+'"\n')
             res = np.round(sd_model.classify(fn)[1], 2)
 
             print(res)

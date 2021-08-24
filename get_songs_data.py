@@ -91,6 +91,7 @@ class SongProcessing:
 
     def get_music_features(self):
         features_set = extract_feature(self.mp3savepath+'/')
+        print(features_set)
         shutil.rmtree(self.mp3savepath)
         return features_set
 

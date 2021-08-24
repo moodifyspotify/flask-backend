@@ -70,18 +70,18 @@ def get_test_plot(data):
     data_df['Спокойствие'] = data_df['trust_lyrics'] + data_df['relaxed_music_perc']
     data_df['Ярость'] = data_df['anger_lyrics'] + data_df['angry_music_perc']
     data_df['Восторг'] = data_df['anticipation_lyrics']
-    data_df['Веселье'] = data_df['joy_lyrics'] + 0.5*data_df['happy_music_perc']
-    data_df['Отвращение'] = data_df['disgust_lyrics']
+    data_df['Веселье'] = data_df['joy_lyrics'] + 0.231*data_df['happy_music_perc']
+    data_df['Неприязнь'] = data_df['disgust_lyrics']
     data_df['Страх'] = data_df['fear_lyrics']
     data_df['Удивление'] = data_df['surprise_lyrics']
     data_df['Грусть'] = data_df['sadness_lyrics'] + data_df['sad_music_perc']
 
     emts = ['Спокойствие', 'Ярость', 'Восторг', 'Веселье',
-            'Отвращение', 'Страх', 'Удивление', 'Грусть']
+            'Неприязнь', 'Страх', 'Удивление', 'Грусть']
     v_map = {
         'anger': (-3, 'Ярость'),
         'fear': (-2, 'Страх'),
-        'disgust': (-1, 'Отвращение'),
+        'disgust': (-1, 'Неприязнь'),
         'sadness': (0, 'Грусть'),
         'trust': (1, 'Спокойствие'),
         'surprise': (2, 'Удивление'),
@@ -115,7 +115,7 @@ def get_test_plot(data):
     cdm = {
         'Ярость': '#FF6F76',
         'Страх': '#FFCA2D',
-        'Отвращение': '#6DCE8A',
+        'Неприязнь': '#6DCE8A',
         'Грусть': '#8D92A5',
         'Спокойствие': '#97F3FD',
         'Удивление': '#FDB5B5',

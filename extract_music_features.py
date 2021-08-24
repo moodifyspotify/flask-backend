@@ -4,6 +4,7 @@ import pandas as pd
 from os import listdir
 from os.path import isfile, join
 from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
+from joblib import parallel_backend, Parallel, delayed
 
 
 def extract_feature(path):
@@ -38,8 +39,11 @@ def extract_feature(path):
             def process_task(task):
                 return task[0](**task[1])
 
-            with ThreadPoolExecutor(17) as l_executor:
-                results = list(l_executor.map(process_task, tasks))
+            #with ThreadPoolExecutor(17) as l_executor:
+            #    results = list(l_executor.map(process_task, tasks))
+
+            with parallel_backend('threading', n_jobs=3):
+                results = Parallel()(delayed(process_task)(t) for t in tasks)
 
             tempo, beats = results[0]  # librosa.beat.beat_track(y=y, sr=sr)
             chroma_stft = results[1]  # librosa.feature.chroma_stft(y=y, sr=sr)
@@ -128,8 +132,11 @@ def extract_feature(path):
     res = []
     file_data = map(lambda line: path + line[:-1] if line[-1:] == '\n' else path + line, file_data)
 
-    with ThreadPoolExecutor(4) as executor:
-        exec_result = executor.map(get_features_for_track, file_data)
+    #with ThreadPoolExecutor(4) as executor:
+    #    exec_result = executor.map(get_features_for_track, file_data)
+
+    with parallel_backend('threading', n_jobs=10):
+        exec_result = Parallel()(delayed(get_features_for_track)(x) for x in file_data)
 
     for i in exec_result:
         res.append(i)

@@ -309,7 +309,8 @@ def create_app(app_name='YAMOOD_API'):
                     resp = make_response(redirect('/'))
                     resp.set_cookie('access_token', token, max_age=60 * 60 * 24 * 365 * 2)
                     return resp
-                except exceptions.BadRequest:
+                except Exception as e:
+                    flash(str(e))
                     error = "Неудалось войти... Вероятный диагноз -- неверный пароль("
 
             flash(error)

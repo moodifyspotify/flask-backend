@@ -170,7 +170,7 @@ class SongProcessing:
                     'is_angry_music': int(emotions[hist_w_lyrics[track_id]['track_id']] == 'angry'),
                     'is_happy_music': int(emotions[hist_w_lyrics[track_id]['track_id']] == 'happy'),
                     'is_sad_music': int(emotions[hist_w_lyrics[track_id]['track_id']] == 'sad'),
-                    'is_relaxed_music': int(emotions[hist_w_lyrics[track_id]['track_id']] == 'relaxed'),
+                    'is_relaxed_music': int(emotions[hist_w_lyrics[track_id]['track_id']] == 'relax'),
                     'anger_lyrics': emotions_lyrics[k][0],
                     'anticipation_lyrics': emotions_lyrics[k][1],
                     'disgust_lyrics': emotions_lyrics[k][2],
@@ -193,7 +193,7 @@ class SongProcessing:
                 'is_angry_music': int(hist_processed[hist_track]['music_emotion'] == 'angry'),
                 'is_happy_music': int(hist_processed[hist_track]['music_emotion'] == 'happy'),
                 'is_sad_music': int(hist_processed[hist_track]['music_emotion'] == 'sad'),
-                'is_relaxed_music': int(hist_processed[hist_track]['music_emotion'] == 'relaxed'),
+                'is_relaxed_music': int(hist_processed[hist_track]['music_emotion'] == 'relax'),
                 'anger_lyrics': hist_processed[hist_track]['lyrics_emotion'][0],
                 'anticipation_lyrics': hist_processed[hist_track]['lyrics_emotion'][1],
                 'disgust_lyrics': hist_processed[hist_track]['lyrics_emotion'][2],
@@ -223,32 +223,6 @@ class SongProcessing:
 
         df_to_charts.fillna(0, inplace=True)
         df_to_charts.reset_index(inplace=True)
-
-        def get_main_emotion(x):
-            lyrics_emtions_list = [
-                'anger',
-                'anticipation',
-                'disgust',
-                'fear',
-                'joy',
-                'sadness',
-                'surprise',
-                'trust',
-            ]
-            music_emotions_list = [
-                'anger',
-                'joy',
-                'sadness',
-                'trust'
-            ]
-            lyrics_values = list(x[5:])
-            if max(lyrics_values) > 0:
-                return lyrics_emtions_list[lyrics_values.index(max(lyrics_values))]
-            else:
-                music_values = list(x[1:5])
-                return music_emotions_list[music_values.index(max(music_values))]
-
-        df_to_charts['main_mood'] = df_to_charts.apply(get_main_emotion, axis=1)
 
         final_chart_json = {}
         for i in df_to_charts.columns:

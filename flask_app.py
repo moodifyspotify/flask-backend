@@ -78,6 +78,14 @@ def get_test_plot(data):
 
     emts = ['Спокойствие', 'Ярость', 'Восторг', 'Веселье',
             'Неприязнь', 'Страх', 'Удивление', 'Грусть']
+
+    def get_main_emotion(x):
+        vls = list(x[emts])
+        return emts[vls.index(max(vls))]
+
+    data_df['main_mood'] = data_df.apply(get_main_emotion, axis=1)
+
+
     v_map = {
         'anger': (-3, 'Ярость'),
         'fear': (-2, 'Страх'),

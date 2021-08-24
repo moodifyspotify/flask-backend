@@ -1,4 +1,5 @@
-from flask import Flask, jsonify, request, render_template, session, redirect, g, flash, url_for
+from flask import Flask, jsonify, request, render_template, session, redirect, g, flash, url_for, make_response
+
 from flask_cors import CORS, cross_origin
 import requests
 import urllib
@@ -180,18 +181,20 @@ def create_app(app_name='YAMOOD_API'):
 
     @app.route('/')
     def main_page():
-        if 'access_token' in session:
+        at = request.cookies.get('access_token')
+        if at:
             if request.args.get('n'):
                 num_tracks = int(request.args.get('n'))
             else:
                 num_tracks = 20
-            y_clnt = Client(session['access_token'])
+            y_clnt = Client(at)
             g.user = {
                     'username': y_clnt.me.account.login,
-                    'access_token': session['access_token']
+                    'access_token': at
                 }
+
             try:
-                data = SongProcessing.get_user_stats(session['access_token'],
+                data = SongProcessing.get_user_stats(at,
                                         num_tracks,
                                         sd_model)
             except Exception as e:
@@ -199,8 +202,11 @@ def create_app(app_name='YAMOOD_API'):
                 data = test_data
                 flash(str(e))
                 flash(error)
+
             pieJSON, barJSON, lineJSON = get_test_plot(data)
-            return render_template('notdash.html', pieJSON=pieJSON, barJSON=barJSON, lineJSON=lineJSON)
+            resp = make_response(render_template('notdash.html', pieJSON=pieJSON, barJSON=barJSON, lineJSON=lineJSON))
+            resp.set_cookie('access_token', at, max_age=60 * 60 * 24 * 365 * 2)
+            return resp
         else:
             return render_template('login.html')
 
@@ -300,12 +306,13 @@ def create_app(app_name='YAMOOD_API'):
                 try:
                     token = get_client_from_cred(username, password)
                     session['access_token'] = token
-                    return redirect('/')
+                    resp = make_response(redirect('/'))
+                    resp.set_cookie('access_token', token, max_age=60 * 60 * 24 * 365 * 2)
+                    return resp
                 except exceptions.BadRequest:
                     error = "Неудалось войти... Вероятный диагноз -- неверный пароль("
 
             flash(error)
-
             return render_template('login.html')
 
     @app.route('/logout', methods=['POST', 'GET'])

@@ -261,18 +261,22 @@ def get_test_plot():
     bar_fig.layout.paper_bgcolor = "#292E43"
     bar_fig.update_yaxes(visible=False)
 
-    line_fig = px.scatter(line_df, x='Дата', y='Величина',
-                          template='plotly_dark',
-                          color='Настроение',
-                          color_discrete_map=cdm,
-                          size='z'
-                          #trendline="rolling",
-                          #trendline_options=dict(window=1)
-                          )
+    fig1 = px.line(line_df, x="Дата", y="Величина")
+    fig1.update_traces(line=dict(color='#ECF8F7'))
+    fig2 = px.scatter(line_df, x='Дата', y='Величина',
+                      template='plotly_dark',
+                      color='Настроение',
+                      color_discrete_map=cdm,
+                      size='z'
+                      # trendline="rolling",
+                      # trendline_options=dict(window=1)
+                      )
+    line_fig = go.Figure(data=fig1.data + fig2.data)
     line_fig.layout.plot_bgcolor = "#292E43"
     line_fig.layout.paper_bgcolor = "#292E43"
     line_fig.update_yaxes(visible=False)
-    #line_fig.update_traces(line_shape='spline')
+    line_fig.update_layout(template='plotly_dark')
+    line_fig.update_traces(line_shape='spline')
 
     return json.dumps(pie_fig, cls=plotly.utils.PlotlyJSONEncoder), \
            json.dumps(bar_fig, cls=plotly.utils.PlotlyJSONEncoder), \

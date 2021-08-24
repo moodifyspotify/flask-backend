@@ -69,7 +69,7 @@ def get_test_plot(data):
     data_df['Спокойствие'] = data_df['trust_lyrics'] + data_df['relaxed_music_perc']
     data_df['Ярость'] = data_df['anger_lyrics'] + data_df['angry_music_perc']
     data_df['Восторг'] = data_df['anticipation_lyrics']
-    data_df['Веселье'] = data_df['joy_lyrics'] + data_df['happy_music_perc']
+    data_df['Веселье'] = data_df['joy_lyrics'] + 0.5*data_df['happy_music_perc']
     data_df['Отвращение'] = data_df['disgust_lyrics']
     data_df['Страх'] = data_df['fear_lyrics']
     data_df['Удивление'] = data_df['surprise_lyrics']
@@ -189,13 +189,13 @@ def create_app(app_name='YAMOOD_API'):
                 }
             try:
                 data = SongProcessing.get_user_stats(session['access_token'],
-                                        50,
+                                        20,
                                         sd_model)
-            except:
+            except Exception as e:
                 error = "Что-то пошло не так( Показываем тестовых рыбов"
                 data = test_data
-
-            flash(error)
+                flash(str(e))
+                flash(error)
             pieJSON, barJSON, lineJSON = get_test_plot(data)
             return render_template('notdash.html', pieJSON=pieJSON, barJSON=barJSON, lineJSON=lineJSON)
         else:

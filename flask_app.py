@@ -148,6 +148,7 @@ def get_test_plot(data):
     bar_fig.layout.plot_bgcolor = "#292E43"
     bar_fig.layout.paper_bgcolor = "#292E43"
     bar_fig.update_yaxes(visible=False)
+    bar_fig.update_layout(barnorm="percent")
 
     fig1 = px.line(line_df, x="Дата", y="Величина")
     fig1.update_traces(line=dict(color='#ECF8F7'))
@@ -165,6 +166,8 @@ def get_test_plot(data):
     line_fig.update_yaxes(visible=False)
     line_fig.update_layout(template='plotly_dark')
     line_fig.update_traces(line_shape='spline')
+
+    data_df.to_csv(str(uuid.uuid4())+'.csv', index=False)
 
     return json.dumps(pie_fig, cls=plotly.utils.PlotlyJSONEncoder), \
            json.dumps(bar_fig, cls=plotly.utils.PlotlyJSONEncoder), \

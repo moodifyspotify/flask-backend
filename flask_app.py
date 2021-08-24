@@ -87,14 +87,14 @@ def get_test_plot(data):
 
 
     v_map = {
-        'anger': (-3, 'Ярость'),
-        'fear': (-2, 'Страх'),
-        'disgust': (-1, 'Неприязнь'),
-        'sadness': (0, 'Грусть'),
-        'trust': (1, 'Спокойствие'),
-        'surprise': (2, 'Удивление'),
-        'anticipation': (3, 'Восторг'),
-        'joy': (4, 'Веселье')
+        'Ярость': -3,
+        'Страх': -2,
+        'Неприязнь': -1,
+        'Грусть': 0,
+        'Спокойствие': 1,
+        'Удивление': 2,
+        'Восторг': 3,
+        'Веселье': 4
     }
 
     sms = [data_df[e].sum() for e in emts]
@@ -107,9 +107,9 @@ def get_test_plot(data):
     l_d = {'Дата': [], 'Настроение': [], 'Величина': [], 'z':[]}
     for ts in data['timestamp']:
         k = data_df[data_df['timestamp'] == ts]['main_mood'].values[0]
-        v, m = v_map[k]
+        v = v_map[k]
         l_d['Дата'].append(datetime.strptime(ts, '%Y-%m-%d'))
-        l_d['Настроение'].append(m)
+        l_d['Настроение'].append(k)
         l_d['Величина'].append(v)
         l_d['z'].append(5)
 

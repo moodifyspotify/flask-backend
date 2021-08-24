@@ -6,8 +6,17 @@
       console.log('{{ g.user['access_token'] }}');
       $( document ).ready(function() {
         console.log("keke")
-        var graphs = {{graphJSON | safe}};
-        Plotly.newPlot("chart",graphs,{});
+        var pie_graphs = {{pieJSON | safe}};
+        var bar_graphs = {{barJSON | safe}};
+        var line_graphs = {{lineJSON | safe}};
+        pie_graphs.config={responsive: true};
+        bar_graphs.config={responsive: true};
+        line_graphs.config={responsive: true};
+
+        Plotly.newPlot("line-chart",line_graphs);
+        Plotly.newPlot("pie-chart",pie_graphs);
+        Plotly.newPlot("hist-chart",bar_graphs);
+
       });
      </script>
 {% endblock %}
@@ -16,9 +25,13 @@
 {% endblock %}
 
 {% block content %}
-<h1>Статистика</h1>
+
+<div class="main-cont">
+    <h1>Статистика</h1>
     <div id="tip" class="chart-50"></div>
+    <div style="display: inline-block; width:9.2%"></div>
     <div id="pie-chart" class="chart-50"></div>
     <div id="line-chart" class="chart-100"></div>
     <div id="hist-chart" class="chart-100"></div>
+</div>
 {% endblock %}

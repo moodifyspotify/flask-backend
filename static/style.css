@@ -94,9 +94,9 @@ html {
     padding: 0px;
 }
 body {
-    max-width: 960px;
-    margin: 0 auto;
+    max-width: 100%;
     background: #292E43;
+    margin:0
 }
 h1 {
     font-family: YS Text,Arial,sans-serif;
@@ -113,9 +113,10 @@ nav {
     background: #333B59;
     display: flex;
     align-items: center;
-    padding: 0 0.5rem;
+    padding: 5px;
     height: 50px;
     margin-bottom: 10px
+    width:100%
 
  }
 nav h1 {
@@ -147,6 +148,9 @@ nav ul li a, nav ul li span, header .action {
 
 .content {
     padding: 0 1rem 1rem;
+    max-width: 1280px;
+    min-width: 300px;
+    margin: 0 auto;
     background: #292E43;
     color: #FFFFFF
    }
@@ -248,4 +252,34 @@ input[type=submit] {
 
 svg {
 border-radius: 20px;
+}
+
+.main-cont {
+    display: block;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top:60px;
+    background: #333B59;
+    padding: 3%;
+    border-radius: 20px;
+}
+.chart-50 {
+    display: inline-block;
+    min-width: 300px;
+    width: 45%
+}
+
+@media screen and (max-width: 900px) {
+    .chart-50 {
+        display: inline-block;
+        min-width: 300px;
+        width: 100%
+    }
+}
+
+
+
+.chart-100 {
+    margin-top: 20px;
+    width: 100%
 }

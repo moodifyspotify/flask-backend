@@ -319,7 +319,9 @@ def create_app(app_name='YAMOOD_API'):
     @cross_origin()
     def logout():
         session.clear()
-        return redirect(url_for('main_page'))
+        resp = make_response(redirect(url_for('main_page')))
+        resp.set_cookie('access_token', '', expires=0)
+        return resp
 
     return app
 

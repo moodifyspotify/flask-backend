@@ -70,7 +70,7 @@ def get_test_plot(data):
     data_df['Спокойствие'] = data_df['trust_lyrics'] + 0.4*data_df['relaxed_music_perc']
     data_df['Ярость'] = data_df['anger_lyrics'] + 0.4*data_df['angry_music_perc']
     data_df['Восторг'] = data_df['anticipation_lyrics']
-    data_df['Веселье'] = data_df['joy_lyrics'] + 0.231*data_df['happy_music_perc']
+    data_df['Веселье'] = data_df['joy_lyrics'] + 0.4*data_df['happy_music_perc']
     data_df['Неприязнь'] = data_df['disgust_lyrics']
     data_df['Страх'] = data_df['fear_lyrics']
     data_df['Удивление'] = data_df['surprise_lyrics']

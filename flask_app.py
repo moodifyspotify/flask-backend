@@ -293,7 +293,6 @@ def create_app(app_name='YAMOOD_API'):
 
     @app.route('/')
     def main_page():
-        session['access_token'] = 'AgAAAAAh7Vk7AAG8XtDkZzG_PEYLjGVYMIVdDQE'
         if 'access_token' in session:
             y_clnt = Client(session['access_token'])
             g.user = {

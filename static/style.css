@@ -103,6 +103,12 @@ h1 {
     color: #FFFFFF;
     margin: 1rem 0;
     }
+h2 {
+    font-family: YS Text,Arial,sans-serif;
+    color: #FFFFFF;
+    margin: 1rem 0;
+    font-size: large;
+    }
 a {
     color: #FFFFFF;
     }
@@ -263,18 +269,56 @@ border-radius: 20px;
     padding: 3%;
     border-radius: 20px;
 }
-.chart-50 {
+
+.cont-row {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    height: fit-content;
+}
+
+.chart-60 {
     display: inline-block;
     min-width: 300px;
-    width: 45%
+    width: 60%;
+}
+
+.chart-30 {
+    min-width: 300px;
+    width: 30%;
+    border-radius: 20px;
+    background: #292E43;
+    display: flex;
+    align-items: center;
+}
+
+.tip-text {
+    margin: 20px;
+    line-height: 1.6rem;
+    display: flex;
+    align-items: center;
 }
 
 @media screen and (max-width: 1020px) {
-    .chart-50 {
-        display: inline-block;
-        min-width: 300px;
-        width: 100%
+    .cont-row {
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
     }
+    .chart-60 {
+        min-width: 300px;
+        margin-top: 20px;
+        width: 100%;
+    }
+    .chart-30 {
+    min-width: 300px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    width: 100%;
+    border-radius: 20px;
+    background: #292E43;
+
+}
 }
 
 

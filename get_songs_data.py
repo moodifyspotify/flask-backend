@@ -141,7 +141,7 @@ class SongProcessing:
 
     @staticmethod
     def get_user_stats(access_token, num_tracks, sd_model):
-        with open('songs_files/songs_info.json', 'r') as f:
+        with open('songs_files/songs_info.json', 'r', encoding='utf-8') as f:
             songs_info = json.load(f)
 
         sngs = SongProcessing(access_token)

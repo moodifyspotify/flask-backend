@@ -174,8 +174,6 @@ def get_test_plot(data):
     line_fig.update_layout(template='plotly_dark')
     line_fig.update_traces(line_shape='spline')
 
-    data_df.to_csv(str(uuid.uuid4())+'.csv', index=False)
-
     return json.dumps(pie_fig, cls=plotly.utils.PlotlyJSONEncoder), \
            json.dumps(bar_fig, cls=plotly.utils.PlotlyJSONEncoder), \
            json.dumps(line_fig, cls=plotly.utils.PlotlyJSONEncoder)

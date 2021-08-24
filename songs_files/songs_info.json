@@ -1,1 +1,6372 @@
-{}
+{
+   "10277791:1111262": {
+      "track_name": "Get Lucky",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.05000000074505806,
+         0.0,
+         0.05000000074505806,
+         0.0,
+         0.6499999761581421,
+         0.03999999910593033,
+         0.0,
+         0.0
+      ]
+   },
+   "41177353:5378287": {
+      "track_name": "Учитель труда",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "10300167:1113709": {
+      "track_name": "Всё идёт по плану",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "43724241:5827420": {
+      "track_name": "Песня про матан",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "32444580:3953751": {
+      "track_name": "Ботаник",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "24761142:2899853": {
+      "track_name": "Монобровь",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "2278010:225654": {
+      "track_name": "Don't Stop Me Now",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.1899999976158142,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "63722674:10164219": {
+      "track_name": "Ivan, Boris E Me",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "63721833:10163968": {
+      "track_name": "Viens",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.3100000023841858,
+         0.009999999776482582,
+         0.11999999731779099,
+         0.0,
+         0.7099999785423279,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "25680581:3035467": {
+      "track_name": "Вечер в лесу",
+      "music_emotion": "relax",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "808693:90283": {
+      "track_name": "Страхи леса",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "50688821:7019840": {
+      "track_name": "Звуки леса",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "59253527:9064888": {
+      "track_name": "Звуки леса",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "51035634:7090530": {
+      "track_name": "Шум леса",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "74745950:13090190": {
+      "track_name": "шум леса",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "60300954:6692714": {
+      "track_name": "Антон Палыч Чехов однажды заметил…",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.800000011920929,
+         0.0,
+         0.9700000286102295,
+         0.14000000059604645,
+         0.0,
+         0.27000001072883606,
+         0.0,
+         0.0
+      ]
+   },
+   "60300953:6692714": {
+      "track_name": "Ваше благородие, госпожа Удача",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.07999999821186066,
+         0.0,
+         0.699999988079071,
+         0.009999999776482582,
+         0.0,
+         1.0,
+         0.0,
+         0.0
+      ]
+   },
+   "31421789:4644467": {
+      "track_name": "В землянке",
+      "music_emotion": "relax",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "14691281:1609153": {
+      "track_name": "У Чёрного моря",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "84408704:17169366": {
+      "track_name": "Lost Cause",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.15000000596046448,
+         0.6899999976158142,
+         0.009999999776482582,
+         0.0,
+         0.0
+      ]
+   },
+   "67200443:11018698": {
+      "track_name": "Шанс",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "71508290:12193066": {
+      "track_name": "Ретро",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "71508298:12193066": {
+      "track_name": "Крепость",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.4300000071525574,
+         0.009999999776482582,
+         0.4699999988079071,
+         0.0,
+         0.07999999821186066,
+         0.23999999463558197,
+         0.0,
+         0.0
+      ]
+   },
+   "71508296:12193066": {
+      "track_name": "Сказки",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "71508293:12193066": {
+      "track_name": "Hated in the Nation",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "41764730:5489705": {
+      "track_name": "Гобзавр",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "86505427:16632681": {
+      "track_name": "Банши",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.029999999329447746,
+         0.0,
+         0.33000001311302185,
+         0.019999999552965164,
+         0.0,
+         0.12999999523162842,
+         0.0,
+         0.0
+      ]
+   },
+   "68524372:11368084": {
+      "track_name": "Человек Мира",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "79973305:14595240": {
+      "track_name": "Человек Мира",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "65000225:10487551": {
+      "track_name": "7 виски кол",
+      "music_emotion": "relax",
+      "lyrics_emotion": [
+         0.05000000074505806,
+         0.0,
+         0.20000000298023224,
+         0.009999999776482582,
+         0.0,
+         0.029999999329447746,
+         0.0,
+         0.0
+      ]
+   },
+   "66948019:10960450": {
+      "track_name": "Устала пить",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         1.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.7200000286102295,
+         0.0,
+         0.0
+      ]
+   },
+   "59141017:9040836": {
+      "track_name": "Сезанн",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.9800000190734863,
+         0.0,
+         0.9800000190734863,
+         0.009999999776482582,
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.0
+      ]
+   },
+   "68524378:11368084": {
+      "track_name": "Если мы с тобой умрём",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         1.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.2199999988079071,
+         0.0,
+         0.0
+      ]
+   },
+   "43414776:5777004": {
+      "track_name": "Белоголовый ведьмак",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "61444994:9585292": {
+      "track_name": "Toss a Coin to Your Witcher",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.009999999776482582,
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.7900000214576721,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "73298507:12708572": {
+      "track_name": "Осень пьяная",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "58507005:8886142": {
+      "track_name": "Младшая сестра",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "75049870:13158280": {
+      "track_name": "на обратной стороне земли",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "80551720:14766740": {
+      "track_name": "Cayendo",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "66494309:10846940": {
+      "track_name": "Пошлю его на...",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.6499999761581421,
+         0.03999999910593033,
+         0.800000011920929,
+         0.1599999964237213,
+         0.0,
+         0.38999998569488525,
+         0.009999999776482582,
+         0.0
+      ]
+   },
+   "58515002:8888246": {
+      "track_name": "Дора дура",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "70274628:11854472": {
+      "track_name": "Втюрилась",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "86299284:16565453": {
+      "track_name": "Куда уходит детство",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "1616881:162155": {
+      "track_name": "Sh’boom",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "44944282:10209": {
+      "track_name": "Красиво",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.17000000178813934,
+         0.0,
+         0.7300000190734863,
+         0.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0
+      ]
+   },
+   "44944283:10209": {
+      "track_name": "Океан и три реки",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "31769158:10397": {
+      "track_name": "Самба белого мотылька",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "28421150:3087311": {
+      "track_name": "Накануне",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.6200000047683716,
+         0.0,
+         0.6600000262260437,
+         0.0,
+         0.019999999552965164,
+         0.11999999731779099,
+         0.0,
+         0.0
+      ]
+   },
+   "34942407:3087311": {
+      "track_name": "Полигон",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "28421147:3087311": {
+      "track_name": "Переплетено",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.05999999865889549,
+         0.10999999940395355,
+         0.10999999940395355,
+         0.10999999940395355,
+         0.009999999776482582,
+         0.2199999988079071,
+         0.019999999552965164,
+         0.009999999776482582
+      ]
+   },
+   "28421145:3087311": {
+      "track_name": "Всего лишь писатель",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "71323336:12084828": {
+      "track_name": "История Древнего мира. Часть 1. § 3 и 4",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "71129007:12084828": {
+      "track_name": "История Древнего мира. Введение. Часть 1. Глава 1. § 1 и 2",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "63104159:10009132": {
+      "track_name": "Крепость",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "71508284:12283581": {
+      "track_name": "Альтернатива",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "46402425:6255689": {
+      "track_name": "Мы",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.8600000143051147,
+         0.009999999776482582,
+         0.8500000238418579,
+         0.0,
+         0.019999999552965164,
+         0.1599999964237213,
+         0.0,
+         0.0
+      ]
+   },
+   "48208913:6567315": {
+      "track_name": "Маленький",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "34942209:4326888": {
+      "track_name": "Спам",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         1.0,
+         0.0,
+         1.0,
+         0.4000000059604645,
+         0.0,
+         0.10999999940395355,
+         0.0,
+         0.0
+      ]
+   },
+   "34942045:12348427": {
+      "track_name": "Утро",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.009999999776482582,
+         0.029999999329447746,
+         0.07000000029802322,
+         0.07999999821186066,
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.0
+      ]
+   },
+   "88891638:17365905": {
+      "track_name": "The Getting By",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "88891637:17365905": {
+      "track_name": "Pressure Machine",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.15000000596046448,
+         0.0,
+         0.23000000417232513,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "88891630:17365905": {
+      "track_name": "Runaway Horses",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "88891624:17365905": {
+      "track_name": "Quiet Town",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.009999999776482582,
+         0.0,
+         0.0,
+         0.0,
+         0.14000000059604645,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "88891623:17365905": {
+      "track_name": "West Hills",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "604555:64678": {
+      "track_name": "Fighter",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         1.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.3799999952316284,
+         0.0,
+         0.0
+      ]
+   },
+   "606309:64678": {
+      "track_name": "Hurt",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.07000000029802322,
+         0.0,
+         0.07999999821186066,
+         0.0,
+         0.6600000262260437,
+         0.05000000074505806,
+         0.0,
+         0.0
+      ]
+   },
+   "70492:5639257": {
+      "track_name": "I Just Called To Say I Love You",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.9599999785423279,
+         0.009999999776482582,
+         0.9800000190734863,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "7817407:817709": {
+      "track_name": "Ming",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "43901575:5864980": {
+      "track_name": "Lullaby of Birdland",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "63900282:3657389": {
+      "track_name": "Call Me Irresponsible",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "4639314:520964": {
+      "track_name": "Don't Smoke in Bed",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "378542:4258221": {
+      "track_name": "The Girl From Ipanema",
+      "music_emotion": "relax",
+      "lyrics_emotion": [
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.0,
+         0.10999999940395355,
+         0.019999999552965164,
+         0.0,
+         0.0
+      ]
+   },
+   "340535:34264": {
+      "track_name": "Sometimes I'm Happy",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.009999999776482582
+      ]
+   },
+   "35613853:4450515": {
+      "track_name": "Isn't This a Lovely Day",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "24704:6485489": {
+      "track_name": "Once I Loved",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "43954874:5873304": {
+      "track_name": "Take Care Of Business",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "6686378:718886": {
+      "track_name": "Let There Be Love / You're Nobody 'Til Somebody Loves You",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "3725:88541": {
+      "track_name": "Make Someone Happy",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "22804:5868420": {
+      "track_name": "Águas De Março",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.4099999964237213,
+         0.0,
+         0.699999988079071,
+         0.03999999910593033,
+         0.0,
+         0.949999988079071,
+         0.0,
+         0.0
+      ]
+   },
+   "289627:36677": {
+      "track_name": "In The Still Of The Night",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "250607:25118": {
+      "track_name": "My Funny Valentine",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "67290736:4446274": {
+      "track_name": "Wild Is The Wind",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "12053:86261": {
+      "track_name": "Black Coffee",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.949999988079071,
+         0.009999999776482582,
+         0.0,
+         0.0
+      ]
+   },
+   "19261576:4188915": {
+      "track_name": "Ain't That a Kick in the Head",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "1244129:133084": {
+      "track_name": "Black Coffee - Original",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "800410:89311": {
+      "track_name": "I Know You Know",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "26483311:3151827": {
+      "track_name": "Be My Husband",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "606652:10907714": {
+      "track_name": "You Lost Me",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "26801491:3196029": {
+      "track_name": "Гроза за окном спальни",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "26801494:3196032": {
+      "track_name": "бинауральные звуки природы для сна: Гроза с громом и молнией",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "20462748:2328847": {
+      "track_name": "The Darkest Nights",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "40354123:5244570": {
+      "track_name": "Virus://Vibrance",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "475565:50311": {
+      "track_name": "Chelsea Smile",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "19837621:2234669": {
+      "track_name": "You Won't",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "648887:180115": {
+      "track_name": "Tears Don't Fall",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.12999999523162842,
+         0.0,
+         0.0,
+         0.20000000298023224,
+         0.03999999910593033,
+         0.0,
+         0.0
+      ]
+   },
+   "1720955:170431": {
+      "track_name": "When Good Dogs Do Bad Things",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "2380845:7335593": {
+      "track_name": "Ocean Beach",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "11109727:1205781": {
+      "track_name": "Pentatonic",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "18570092:2065680": {
+      "track_name": "Dreaming of You",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "4561880:1128820": {
+      "track_name": "Please, Please, Please, Let Me Get What I Want",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "20700213:3804691": {
+      "track_name": "Yesterday",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "10618975:8298569": {
+      "track_name": "Cable Car",
+      "music_emotion": "relax",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "17069479:1876668": {
+      "track_name": "Falling out of Your Love",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "7846449:820161": {
+      "track_name": "Sunflower Lola",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "4944979:535667": {
+      "track_name": "Gypsy Blues",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "4417617:541581": {
+      "track_name": "Moon Beat, Pt. 1",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "16760775:7343952": {
+      "track_name": "Same Place",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "9352287:989928": {
+      "track_name": "Lei Hu",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "20715931:2363305": {
+      "track_name": "Whiskers",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "20715934:2363305": {
+      "track_name": "Calming Vet Visit",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "20715932:2363305": {
+      "track_name": "Toms Song",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "20715930:2363305": {
+      "track_name": "Sock Drawer",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "20715939:2363305": {
+      "track_name": "Relaxing by the Radiator",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "20715940:2363305": {
+      "track_name": "Paw Prints",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "20715938:2363305": {
+      "track_name": "In the Sun",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "20715936:2363305": {
+      "track_name": "Grinning Kitty",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "20715937:2363305": {
+      "track_name": "First Steps I... Garden",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "20715935:2363305": {
+      "track_name": "Claw Clip",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "20715933:2363305": {
+      "track_name": "By the River",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "20715941:2363305": {
+      "track_name": "Ball of Wool",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "16348540:1787901": {
+      "track_name": "Sounds of Nature for Sleep: Relaxing Waterfall",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "83646498:16238665": {
+      "track_name": "Fever",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "85219243:16238665": {
+      "track_name": "Love Is A Lonely Thing",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "85219242:16238665": {
+      "track_name": "Angel",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "85219241:16238665": {
+      "track_name": "Comb My Hair",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "81738587:16238665": {
+      "track_name": "Rocky Trail",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.009999999776482582,
+         0.009999999776482582,
+         0.0,
+         0.36000001430511475,
+         0.3700000047683716,
+         0.0,
+         0.0
+      ]
+   },
+   "85219240:16238665": {
+      "track_name": "Rumours",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "50876032:7057105": {
+      "track_name": "Call It Karma",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "50876005:7057105": {
+      "track_name": "Smile in Your Sleep",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62252138:9794322": {
+      "track_name": "Make It Loud",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62252137:9794322": {
+      "track_name": "The Lights Came On",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62252135:9794322": {
+      "track_name": "Dad Was A Drunk",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62252134:9794322": {
+      "track_name": "Exploded Inside",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62252133:9794322": {
+      "track_name": "Telling Lies",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62252131:9794322": {
+      "track_name": "Trying To Survive",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62252130:9794322": {
+      "track_name": "Malibu On Fire",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62252129:9794322": {
+      "track_name": "Are We Doing This?",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62252128:9794322": {
+      "track_name": "What I Had To Do",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62252127:9794322": {
+      "track_name": "Pinch Me",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62252126:9794322": {
+      "track_name": "The Weight of Fate",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62252125:9794322": {
+      "track_name": "Alex Alone",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62252124:9794322": {
+      "track_name": "Who Else Knew",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62252123:9794322": {
+      "track_name": "Sad News",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62252122:9794322": {
+      "track_name": "Mitch Makes Coffee",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62252121:9794322": {
+      "track_name": "The Human Side",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62252120:9794322": {
+      "track_name": "America Loves Me",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "57898393:11523330": {
+      "track_name": "Die Alone",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "5698572:10432824": {
+      "track_name": "American",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.33000001311302185,
+         0.0,
+         0.1899999976158142,
+         0.0,
+         0.009999999776482582,
+         0.019999999552965164,
+         0.0,
+         0.0
+      ]
+   },
+   "39430134:5139867": {
+      "track_name": "You Must Love Me",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.9900000095367432,
+         0.009999999776482582,
+         1.0,
+         0.09000000357627869,
+         0.0,
+         0.20000000298023224,
+         0.0,
+         0.0
+      ]
+   },
+   "79569523:14475272": {
+      "track_name": "White Dress",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.019999999552965164,
+         0.009999999776482582,
+         0.05000000074505806,
+         0.0,
+         0.0,
+         0.20999999344348907,
+         0.0,
+         0.0
+      ]
+   },
+   "18083400:2003831": {
+      "track_name": "Fucked My Way Up To The Top",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.009999999776482582,
+         0.9800000190734863,
+         0.009999999776482582,
+         0.0,
+         0.0
+      ]
+   },
+   "33894209:4548805": {
+      "track_name": "Love",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.9900000095367432,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "3616431:10432824": {
+      "track_name": "This Is What Makes Us Girls",
+      "music_emotion": "relax",
+      "lyrics_emotion": [
+         0.0,
+         0.009999999776482582,
+         0.03999999910593033,
+         0.0,
+         0.009999999776482582,
+         0.9900000095367432,
+         0.0,
+         0.0
+      ]
+   },
+   "18033174:2003831": {
+      "track_name": "Brooklyn Baby",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "5698568:10432824": {
+      "track_name": "Bel Air",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.05999999865889549,
+         0.009999999776482582,
+         0.05000000074505806,
+         0.0,
+         0.15000000596046448,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "57214108:8582398": {
+      "track_name": "Love song",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.05999999865889549,
+         0.0,
+         0.0,
+         0.1599999964237213,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "5698569:10432824": {
+      "track_name": "Yayo",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.9800000190734863,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "3616439:10432824": {
+      "track_name": "Radio",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.9800000190734863,
+         0.0,
+         0.9900000095367432,
+         0.5600000023841858,
+         0.0,
+         0.5600000023841858,
+         0.0,
+         0.0
+      ]
+   },
+   "57214114:8582398": {
+      "track_name": "Happiness is a butterfly",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.949999988079071,
+         0.17000000178813934,
+         0.8999999761581421,
+         0.6100000143051147,
+         0.0,
+         0.0,
+         0.009999999776482582,
+         0.0
+      ]
+   },
+   "79569526:14475272": {
+      "track_name": "Dark But Just A Game",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.05000000074505806,
+         0.0,
+         0.029999999329447746,
+         0.8799999952316284,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "3616436:10432824": {
+      "track_name": "Off To The Races",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.6299999952316284,
+         0.0,
+         0.8399999737739563,
+         0.0,
+         0.46000000834465027,
+         0.550000011920929,
+         0.0,
+         0.0
+      ]
+   },
+   "3616440:10432824": {
+      "track_name": "Lucky Ones",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.3499999940395355,
+         0.6700000166893005,
+         0.1599999964237213,
+         0.07999999821186066,
+         0.009999999776482582,
+         0.0,
+         0.009999999776482582,
+         0.0
+      ]
+   },
+   "3576278:384783": {
+      "track_name": "Video Games",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.3400000035762787,
+         0.0,
+         0.23000000417232513,
+         0.0,
+         0.0
+      ]
+   },
+   "36142334:4548805": {
+      "track_name": "Summer Bummer",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.009999999776482582,
+         0.8999999761581421,
+         0.0,
+         0.03999999910593033,
+         0.0,
+         0.0
+      ]
+   },
+   "5320827:10432824": {
+      "track_name": "Ride",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.009999999776482582,
+         0.009999999776482582,
+         0.019999999552965164,
+         0.0,
+         0.8799999952316284,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "18083397:2003831": {
+      "track_name": "Money Power Glory",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.9100000262260437,
+         0.0,
+         0.9800000190734863,
+         0.0,
+         0.0,
+         0.9900000095367432,
+         0.0,
+         0.0
+      ]
+   },
+   "18083398:2003831": {
+      "track_name": "Old Money",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.009999999776482582,
+         0.5099999904632568,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "47995297:8582398": {
+      "track_name": "hope is a dangerous thing for a woman like me to have - but I have it",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.009999999776482582,
+         0.0,
+         0.07000000029802322,
+         0.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0
+      ]
+   },
+   "3616442:10432824": {
+      "track_name": "Lolita",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.44999998807907104,
+         0.0,
+         0.12999999523162842,
+         0.0,
+         0.1899999976158142,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "43257121:8582398": {
+      "track_name": "Mariners Apartment Complex",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.5899999737739563,
+         0.0,
+         0.8399999737739563,
+         0.05999999865889549,
+         0.0,
+         0.800000011920929,
+         0.0,
+         0.0
+      ]
+   },
+   "79569529:14475272": {
+      "track_name": "Breaking Up Slowly",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.009999999776482582,
+         0.1899999976158142,
+         0.009999999776482582,
+         0.029999999329447746,
+         0.05999999865889549,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "24948478:2929676": {
+      "track_name": "Prisoner",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.009999999776482582,
+         0.9800000190734863,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "3616441:10432824": {
+      "track_name": "Without You",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.009999999776482582,
+         0.0,
+         0.05999999865889549,
+         0.0,
+         0.0,
+         0.6600000262260437,
+         0.0,
+         0.0
+      ]
+   },
+   "83485948:15727060": {
+      "track_name": "Text Book",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.75,
+         0.0,
+         0.8700000047683716,
+         0.07999999821186066,
+         0.0,
+         0.4300000071525574,
+         0.0,
+         0.0
+      ]
+   },
+   "18083404:2003831": {
+      "track_name": "Guns And Roses",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.009999999776482582,
+         0.009999999776482582,
+         0.009999999776482582,
+         0.0,
+         0.550000011920929,
+         0.07000000029802322,
+         0.0,
+         0.0
+      ]
+   },
+   "25184178:2963838": {
+      "track_name": "God Knows I Tried",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.009999999776482582,
+         0.009999999776482582,
+         0.8199999928474426,
+         0.019999999552965164,
+         0.0,
+         0.0
+      ]
+   },
+   "18083401:2003831": {
+      "track_name": "The Other Woman",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.9900000095367432,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "32435584:3952720": {
+      "track_name": "Stargirl Interlude",
+      "music_emotion": "relax",
+      "lyrics_emotion": [
+         0.7099999785423279,
+         0.05000000074505806,
+         0.44999998807907104,
+         0.27000001072883606,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "5698567:10432824": {
+      "track_name": "Cola",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.4399999976158142,
+         0.0,
+         0.7699999809265137,
+         0.09000000357627869,
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.0
+      ]
+   },
+   "5698571:10432824": {
+      "track_name": "Gods & Monsters",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         1.0,
+         0.0,
+         1.0,
+         0.009999999776482582,
+         0.0,
+         0.7300000190734863,
+         0.0,
+         0.0
+      ]
+   },
+   "36211887:4548805": {
+      "track_name": "White Mustang",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.019999999552965164,
+         0.11999999731779099,
+         0.009999999776482582,
+         0.9300000071525574,
+         0.0,
+         0.0
+      ]
+   },
+   "79569524:14475272": {
+      "track_name": "Tulsa Jesus Freak",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.9200000166893005,
+         0.0,
+         0.699999988079071,
+         0.0,
+         0.03999999910593033,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "36211885:4548805": {
+      "track_name": "13 Beaches",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.8100000023841858,
+         0.0,
+         0.8100000023841858,
+         0.17000000178813934,
+         0.0,
+         0.019999999552965164,
+         0.0,
+         0.0
+      ]
+   },
+   "57904287:9092920": {
+      "track_name": "Don’t Call Me Angel",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.6899999976158142,
+         0.009999999776482582,
+         0.6399999856948853,
+         0.0,
+         0.009999999776482582,
+         0.03999999910593033,
+         0.0,
+         0.0
+      ]
+   },
+   "36211896:4548805": {
+      "track_name": "Cherry",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.7900000214576721,
+         0.33000001311302185,
+         0.0,
+         0.0
+      ]
+   },
+   "3616437:10432824": {
+      "track_name": "National Anthem",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.5400000214576721,
+         0.09000000357627869,
+         0.0,
+         0.0
+      ]
+   },
+   "79569525:14475272": {
+      "track_name": "Wild At Heart",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         1.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.949999988079071,
+         0.0,
+         0.0
+      ]
+   },
+   "18033173:2003831": {
+      "track_name": "Ultraviolence",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.8700000047683716,
+         0.0,
+         0.8799999952316284,
+         0.0,
+         0.0,
+         0.699999988079071,
+         0.0,
+         0.0
+      ]
+   },
+   "25184180:2963838": {
+      "track_name": "Art Deco",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.8299999833106995,
+         0.0,
+         0.8100000023841858,
+         0.0,
+         0.03999999910593033,
+         0.3199999928474426,
+         0.0,
+         0.0
+      ]
+   },
+   "57214110:8582398": {
+      "track_name": "How to disappear",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.029999999329447746,
+         0.0,
+         0.12999999523162842,
+         0.0,
+         0.0,
+         0.699999988079071,
+         0.0,
+         0.0
+      ]
+   },
+   "83485939:15727053": {
+      "track_name": "Wildflower Wildfire",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.7599999904632568,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "25111431:2963838": {
+      "track_name": "Music To Watch Boys To",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.9599999785423279,
+         0.009999999776482582,
+         0.9599999785423279,
+         0.0,
+         0.07999999821186066,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "73778636:12842824": {
+      "track_name": "Summertime The Gershwin Version",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.009999999776482582,
+         0.05000000074505806,
+         0.009999999776482582,
+         0.05000000074505806,
+         0.2800000011920929,
+         0.019999999552965164,
+         0.0,
+         0.0
+      ]
+   },
+   "56905347:8582398": {
+      "track_name": "Fuck it I love you",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.019999999552965164,
+         0.009999999776482582,
+         0.12999999523162842,
+         0.009999999776482582,
+         0.019999999552965164,
+         0.9900000095367432,
+         0.0,
+         0.0
+      ]
+   },
+   "64788029:10432824": {
+      "track_name": "Burning Desire",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.0,
+         0.8799999952316284,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "72426880:14475272": {
+      "track_name": "Let Me Love You Like A Woman",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.029999999329447746,
+         0.05000000074505806,
+         0.009999999776482582,
+         0.0,
+         0.41999998688697815,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "57214107:8582398": {
+      "track_name": "Doin' Time",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.019999999552965164,
+         0.0,
+         0.05999999865889549,
+         0.4000000059604645,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "79569531:14475272": {
+      "track_name": "For Free",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.019999999552965164,
+         0.0,
+         0.019999999552965164,
+         0.0,
+         0.03999999910593033,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "76103989:14475272": {
+      "track_name": "Chemtrails Over The Country Club",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.009999999776482582,
+         0.009999999776482582,
+         0.07000000029802322,
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.0
+      ]
+   },
+   "3616429:10432824": {
+      "track_name": "Dark Paradise",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.14000000059604645,
+         0.019999999552965164,
+         0.5400000214576721,
+         0.6600000262260437,
+         0.0,
+         0.25999999046325684,
+         0.0,
+         0.0
+      ]
+   },
+   "17452495:2003831": {
+      "track_name": "West Coast",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.6100000143051147,
+         0.0,
+         0.1899999976158142,
+         0.0,
+         0.8500000238418579,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "3591615:10432824": {
+      "track_name": "Born To Die",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.7099999785423279,
+         0.15000000596046448,
+         0.7799999713897705,
+         0.4300000071525574,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "3616434:10432824": {
+      "track_name": "Blue Jeans",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.019999999552965164,
+         0.009999999776482582,
+         0.05000000074505806,
+         0.0,
+         0.5899999737739563,
+         0.009999999776482582,
+         0.0,
+         0.0
+      ]
+   },
+   "83485943:15727056": {
+      "track_name": "Blue Banisters",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.029999999329447746,
+         0.0,
+         0.20000000298023224,
+         0.019999999552965164,
+         0.0,
+         0.7300000190734863,
+         0.0,
+         0.0
+      ]
+   },
+   "3616435:10432824": {
+      "track_name": "Diet Mountain Dew",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.029999999329447746,
+         0.0,
+         0.07000000029802322,
+         0.0,
+         0.009999999776482582,
+         0.12999999523162842,
+         0.0,
+         0.0
+      ]
+   },
+   "3616433:10432824": {
+      "track_name": "Summertime Sadness",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.009999999776482582,
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.28999999165534973,
+         0.019999999552965164,
+         0.0,
+         0.0
+      ]
+   },
+   "10270285:1110518": {
+      "track_name": "Young And Beautiful",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.5799999833106995,
+         0.0,
+         0.11999999731779099,
+         0.019999999552965164,
+         0.0,
+         0.019999999552965164,
+         0.009999999776482582
+      ]
+   },
+   "24763643:2963838": {
+      "track_name": "High By The Beach",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.6899999976158142,
+         0.009999999776482582,
+         0.6399999856948853,
+         0.0,
+         0.009999999776482582,
+         0.03999999910593033,
+         0.0,
+         0.0
+      ]
+   },
+   "82965410:15724766": {
+      "track_name": "good 4 u",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.029999999329447746,
+         0.019999999552965164,
+         0.019999999552965164,
+         0.0,
+         0.4099999964237213,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "83474503:15724766": {
+      "track_name": "jealousy, jealousy",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         1.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.9700000286102295,
+         0.0,
+         0.0
+      ]
+   },
+   "80150573:15724766": {
+      "track_name": "deja vu",
+      "music_emotion": "relax",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.8799999952316284,
+         0.12999999523162842,
+         0.23999999463558197,
+         0.0,
+         0.0
+      ]
+   },
+   "75795990:15724766": {
+      "track_name": "Sign of the Times",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.2800000011920929,
+         0.0,
+         0.10000000149011612,
+         0.009999999776482582,
+         0.0,
+         0.9800000190734863,
+         0.0,
+         0.0
+      ]
+   },
+   "417638:43219": {
+      "track_name": "Ignorance",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.25,
+         0.0,
+         0.6200000047683716,
+         0.009999999776482582,
+         0.0,
+         0.9700000286102295,
+         0.0,
+         0.0
+      ]
+   },
+   "82671631:15475193": {
+      "track_name": "Falling",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.019999999552965164,
+         0.0,
+         0.12999999523162842,
+         0.3799999952316284,
+         0.0,
+         0.699999988079071,
+         0.0,
+         0.0
+      ]
+   },
+   "82671626:15475193": {
+      "track_name": "jealousy, jealousy",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         1.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.9700000286102295,
+         0.0,
+         0.0
+      ]
+   },
+   "82671633:15475193": {
+      "track_name": "Envision Yourself Levitating",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "82671623:15475193": {
+      "track_name": "happier",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         1.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.05000000074505806,
+         0.0,
+         0.0
+      ]
+   },
+   "82671629:15475193": {
+      "track_name": "Watermelon Sugar",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.8700000047683716,
+         0.09000000357627869,
+         0.0,
+         0.0
+      ]
+   },
+   "81258606:15475193": {
+      "track_name": "Lights Up",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.5099999904632568,
+         0.009999999776482582,
+         0.0,
+         0.0
+      ]
+   },
+   "39067845:5190663": {
+      "track_name": "My Queen Is Harriet Tubman",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "79916030:15475193": {
+      "track_name": "Adore You",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.07999999821186066,
+         0.0,
+         0.18000000715255737,
+         0.0,
+         0.019999999552965164,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "82671630:15475193": {
+      "track_name": "Golden",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.46000000834465027,
+         0.6499999761581421,
+         0.0,
+         0.0
+      ]
+   },
+   "6701306:720125": {
+      "track_name": "Harrowdown Hill",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0
+      ]
+   },
+   "544678:720125": {
+      "track_name": "Black Swan",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "54640175:7893853": {
+      "track_name": "Dawn Chorus",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "43067303:5885195": {
+      "track_name": "Suspirium",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.9599999785423279,
+         0.0,
+         0.9900000095367432,
+         0.0,
+         0.0,
+         0.03999999910593033,
+         0.0,
+         0.0
+      ]
+   },
+   "6701313:720125": {
+      "track_name": "Analyse",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         1.0,
+         0.0,
+         1.0,
+         0.009999999776482582,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "418355:9607202": {
+      "track_name": "Hearing Damage",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "69226937:12918329": {
+      "track_name": "cardigan",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.009999999776482582,
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.5299999713897705,
+         0.20999999344348907,
+         0.0,
+         0.0
+      ]
+   },
+   "64015249:13796972": {
+      "track_name": "Love Again",
+      "music_emotion": "relax",
+      "lyrics_emotion": [
+         0.9900000095367432,
+         0.0,
+         0.9900000095367432,
+         0.009999999776482582,
+         0.0,
+         0.7300000190734863,
+         0.0,
+         0.0
+      ]
+   },
+   "34639894:4373162": {
+      "track_name": "good 4 u",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.029999999329447746,
+         0.019999999552965164,
+         0.019999999552965164,
+         0.0,
+         0.4099999964237213,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "60845289:9439518": {
+      "track_name": "deja vu",
+      "music_emotion": "relax",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.8799999952316284,
+         0.12999999523162842,
+         0.23999999463558197,
+         0.0,
+         0.0
+      ]
+   },
+   "58832075:9439518": {
+      "track_name": "drivers license",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.9599999785423279,
+         0.0,
+         0.9800000190734863,
+         0.0,
+         0.019999999552965164,
+         0.009999999776482582,
+         0.0,
+         0.0
+      ]
+   },
+   "60845287:9439518": {
+      "track_name": "traitor",
+      "music_emotion": "relax",
+      "lyrics_emotion": [
+         0.09000000357627869,
+         0.029999999329447746,
+         0.20000000298023224,
+         0.0,
+         0.6700000166893005,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "60577260:9439518": {
+      "track_name": "brutal",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.6899999976158142,
+         0.0,
+         0.6800000071525574,
+         0.3499999940395355,
+         0.0,
+         0.30000001192092896,
+         0.0,
+         0.0
+      ]
+   },
+   "59906708:9439518": {
+      "track_name": "Jet Airliner",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "83474503:15724772": {
+      "track_name": "Fly Away",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.009999999776482582,
+         1.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "83474536:15724772": {
+      "track_name": "Dance Till We Die",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "82964977:15724772": {
+      "track_name": "Yosemite",
+      "music_emotion": "relax",
+      "lyrics_emotion": [
+         0.9700000286102295,
+         0.0,
+         0.949999988079071,
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "88319876:17169366": {
+      "track_name": "I Didn't Change My Number",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.10000000149011612,
+         0.0,
+         0.1599999964237213,
+         0.1599999964237213,
+         0.009999999776482582,
+         0.23999999463558197,
+         0.0,
+         0.0
+      ]
+   },
+   "25382698:12648637": {
+      "track_name": "A Sky Full of Stars",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "87470746:16910354": {
+      "track_name": "Anyone",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "17427522:12648637": {
+      "track_name": "Let It Go",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "5409324:12648637": {
+      "track_name": "Beethoven's 5 Secrets",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "72122161:12648637": {
+      "track_name": "Für Elise Jam",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "31706520:3848043": {
+      "track_name": "Celloopa",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "5409436:12648637": {
+      "track_name": "The Cello Song",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "86081626:16501361": {
+      "track_name": "Before You Go",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "72517170:12483242": {
+      "track_name": "All My Loving",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "27374363:3277402": {
+      "track_name": "Drive My Car",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.7099999785423279,
+         0.0,
+         0.9200000166893005,
+         0.0,
+         0.0,
+         0.9599999785423279,
+         0.0,
+         0.0
+      ]
+   },
+   "27374238:3277402": {
+      "track_name": "And I Love Her",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "27373918:3277248": {
+      "track_name": "I've Just Seen A Face",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.7900000214576721,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "29566791:3557852": {
+      "track_name": "While My Guitar Gently Weeps",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.4399999976158142,
+         0.0,
+         0.0,
+         1.0,
+         0.0,
+         0.05000000074505806,
+         0.36000001430511475
+      ]
+   },
+   "27373866:3277244": {
+      "track_name": "Twist And Shout",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.05000000074505806,
+         0.019999999552965164,
+         0.05000000074505806,
+         0.019999999552965164,
+         0.10000000149011612,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "27373863:3277244": {
+      "track_name": "Do You Want To Know A Secret",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "39915052:5168078": {
+      "track_name": "Yellow Submarine",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.1899999976158142,
+         0.8299999833106995,
+         0.0,
+         0.0
+      ]
+   },
+   "39915054:5168078": {
+      "track_name": "Eleanor Rigby",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.05000000074505806,
+         0.0,
+         0.009999999776482582,
+         0.9399999976158142,
+         0.0,
+         0.019999999552965164,
+         0.009999999776482582
+      ]
+   },
+   "27373964:3277250": {
+      "track_name": "Golden Slumbers",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "27373815:3277262": {
+      "track_name": "Ob-La-Di, Ob-La-Da",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.009999999776482582,
+         0.17000000178813934,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "27373812:3277262": {
+      "track_name": "Back In The U.S.S.R.",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.009999999776482582,
+         0.0,
+         0.03999999910593033,
+         0.23000000417232513,
+         0.0,
+         0.10999999940395355,
+         0.0,
+         0.0
+      ]
+   },
+   "27374750:3277380": {
+      "track_name": "I'll Follow The Sun",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.009999999776482582,
+         0.12999999523162842,
+         0.009999999776482582,
+         0.5899999737739563,
+         0.009999999776482582,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "27373948:3277262": {
+      "track_name": "Come Together",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.20999999344348907,
+         0.05000000074505806,
+         0.0,
+         0.0
+      ]
+   },
+   "29566780:3557852": {
+      "track_name": "Help!",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "29566797:3557852": {
+      "track_name": "Girl",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.17000000178813934,
+         0.009999999776482582,
+         0.1599999964237213,
+         0.0,
+         0.019999999552965164,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "27374374:3277402": {
+      "track_name": "Michelle",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.009999999776482582,
+         0.10999999940395355,
+         0.009999999776482582,
+         0.009999999776482582,
+         0.33000001311302185,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "27373955:3277262": {
+      "track_name": "Here Comes The Sun",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.30000001192092896,
+         0.009999999776482582,
+         0.15000000596046448,
+         0.0,
+         0.0
+      ]
+   },
+   "27374644:3277368": {
+      "track_name": "Let It Be",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.18000000715255737,
+         0.009999999776482582,
+         0.11999999731779099,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "43717991:5826604": {
+      "track_name": "Yesterday",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.019999999552965164,
+         0.11999999731779099,
+         0.05999999865889549,
+         0.0,
+         0.0
+      ]
+   },
+   "28118184:10293": {
+      "track_name": "Полёт на Меркурий",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.009999999776482582,
+         0.03999999910593033,
+         0.029999999329447746,
+         0.05999999865889549,
+         0.0,
+         0.019999999552965164,
+         0.0,
+         0.0
+      ]
+   },
+   "31077538:10311": {
+      "track_name": "Путь домой",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "1690227:167747": {
+      "track_name": "House Of Suffering",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "2164323:5639257": {
+      "track_name": "I Believe (When I Fall In Love It Will Be Forever)",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.07000000029802322,
+         0.0,
+         0.3100000023841858,
+         0.9800000190734863,
+         0.0,
+         0.9900000095367432,
+         0.0,
+         0.0
+      ]
+   },
+   "71099:13527036": {
+      "track_name": "Right On",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.5699999928474426,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "46921172:6339453": {
+      "track_name": "I Just Might Crack",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "251816:51615": {
+      "track_name": "Workin' Together",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.8899999856948853,
+         0.0,
+         0.8899999856948853,
+         0.019999999552965164,
+         0.0,
+         0.019999999552965164,
+         0.0,
+         0.0
+      ]
+   },
+   "4191977:474236": {
+      "track_name": "Can You Get to That",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.47999998927116394,
+         0.029999999329447746,
+         0.20999999344348907,
+         0.0,
+         0.0
+      ]
+   },
+   "22035764:2537234": {
+      "track_name": "I Want to Hug the Sky",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "57641100:8678533": {
+      "track_name": "Amateurs",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.009999999776482582,
+         0.009999999776482582,
+         0.009999999776482582,
+         0.6800000071525574,
+         0.009999999776482582,
+         0.0,
+         0.0
+      ]
+   },
+   "4644696:8210426": {
+      "track_name": "Try Me",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "630975:6689641": {
+      "track_name": "It's All Coming Back to Me Now",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "52054342:7303274": {
+      "track_name": "Chain Reaction",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "452600:47012": {
+      "track_name": "I Get Lonely",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.05000000074505806,
+         0.3700000047683716,
+         0.009999999776482582,
+         0.0,
+         0.0
+      ]
+   },
+   "50542903:7206371": {
+      "track_name": "Ashamed",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.019999999552965164,
+         0.0,
+         0.2800000011920929,
+         0.8999999761581421,
+         0.009999999776482582,
+         0.009999999776482582,
+         0.0
+      ]
+   },
+   "51521860:7192394": {
+      "track_name": "Mrs. Vinegar",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "6588939:710798": {
+      "track_name": "They Say I'm Different",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.03999999910593033,
+         0.5600000023841858,
+         0.07000000029802322,
+         0.0,
+         0.0
+      ]
+   },
+   "647847:69670": {
+      "track_name": "Electric Relaxation",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.30000001192092896,
+         0.0,
+         0.14000000059604645,
+         0.0,
+         0.3799999952316284,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "39507552:5101962": {
+      "track_name": "Justify the Way",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "706966:77947": {
+      "track_name": "Have You Ever Been (To Electric Ladyland)",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.009999999776482582,
+         0.14000000059604645,
+         0.09000000357627869,
+         0.9900000095367432,
+         0.0,
+         0.0
+      ]
+   },
+   "51459943:7176803": {
+      "track_name": "Everybody Dies",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "80150522:15724772": {
+      "track_name": "deja vu",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.8799999952316284,
+         0.12999999523162842,
+         0.23999999463558197,
+         0.0,
+         0.0
+      ]
+   },
+   "75796464:15724772": {
+      "track_name": "drivers license",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.9599999785423279,
+         0.0,
+         0.9800000190734863,
+         0.0,
+         0.019999999552965164,
+         0.009999999776482582,
+         0.0,
+         0.0
+      ]
+   },
+   "83474499:15724772": {
+      "track_name": "traitor",
+      "music_emotion": "relax",
+      "lyrics_emotion": [
+         0.09000000357627869,
+         0.029999999329447746,
+         0.20000000298023224,
+         0.0,
+         0.6700000166893005,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "83474533:15724772": {
+      "track_name": "brutal",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.6899999976158142,
+         0.0,
+         0.6800000071525574,
+         0.3499999940395355,
+         0.0,
+         0.30000001192092896,
+         0.0,
+         0.0
+      ]
+   },
+   "18376420:2041206": {
+      "track_name": "Jet Airliner",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "354101:35694": {
+      "track_name": "Fly Away",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.009999999776482582,
+         1.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "79569530:14475272": {
+      "track_name": "Dance Till We Die",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "79569528:14475272": {
+      "track_name": "Yosemite",
+      "music_emotion": "relax",
+      "lyrics_emotion": [
+         0.9700000286102295,
+         0.0,
+         0.949999988079071,
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62548688:9873021": {
+      "track_name": "I Believe (When I Fall in Love It Will Be Forever)",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "29341946:6409034": {
+      "track_name": "Is It Any Wonder?",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "43968675:5875485": {
+      "track_name": "Dance With The Night",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "1105:7132214": {
+      "track_name": "I'll Make Love To You",
+      "music_emotion": "relax",
+      "lyrics_emotion": [
+         0.10999999940395355,
+         0.0,
+         0.10999999940395355,
+         0.0,
+         0.6700000166893005,
+         0.019999999552965164,
+         0.0,
+         0.0
+      ]
+   },
+   "62548685:9873021": {
+      "track_name": "Gimmie Light/New Tattoo",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "47153043:6382538": {
+      "track_name": "Baby",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "48802942:6659496": {
+      "track_name": "Lonely",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "60794592:9428908": {
+      "track_name": "I'm Lonely",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "10637496:1154880": {
+      "track_name": "Dreams",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "586745:1128084": {
+      "track_name": "Pink Moon",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.27000001072883606,
+         0.0,
+         0.12999999523162842,
+         0.0,
+         0.5899999737739563,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62548683:9873021": {
+      "track_name": "Till It Hits the Ground",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "75779:1907304": {
+      "track_name": "Dry The Rain",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "245415:24674": {
+      "track_name": "Lovin' You",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "63496796:10107644": {
+      "track_name": "Straighten Up",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "650219:2878991": {
+      "track_name": "I Want You to Want Me",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62548677:9873021": {
+      "track_name": "Tiebreaker",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "54070613:7769373": {
+      "track_name": "Buchanan Hammer",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "4230312:2963603": {
+      "track_name": "It Ain't Easy",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         1.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.9800000190734863,
+         0.0,
+         0.0
+      ]
+   },
+   "96296:6292760": {
+      "track_name": "Nothing Compares 2 U",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.14000000059604645,
+         0.0,
+         0.3199999928474426,
+         0.0,
+         0.0,
+         0.07000000029802322,
+         0.0,
+         0.0
+      ]
+   },
+   "311504:31318": {
+      "track_name": "Once I Had A Love (AKA The Disco Song)",
+      "music_emotion": "relax",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62548676:9873021": {
+      "track_name": "I'll Make Love to You",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "37823:2933039": {
+      "track_name": "Come On Eileen",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "20479637:2335682": {
+      "track_name": "Modern Love",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.9599999785423279,
+         0.4000000059604645,
+         0.0,
+         0.0
+      ]
+   },
+   "46685984:9656841": {
+      "track_name": "WhereYouGonnaGo?",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "51394466:2327708": {
+      "track_name": "Pains",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "20523359:2337021": {
+      "track_name": "Didn't I",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "338677:34072": {
+      "track_name": "Heart Of Glass",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "16698:5671300": {
+      "track_name": "Don't Let Me Be Misunderstood",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.5400000214576721,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "71472665:12182561": {
+      "track_name": "Blankets",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "75662247:13308623": {
+      "track_name": "Moving On",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "67702735:11149526": {
+      "track_name": "Small Things",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62640276:9897340": {
+      "track_name": "Edamame",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62992823:9982784": {
+      "track_name": "In Your Eyes",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "75498426:13265184": {
+      "track_name": "Ephemerality",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "68326437:11316787": {
+      "track_name": "Streetlights",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "74833604:13112477": {
+      "track_name": "Stillness",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "76960839:13605151": {
+      "track_name": "Finally Breathing",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "67129124:11002999": {
+      "track_name": "Introvert",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "69498843:11635952": {
+      "track_name": "Crystal Land",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "65875054:10699794": {
+      "track_name": "Кусь",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "65875052:10699794": {
+      "track_name": "МЕЗИМ",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "80577790:14774610": {
+      "track_name": "PUSSY SULTAN",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "59277953:9071216": {
+      "track_name": "ОЙ",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "65874722:10699710": {
+      "track_name": "КАЗАНТИП",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "81549433:15108318": {
+      "track_name": "БЫВШИЙ",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "74843090:13113666": {
+      "track_name": "Голос",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         1.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0
+      ]
+   },
+   "78300289:13984185": {
+      "track_name": "Я в моменте",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.8700000047683716,
+         0.0,
+         0.9800000190734863,
+         0.0,
+         0.0,
+         0.8500000238418579,
+         0.0,
+         0.0
+      ]
+   },
+   "84382282:15985737": {
+      "track_name": "ДУЛО",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.09000000357627869,
+         0.0,
+         0.6700000166893005,
+         0.0,
+         0.0,
+         0.949999988079071,
+         0.0,
+         0.0
+      ]
+   },
+   "82218365:15331538": {
+      "track_name": "ДУЛО",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.09000000357627869,
+         0.0,
+         0.6700000166893005,
+         0.0,
+         0.0,
+         0.949999988079071,
+         0.0,
+         0.0
+      ]
+   },
+   "83836666:15814421": {
+      "track_name": "ARISTOCRAT",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.9700000286102295,
+         0.0,
+         0.9900000095367432,
+         0.0,
+         0.009999999776482582,
+         0.6299999952316284,
+         0.0,
+         0.0
+      ]
+   },
+   "66536046:10858752": {
+      "track_name": "Dior",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.949999988079071,
+         0.0,
+         0.9900000095367432,
+         0.0,
+         0.0,
+         0.8100000023841858,
+         0.0,
+         0.0
+      ]
+   },
+   "15483660:1692035": {
+      "track_name": "Nightbook No. 2",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "73731674:15934823": {
+      "track_name": "Einaudi: Love Is A Mystery",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "15516922:15934823": {
+      "track_name": "Einaudi: Berlin Song",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "15516919:15934823": {
+      "track_name": "The Earth Prelude",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "8923884:15934823": {
+      "track_name": "Walk",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "21784214:12829530": {
+      "track_name": "Andare",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "51038443:15934823": {
+      "track_name": "Golden Butterflies",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "21784218:15934823": {
+      "track_name": "Fly",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         1.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.0
+      ]
+   },
+   "15483607:11755878": {
+      "track_name": "Primavera",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "14530603:1708728": {
+      "track_name": "Circles (based on Ludovico Einaudi \"Experience\")",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.41999998688697815,
+         0.0,
+         0.3700000047683716,
+         0.0,
+         0.07000000029802322,
+         0.5600000023841858,
+         0.0,
+         0.0
+      ]
+   },
+   "15516918:15934823": {
+      "track_name": "Einaudi: Dietro Casa",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "8923880:1708728": {
+      "track_name": "Life",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "15483616:11755878": {
+      "track_name": "L'origine nascosta",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "4234385:1049602": {
+      "track_name": "Hai Bucato La Mia Vita - Prologo Di Un Amore Finito",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "71228709:15934823": {
+      "track_name": "Main Theme",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "21784216:15934823": {
+      "track_name": "Oltremare",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "24791917:14702664": {
+      "track_name": "Night",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "8923879:15934823": {
+      "track_name": "Experience",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.07000000029802322,
+         0.07000000029802322,
+         0.20999999344348907,
+         0.009999999776482582,
+         0.0,
+         0.23000000417232513,
+         0.0,
+         0.0
+      ]
+   },
+   "70155219:11828535": {
+      "track_name": "Чипсы [prod. by VisaGangBeatz]",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "60220897:11828535": {
+      "track_name": "Снег",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "86710605:16695064": {
+      "track_name": "STAY",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "87038068:16786278": {
+      "track_name": "Факаю",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "86610665:16666940": {
+      "track_name": "Лаллипап",
+      "music_emotion": "relax",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "86280491:16559982": {
+      "track_name": "глупый токсичный я тебя ненавижу",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "86280489:16559982": {
+      "track_name": "в Барселону",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "86280486:16559982": {
+      "track_name": "ядовитая змея",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "79093911:16559982": {
+      "track_name": "кискис",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.7300000190734863,
+         0.05000000074505806,
+         0.9399999976158142,
+         0.3499999940395355,
+         0.0,
+         0.10999999940395355,
+         0.009999999776482582,
+         0.0
+      ]
+   },
+   "86280483:16559982": {
+      "track_name": "голубая машина",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "86280481:16559982": {
+      "track_name": "синдром Бога",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "85025192:16181662": {
+      "track_name": "Пушка",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "60544538:9359767": {
+      "track_name": "Бигасс",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "789015:87894": {
+      "track_name": "Нас не догонят",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.9900000095367432,
+         0.0,
+         1.0,
+         0.019999999552965164,
+         0.0,
+         0.019999999552965164,
+         0.0,
+         0.0
+      ]
+   },
+   "789023:87894": {
+      "track_name": "Я сошла с ума",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.9100000262260437,
+         0.0,
+         0.9700000286102295,
+         0.0,
+         0.0,
+         0.019999999552965164,
+         0.0,
+         0.0
+      ]
+   },
+   "79093911:14327194": {
+      "track_name": "кискис",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.7300000190734863,
+         0.05000000074505806,
+         0.9399999976158142,
+         0.3499999940395355,
+         0.0,
+         0.10999999940395355,
+         0.009999999776482582,
+         0.0
+      ]
+   },
+   "16917677:10339": {
+      "track_name": "Ангелы",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.009999999776482582,
+         0.009999999776482582,
+         0.019999999552965164,
+         0.0,
+         0.019999999552965164,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "983331:495300": {
+      "track_name": "Girlfriend",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "34084451:4181557": {
+      "track_name": "Моё сердце",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "4970331:4824583": {
+      "track_name": "Boulevard of Broken Dreams",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.9900000095367432,
+         0.009999999776482582,
+         0.9900000095367432,
+         0.38999998569488525,
+         0.0,
+         0.27000001072883606,
+         0.0,
+         0.0
+      ]
+   },
+   "365619:77080": {
+      "track_name": "Last Resort",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.699999988079071,
+         0.0,
+         0.7799999713897705,
+         0.0,
+         0.009999999776482582,
+         0.25999999046325684,
+         0.0,
+         0.0
+      ]
+   },
+   "178495:12360955": {
+      "track_name": "In the End",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         1.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.9900000095367432,
+         0.0,
+         0.0
+      ]
+   },
+   "29146016:1566044": {
+      "track_name": "Невозможное возможно",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "67624737:16164161": {
+      "track_name": "ЧЁРНЫЙ БУМЕР",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         1.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.029999999329447746,
+         0.0,
+         0.0
+      ]
+   },
+   "71961583:12323126": {
+      "track_name": "Навальный Лёха",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "85802174:16418383": {
+      "track_name": "CAMRY 3.5",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.14000000059604645,
+         0.009999999776482582,
+         0.0,
+         0.17000000178813934,
+         0.0,
+         0.009999999776482582,
+         0.0
+      ]
+   },
+   "78194999:16168538": {
+      "track_name": "ТЫ ГОРИШЬ КАК ОГОНЬ",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.9700000286102295,
+         0.0,
+         0.9700000286102295,
+         0.0,
+         0.0,
+         0.7599999904632568,
+         0.0,
+         0.0
+      ]
+   },
+   "72737512:12546555": {
+      "track_name": "Быстро",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.7099999785423279,
+         0.0,
+         0.33000001311302185,
+         0.0,
+         0.03999999910593033,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "49234779:6747395": {
+      "track_name": "МОЙ КАЛАШНИКОВ",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.9300000071525574,
+         0.0,
+         0.9700000286102295,
+         0.0,
+         0.0,
+         0.019999999552965164,
+         0.0,
+         0.0
+      ]
+   },
+   "34956480:4328642": {
+      "track_name": "Волна",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "71508291:12283581": {
+      "track_name": "Пляж",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.11999999731779099,
+         0.0,
+         0.0,
+         0.2199999988079071,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "34942214:4326888": {
+      "track_name": "Курьер",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "46402423:6255689": {
+      "track_name": "Вы",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "34942040:12348427": {
+      "track_name": "В гостях",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "80551233:14766585": {
+      "track_name": "Слова-паразиты",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "39463732:5096372": {
+      "track_name": "Монополия",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.28999999165534973,
+         0.0,
+         0.7200000286102295,
+         0.0,
+         0.0,
+         0.6100000143051147,
+         0.0,
+         0.0
+      ]
+   },
+   "71508286:12283581": {
+      "track_name": "Лучшее",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "71508294:12283581": {
+      "track_name": "Бардак",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.019999999552965164,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "37447649:4745359": {
+      "track_name": "For the Damaged Coda (From \"Rick and Morty\")",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "78336481:13996236": {
+      "track_name": "Chiesi io al frassino",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "78336469:13996236": {
+      "track_name": "Innamorata",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.25999999046325684,
+         0.0,
+         0.7900000214576721,
+         0.20000000298023224,
+         0.0,
+         1.0,
+         0.0,
+         0.0
+      ]
+   },
+   "78336468:13996236": {
+      "track_name": "Piango al tecno",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.9399999976158142,
+         0.0,
+         0.9800000190734863,
+         0.10000000149011612,
+         0.0,
+         0.5899999737739563,
+         0.0,
+         0.0
+      ]
+   },
+   "78336467:13996236": {
+      "track_name": "Bambina balla",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.009999999776482582,
+         0.0,
+         0.029999999329447746,
+         0.0,
+         0.20000000298023224,
+         0.019999999552965164,
+         0.0,
+         0.0
+      ]
+   },
+   "78336462:13996236": {
+      "track_name": "Crush",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.6499999761581421,
+         0.0,
+         0.75,
+         0.009999999776482582,
+         0.0,
+         0.11999999731779099,
+         0.0,
+         0.0
+      ]
+   },
+   "78336460:13996236": {
+      "track_name": "Cinque minuti",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "38931996:5005790": {
+      "track_name": "Все хотят меня поцеловать",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.11999999731779099,
+         0.0,
+         0.20999999344348907,
+         0.0,
+         0.17000000178813934,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "38572747:4939138": {
+      "track_name": "Люби меня люби",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "55561798:9425747": {
+      "track_name": "Аugust",
+      "music_emotion": "relax",
+      "lyrics_emotion": [
+         0.0,
+         0.800000011920929,
+         0.009999999776482582,
+         0.009999999776482582,
+         0.09000000357627869,
+         0.0,
+         0.009999999776482582,
+         0.0
+      ]
+   },
+   "58507004:8886142": {
+      "track_name": "Дорадура",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "48101851:6551818": {
+      "track_name": "На заре",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.7599999904632568,
+         0.009999999776482582,
+         0.9300000071525574,
+         0.0,
+         0.009999999776482582,
+         0.14000000059604645,
+         0.0,
+         0.0
+      ]
+   },
+   "64496155:10362566": {
+      "track_name": "Плачу на техно",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.9800000190734863,
+         0.0,
+         1.0,
+         0.10000000149011612,
+         0.0,
+         0.9399999976158142,
+         0.0,
+         0.0
+      ]
+   },
+   "81913765:11953855": {
+      "track_name": "Почему мужчины боятся феминизма?",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "80175239:14656908": {
+      "track_name": "ТикТок Частушка",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "64015242:13796972": {
+      "track_name": "Levitating",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.9100000262260437,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "59412705:13796972": {
+      "track_name": "Don't Start Now",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.05000000074505806,
+         0.029999999329447746,
+         0.25999999046325684,
+         0.05000000074505806,
+         0.0,
+         0.9300000071525574,
+         0.0,
+         0.0
+      ]
+   },
+   "80492084:14749676": {
+      "track_name": "Сверхмассивная (Intro)",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "80492083:14749676": {
+      "track_name": "Мегамазер (Intro)",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "80492079:14749676": {
+      "track_name": "Пульсар (Intro)",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "80490255:14749676": {
+      "track_name": "Затменная",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "80492078:14749676": {
+      "track_name": "Затменная (Intro)",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "80492077:14749676": {
+      "track_name": "Красный гигант (Intro)",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "80492076:14749676": {
+      "track_name": "Солнце (Intro)",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.949999988079071,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.9900000095367432,
+         0.0,
+         0.0
+      ]
+   },
+   "80490252:14749676": {
+      "track_name": "Поехали!",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "79569527:14475272": {
+      "track_name": "Not All Who Wander Are Lost",
+      "music_emotion": "relax",
+      "lyrics_emotion": [
+         1.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.5799999833106995,
+         0.0,
+         0.0
+      ]
+   },
+   "30223145:12037556": {
+      "track_name": "Carry On",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.07999999821186066,
+         0.0,
+         0.3400000035762787,
+         0.019999999552965164,
+         0.0,
+         0.4000000059604645,
+         0.0,
+         0.0
+      ]
+   },
+   "62718511:9913573": {
+      "track_name": "Sad Prayers for Guilty Bodies",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.03999999910593033,
+         0.7300000190734863,
+         0.0,
+         0.0
+      ]
+   },
+   "62718509:9913573": {
+      "track_name": "Andria",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.03999999910593033,
+         0.0,
+         0.2199999988079071,
+         0.0,
+         0.6899999976158142,
+         0.05999999865889549,
+         0.0,
+         0.0
+      ]
+   },
+   "49822658:6937803": {
+      "track_name": "RHODONITE AND GRIEF",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "62718504:9913573": {
+      "track_name": "Fall Down, Never Get Back Up Again",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "25680597:3035467": {
+      "track_name": "Звук леса после дождя",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "57851978:8729214": {
+      "track_name": "Звуки леса",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "25680605:3035467": {
+      "track_name": "Ночной лес",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "53089455:7563018": {
+      "track_name": "Расслабляющие звуки леса",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "41360869:5414274": {
+      "track_name": "Тихий лес",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "35535864:4435821": {
+      "track_name": "Select Nature Jungle Sounds",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "57851969:8729213": {
+      "track_name": "Звуки леса",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "68631194:11395791": {
+      "track_name": "Звуки леса",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "28472544:4079298": {
+      "track_name": "What Once Was",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.2199999988079071,
+         0.8899999856948853,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "29492096:3547895": {
+      "track_name": "Lauren",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.5899999737739563,
+         0.0,
+         0.44999998807907104,
+         0.0,
+         0.6100000143051147,
+         0.029999999329447746,
+         0.0,
+         0.0
+      ]
+   },
+   "60133503:9265796": {
+      "track_name": "So Sad, So Sad",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.8199999928474426,
+         0.009999999776482582,
+         0.0,
+         0.0
+      ]
+   },
+   "25025957:2940636": {
+      "track_name": "Windowpane",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "23752482:2820696": {
+      "track_name": "Drag",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.3700000047683716,
+         0.0,
+         0.800000011920929,
+         0.029999999329447746,
+         0.0,
+         0.8999999761581421,
+         0.0,
+         0.0
+      ]
+   },
+   "47313630:6417491": {
+      "track_name": "Brother",
+      "music_emotion": "relax",
+      "lyrics_emotion": [
+         0.0,
+         0.009999999776482582,
+         0.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "47313634:6417491": {
+      "track_name": "Passing Out Pieces",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.019999999552965164,
+         0.0,
+         0.07000000029802322,
+         0.019999999552965164,
+         0.3499999940395355,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "24478178:2854873": {
+      "track_name": "Library",
+      "music_emotion": "sad",
+      "lyrics_emotion": [
+         0.25,
+         0.0,
+         0.36000001430511475,
+         0.009999999776482582,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "5441310:598759": {
+      "track_name": "Swim and Sleep",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         1.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0,
+         1.0,
+         0.0,
+         0.0
+      ]
+   },
+   "47453232:6445646": {
+      "track_name": "My Kind of Woman",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   },
+   "14228175:1549503": {
+      "track_name": "Out Getting Ribs",
+      "music_emotion": "happy",
+      "lyrics_emotion": [
+         0.27000001072883606,
+         0.0,
+         0.6899999976158142,
+         0.009999999776482582,
+         0.0,
+         0.6200000047683716,
+         0.0,
+         0.0
+      ]
+   },
+   "6453408:699671": {
+      "track_name": "Summer Holiday",
+      "music_emotion": "angry",
+      "lyrics_emotion": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+      ]
+   }
+}

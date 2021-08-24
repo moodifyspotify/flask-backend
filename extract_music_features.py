@@ -35,7 +35,7 @@ def extract_feature(path):
             ]
 
             def process_task(task):
-                return task[0](**(task[1]))
+                return task[0](**task[1])
 
             with ProcessPoolExecutor(4) as l_executor:
                 results = l_executor.map(process_task, tasks)

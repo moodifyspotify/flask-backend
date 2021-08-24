@@ -39,7 +39,7 @@ def extract_feature(path):
 
             with ProcessPoolExecutor(4) as l_executor:
                 results = l_executor.map(process_task, tasks)
-
+            print(results)
             tempo, beats = results[0]  # librosa.beat.beat_track(y=y, sr=sr)
             chroma_stft = results[1]  # librosa.feature.chroma_stft(y=y, sr=sr)
             chroma_cq = results[2]  # librosa.feature.chroma_cqt(y=y, sr=sr)

@@ -8,122 +8,126 @@ from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
 
 def extract_feature(path):
     def get_features_for_track(path):
-        try:
-            y, sr = librosa.load(path, duration=60)
-            S = np.abs(librosa.stft(y))
-            onset_frames = librosa.onset.onset_detect(y=y, sr=sr)
-            mfcc = librosa.feature.mfcc(y=y, sr=sr)
-            # Extracting Features
-            tasks = [
-                (librosa.beat.beat_track, dict(y=y, sr=sr)),
-                (librosa.feature.chroma_stft, dict(y=y, sr=sr)),
-                (librosa.feature.chroma_cqt, dict(y=y, sr=sr)),
-                (librosa.feature.chroma_cens, dict(y=y, sr=sr)),
-                (librosa.feature.melspectrogram, dict(y=y, sr=sr)),
-                (librosa.feature.rms, dict(y=y)),
-                (librosa.feature.spectral_centroid, dict(y=y, sr=sr)),
-                (librosa.feature.spectral_bandwidth, dict(y=y, sr=sr)),
-                (librosa.feature.spectral_contrast, dict(S=S, sr=sr)),
-                (librosa.feature.spectral_rolloff, dict(y=y, sr=sr)),
-                (librosa.feature.poly_features, dict(S=S, sr=sr)),
-                (librosa.feature.tonnetz, dict(y=y, sr=sr)),
-                (librosa.feature.zero_crossing_rate, dict(y=y)),
-                (librosa.effects.harmonic, dict(y=y)),
-                (librosa.effects.percussive, dict(y=y)),
-                (librosa.feature.delta, dict(data=mfcc)),
-                (librosa.frames_to_time, dict(frames=onset_frames[:20], sr=sr))
-            ]
+        # try:
+        y, sr = librosa.load(path, duration=60)
+        S = np.abs(librosa.stft(y))
+        onset_frames = librosa.onset.onset_detect(y=y, sr=sr)
+        mfcc = librosa.feature.mfcc(y=y, sr=sr)
+        # Extracting Features
+        tasks = [
+            (librosa.beat.beat_track, dict(y=y, sr=sr)),
+            (librosa.feature.chroma_stft, dict(y=y, sr=sr)),
+            (librosa.feature.chroma_cqt, dict(y=y, sr=sr)),
+            (librosa.feature.chroma_cens, dict(y=y, sr=sr)),
+            (librosa.feature.melspectrogram, dict(y=y, sr=sr)),
+            (librosa.feature.rms, dict(y=y)),
+            (librosa.feature.spectral_centroid, dict(y=y, sr=sr)),
+            (librosa.feature.spectral_bandwidth, dict(y=y, sr=sr)),
+            (librosa.feature.spectral_contrast, dict(S=S, sr=sr)),
+            (librosa.feature.spectral_rolloff, dict(y=y, sr=sr)),
+            (librosa.feature.poly_features, dict(S=S, sr=sr)),
+            (librosa.feature.tonnetz, dict(y=y, sr=sr)),
+            (librosa.feature.zero_crossing_rate, dict(y=y)),
+            (librosa.effects.harmonic, dict(y=y)),
+            (librosa.effects.percussive, dict(y=y)),
+            (librosa.feature.delta, dict(data=mfcc)),
+            (librosa.frames_to_time, dict(frames=onset_frames[:20], sr=sr))
+        ]
 
-            def process_task(task):
-                return task[0](**task[1])
+        def process_task(task):
+            return task[0](**task[1])
 
-            with ProcessPoolExecutor(4) as l_executor:
-                results = l_executor.map(process_task, tasks)
-            print(results)
-            tempo, beats = results[0]  # librosa.beat.beat_track(y=y, sr=sr)
-            chroma_stft = results[1]  # librosa.feature.chroma_stft(y=y, sr=sr)
-            chroma_cq = results[2]  # librosa.feature.chroma_cqt(y=y, sr=sr)
-            chroma_cens = results[3]  # librosa.feature.chroma_cens(y=y, sr=sr)
-            melspectrogram = results[4]  # librosa.feature.melspectrogram(y=y, sr=sr)
-            rmse = results[5]  # librosa.feature.rms(y=y)
-            cent = results[6]  # librosa.feature.spectral_centroid(y=y, sr=sr)
-            spec_bw = results[7]  # librosa.feature.spectral_bandwidth(y=y, sr=sr)
-            contrast = results[8]  # librosa.feature.spectral_contrast(S=S, sr=sr)
-            rolloff = results[9]  # librosa.feature.spectral_rolloff(y=y, sr=sr)
-            poly_features = results[10]  # librosa.feature.poly_features(S=S, sr=sr)
-            tonnetz = results[11]  # librosa.feature.tonnetz(y=y, sr=sr)
-            zcr = results[12]  # librosa.feature.zero_crossing_rate(y=y)
-            harmonic = results[13]  # librosa.effects.harmonic(y=y)
-            percussive = results[14]  # librosa.effects.percussive(y=y)
-            mfcc_delta = results[15]  # librosa.feature.delta(mfcc)
-            frames_to_time = results[16]  # librosa.frames_to_time(onset_frames[:20], sr=sr)
+        with ThreadPoolExecutor(17) as l_executor:
+            results = list(l_executor.map(process_task, tasks))
 
-            # Transforming Features
-            return [path,  # song name
-                    tempo,  # tempo
-                    sum(beats),  # beats
-                    np.average(beats),
-                    np.mean(chroma_stft),  # chroma stft
-                    np.std(chroma_stft),
-                    np.var(chroma_stft),
-                    np.mean(chroma_cq),  # chroma cq
-                    np.std(chroma_cq),
-                    np.var(chroma_cq),
-                    np.mean(chroma_cens),  # chroma cens
-                    np.std(chroma_cens),
-                    np.var(chroma_cens),
-                    np.mean(melspectrogram),  # melspectrogram
-                    np.std(melspectrogram),
-                    np.var(melspectrogram),
-                    np.mean(mfcc),  # mfcc
-                    np.std(mfcc),
-                    np.var(mfcc),
-                    np.mean(mfcc_delta),  # mfcc delta
-                    np.std(mfcc_delta),
-                    np.var(mfcc_delta),
-                    np.mean(rmse),  # rmse
-                    np.std(rmse),
-                    np.var(rmse),
-                    np.mean(cent),  # cent
-                    np.std(cent),
-                    np.var(cent),
-                    np.mean(spec_bw),  # spectral bandwidth
-                    np.std(spec_bw),
-                    np.var(spec_bw),
-                    np.mean(contrast),  # contrast
-                    np.std(contrast),
-                    np.var(contrast),
-                    np.mean(rolloff),  # rolloff
-                    np.std(rolloff),
-                    np.var(rolloff),
-                    np.mean(poly_features),  # poly features
-                    np.std(poly_features),
-                    np.var(poly_features),
-                    np.mean(tonnetz),  # tonnetz
-                    np.std(tonnetz),
-                    np.var(tonnetz),
-                    np.mean(zcr),  # zero crossing rate
-                    np.std(zcr),
-                    np.var(zcr),
-                    np.mean(harmonic),  # harmonic
-                    np.std(harmonic),
-                    np.var(harmonic),
-                    np.mean(percussive),  # percussive
-                    np.std(percussive),
-                    np.var(percussive),
-                    np.mean(frames_to_time),  # frames
-                    np.std(frames_to_time),
-                    np.var(frames_to_time)]
-        except Exception as e:
-            print(e)
-            return [0.0]*55
+        print(path)
+        tempo, beats = results[0]  # librosa.beat.beat_track(y=y, sr=sr)
+        chroma_stft = results[1]  # librosa.feature.chroma_stft(y=y, sr=sr)
+        chroma_cq = results[2]  # librosa.feature.chroma_cqt(y=y, sr=sr)
+        chroma_cens = results[3]  # librosa.feature.chroma_cens(y=y, sr=sr)
+        melspectrogram = results[4]  # librosa.feature.melspectrogram(y=y, sr=sr)
+        rmse = results[5]  # librosa.feature.rms(y=y)
+        cent = results[6]  # librosa.feature.spectral_centroid(y=y, sr=sr)
+        spec_bw = results[7]  # librosa.feature.spectral_bandwidth(y=y, sr=sr)
+        contrast = results[8]  # librosa.feature.spectral_contrast(S=S, sr=sr)
+        rolloff = results[9]  # librosa.feature.spectral_rolloff(y=y, sr=sr)
+        poly_features = results[10]  # librosa.feature.poly_features(S=S, sr=sr)
+        tonnetz = results[11]  # librosa.feature.tonnetz(y=y, sr=sr)
+        zcr = results[12]  # librosa.feature.zero_crossing_rate(y=y)
+        harmonic = results[13]  # librosa.effects.harmonic(y=y)
+        percussive = results[14]  # librosa.effects.percussive(y=y)
+        mfcc_delta = results[15]  # librosa.feature.delta(mfcc)
+        frames_to_time = results[16]  # librosa.frames_to_time(onset_frames[:20], sr=sr)
+
+        # Transforming Features
+        return [path,  # song name
+                tempo,  # tempo
+                sum(beats),  # beats
+                np.average(beats),
+                np.mean(chroma_stft),  # chroma stft
+                np.std(chroma_stft),
+                np.var(chroma_stft),
+                np.mean(chroma_cq),  # chroma cq
+                np.std(chroma_cq),
+                np.var(chroma_cq),
+                np.mean(chroma_cens),  # chroma cens
+                np.std(chroma_cens),
+                np.var(chroma_cens),
+                np.mean(melspectrogram),  # melspectrogram
+                np.std(melspectrogram),
+                np.var(melspectrogram),
+                np.mean(mfcc),  # mfcc
+                np.std(mfcc),
+                np.var(mfcc),
+                np.mean(mfcc_delta),  # mfcc delta
+                np.std(mfcc_delta),
+                np.var(mfcc_delta),
+                np.mean(rmse),  # rmse
+                np.std(rmse),
+                np.var(rmse),
+                np.mean(cent),  # cent
+                np.std(cent),
+                np.var(cent),
+                np.mean(spec_bw),  # spectral bandwidth
+                np.std(spec_bw),
+                np.var(spec_bw),
+                np.mean(contrast),  # contrast
+                np.std(contrast),
+                np.var(contrast),
+                np.mean(rolloff),  # rolloff
+                np.std(rolloff),
+                np.var(rolloff),
+                np.mean(poly_features),  # poly features
+                np.std(poly_features),
+                np.var(poly_features),
+                np.mean(tonnetz),  # tonnetz
+                np.std(tonnetz),
+                np.var(tonnetz),
+                np.mean(zcr),  # zero crossing rate
+                np.std(zcr),
+                np.var(zcr),
+                np.mean(harmonic),  # harmonic
+                np.std(harmonic),
+                np.var(harmonic),
+                np.mean(percussive),  # percussive
+                np.std(percussive),
+                np.var(percussive),
+                np.mean(frames_to_time),  # frames
+                np.std(frames_to_time),
+                np.var(frames_to_time)]
+
+    # except Exception as e:
+    #    print(e)
+    #    return [0.0]*55
 
     # Traversing over each file in path
+
+    print(path)
     file_data = [f for f in listdir(path) if isfile(join(path, f))]
     res = []
     file_data = map(lambda line: path + line[:-1] if line[-1:] == '\n' else path + line, file_data)
 
-    with ThreadPoolExecutor(30) as executor:
+    with ThreadPoolExecutor(4) as executor:
         exec_result = executor.map(get_features_for_track, file_data)
 
     for i in exec_result:

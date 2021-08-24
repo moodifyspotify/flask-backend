@@ -12,6 +12,8 @@ import json
 from json import JSONEncoder
 
 
+
+
 class NumpyEncoder(JSONEncoder):
     def default(self, obj):
         if isinstance(obj, np.float32):

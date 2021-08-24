@@ -15,10 +15,6 @@ import uuid
 
 import json
 from datetime import datetime
-import time
-import ssl
-import base64
-import secrets
 
 import pandas as pd
 import plotly
@@ -28,8 +24,11 @@ from get_songs_data import SongProcessing
 import json
 from json import JSONEncoder
 
-client_id = '0a5c1ff2ba7e4bdd83ee228720efacb5'
-client_secret = 'ab444188a16e471cbbdd48965449dff3'
+import sys
+import traceback
+
+client_id = 'none'
+client_secret = 'none'
 
 sd_model = SentimentDiscovery()
 
@@ -208,11 +207,33 @@ def create_app(app_name='YAMOOD_API'):
                 data = SongProcessing.get_user_stats(at,
                                         num_tracks,
                                         sd_model)
-            except Exception as e:
+            except BaseException as e:
                 error = "Что-то пошло не так( Показываем тестовых рыбов"
+
+                ex_type, ex_value, ex_traceback = sys.exc_info()
+
+                # Extract unformatter stack traces as tuples
+                trace_back = traceback.extract_tb(ex_traceback)
+
+                # Format stacktrace
+                stack_trace = list()
+
+                for trace in trace_back:
+                    stack_trace.append("File : %s , Line : %d, Func.Name : %s, Message : %s" % (
+                    trace[0], trace[1], trace[2], trace[3]))
+                    flash("File : %s , Line : %d, Func.Name : %s, Message : %s" % (
+                    trace[0], trace[1], trace[2], trace[3]))
+
                 data = test_data
                 flash(str(e))
                 flash(error)
+
+                print("Exception type : %s " % ex_type.__name__)
+                print("Exception message : %s" % ex_value)
+                print("Stack trace : %s" % stack_trace)
+
+                flash("Exception type : %s " % ex_type.__name__)
+                flash("Exception message : %s" % ex_value)
 
             pieJSON, barJSON, lineJSON = get_test_plot(data)
             resp = make_response(render_template('notdash.html', pieJSON=pieJSON, barJSON=barJSON, lineJSON=lineJSON))

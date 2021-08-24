@@ -181,7 +181,10 @@ def create_app(app_name='YAMOOD_API'):
     @app.route('/')
     def main_page():
         if 'access_token' in session:
-
+            if request.args.get('n'):
+                num_tracks = int(request.args.get('n'))
+            else:
+                num_tracks = 20
             y_clnt = Client(session['access_token'])
             g.user = {
                     'username': y_clnt.me.account.login,
@@ -189,7 +192,7 @@ def create_app(app_name='YAMOOD_API'):
                 }
             try:
                 data = SongProcessing.get_user_stats(session['access_token'],
-                                        20,
+                                        num_tracks,
                                         sd_model)
             except Exception as e:
                 error = "Что-то пошло не так( Показываем тестовых рыбов"

@@ -114,7 +114,8 @@ def extract_feature(path):
                     np.mean(frames_to_time),  # frames
                     np.std(frames_to_time),
                     np.var(frames_to_time)]
-        except:
+        except Exception as e:
+            print(e)
             return [0.0]*55
 
     # Traversing over each file in path

@@ -119,7 +119,7 @@ def extract_feature(path):
         except Exception as e:
             print('ERROR: '+path)
             print(e)
-            return [0.0]*55
+            return [path]+[0.0]*54
 
     # Traversing over each file in path
 

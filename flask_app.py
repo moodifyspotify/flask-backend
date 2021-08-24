@@ -32,6 +32,7 @@ client_secret = 'ab444188a16e471cbbdd48965449dff3'
 
 sd_model = SentimentDiscovery()
 
+test_data = {  "anger_lyrics": [    0.0,    0.0,    0.4400000050663948,    0.0,    0.0,    0.07000000153978665  ],  "anticipation_lyrics": [    0.0,    0.0,    0.0,    0.0,    0.0,    0.009999999776482582  ],  "disgust_lyrics": [    0.0,    0.0,    0.8350000083446503,    0.0,    0.0,    0.07444444422920544  ],  "fear_lyrics": [    0.15000000596046448,    0.0,    0.07500000018626451,    0.0,    0.0,    0.0  ],  "is_angry_music": [    0.0,    0.0,    0.0,    2.0,    0.0,    1.0  ],  "is_happy_music": [    0.0,    2.0,    2.0,    3.0,    1.0,    6.0  ],  "is_relaxed_music": [    0.0,    0.0,    0.0,    0.0,    0.0,    0.0  ],  "is_sad_music": [    1.0,    0.0,    0.0,    0.0,    0.0,    0.0  ],  "joy_lyrics": [    0.6899999976158142,    0.0,    0.0,    0.0,    0.0,    0.17222221692403158  ],  "main_mood": [    "joy",    "joy",    "disgust",    "joy",    "joy",    "joy"  ],  "sadness_lyrics": [    0.009999999776482582,    0.0,    0.635000005364418,    0.0,    0.0,    0.005555555431379212  ],  "surprise_lyrics": [    0.0,    0.0,    0.0,    0.0,    0.0,    0.0  ],  "timestamp": [    "2021-07-30",    "2021-07-31",    "2021-08-06",    "2021-08-08",    "2021-08-09",    "2021-08-21"  ],  "trust_lyrics": [    0.0,    0.0,    0.0,    0.0,    0.0,    0.0  ]}
 
 class NumpyEncoder(JSONEncoder):
     def default(self, obj):
@@ -51,121 +52,7 @@ class NumpyEncoder(JSONEncoder):
             return JSONEncoder.default(self, obj)
 
 
-def get_test_plot():
-    data = {
-      "anger_lyrics": [
-        0.0,
-        0.0,
-        0.4400000050663948,
-        0.0,
-        0.0,
-        0.07000000153978665
-      ],
-      "anticipation_lyrics": [
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.009999999776482582
-      ],
-      "disgust_lyrics": [
-        0.0,
-        0.0,
-        0.8350000083446503,
-        0.0,
-        0.0,
-        0.07444444422920544
-      ],
-      "fear_lyrics": [
-        0.15000000596046448,
-        0.0,
-        0.07500000018626451,
-        0.0,
-        0.0,
-        0.0
-      ],
-      "is_angry_music": [
-        0.0,
-        0.0,
-        0.0,
-        2.0,
-        0.0,
-        1.0
-      ],
-      "is_happy_music": [
-        0.0,
-        2.0,
-        2.0,
-        3.0,
-        1.0,
-        6.0
-      ],
-      "is_relaxed_music": [
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
-      ],
-      "is_sad_music": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
-      ],
-      "joy_lyrics": [
-        0.6899999976158142,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.17222221692403158
-      ],
-      "main_mood": [
-        "joy",
-        "joy",
-        "disgust",
-        "joy",
-        "joy",
-        "joy"
-      ],
-      "sadness_lyrics": [
-        0.009999999776482582,
-        0.0,
-        0.635000005364418,
-        0.0,
-        0.0,
-        0.005555555431379212
-      ],
-      "surprise_lyrics": [
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
-      ],
-      "timestamp": [
-        "2021-07-30",
-        "2021-07-31",
-        "2021-08-06",
-        "2021-08-08",
-        "2021-08-09",
-        "2021-08-21"
-      ],
-      "trust_lyrics": [
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
-      ]
-    }
+def get_test_plot(data):
     songs_count = sum(data['is_angry_music'])+\
         sum(data['is_happy_music']) + \
         sum(data['is_relaxed_music']) + \
@@ -294,12 +181,22 @@ def create_app(app_name='YAMOOD_API'):
     @app.route('/')
     def main_page():
         if 'access_token' in session:
+
             y_clnt = Client(session['access_token'])
             g.user = {
-                'username': y_clnt.me.account.login,
-                'access_token': session['access_token']
-            }
-            pieJSON, barJSON, lineJSON = get_test_plot()
+                    'username': y_clnt.me.account.login,
+                    'access_token': session['access_token']
+                }
+            try:
+                data = SongProcessing.get_user_stats(session['access_token'],
+                                        50,
+                                        sd_model)
+            except:
+                error = "Что-то пошло не так( Показываем тестовых рыбов"
+                data = test_data
+
+            flash(error)
+            pieJSON, barJSON, lineJSON = get_test_plot(data)
             return render_template('notdash.html', pieJSON=pieJSON, barJSON=barJSON, lineJSON=lineJSON)
         else:
             return render_template('login.html')
@@ -308,7 +205,7 @@ def create_app(app_name='YAMOOD_API'):
     def songs_history():
         session['access_token'] = 'AgAAAAAh7Vk7AAG8XtDkZzG_PEYLjGVYMIVdDQE'
         if 'access_token' in session:
-            num_tracks = 1
+            num_tracks = int(request.args.get('n'))
             final_chart_json = SongProcessing.get_user_stats(session['access_token'],
                                                              num_tracks,
                                                              sd_model)
@@ -319,7 +216,7 @@ def create_app(app_name='YAMOOD_API'):
 
     @app.route('/dash_test', methods=['GET', 'POST'])
     def notdash():
-        pieJSON, barJSON = get_test_plot()
+        pieJSON, barJSON = get_test_plot(session['access_token'])
         return render_template('notdash.html', pieJSON=pieJSON, barJSON=barJSON)
 
     @app.route('/api/get_text_emotions', methods=['POST'])

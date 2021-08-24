@@ -157,7 +157,9 @@ class SongProcessing:
         if len(hist) > 0:
             hist_w_lyrics = sngs.get_tracks_full_info(hist, num_tracks)
             feat = sngs.get_music_features()
-            emotions = sngs.get_music_emotions(feat[[r for r in feat.columns if r != 'song_name']])
+            emotions_keys = list(feat['song_name'].apply(lambda x: x.split('/')[-1].replace('.mp3', '').replace('_', ':')).values)
+            emotions_values = sngs.get_music_emotions(feat[[r for r in feat.columns if r != 'song_name']])
+            emotions = dict(zip(emotions_keys,list(emotions_values)))
             emotions_lyrics = sngs.get_lyrics_emotions(sd_model,
                                                        [l['track_lyrics'] for l in list(hist_w_lyrics.values())])
 
@@ -165,10 +167,10 @@ class SongProcessing:
                 print(type(k))
                 final_res_user.append({
                     'timestamp': datetime.utcfromtimestamp(track_id).strftime('%Y-%m-%d'),
-                    'is_angry_music': int(emotions[k] == 'angry'),
-                    'is_happy_music': int(emotions[k] == 'happy'),
-                    'is_sad_music': int(emotions[k] == 'sad'),
-                    'is_relaxed_music': int(emotions[k] == 'relaxed'),
+                    'is_angry_music': int(emotions[hist_w_lyrics[track_id]['track_id']] == 'angry'),
+                    'is_happy_music': int(emotions[hist_w_lyrics[track_id]['track_id']] == 'happy'),
+                    'is_sad_music': int(emotions[hist_w_lyrics[track_id]['track_id']] == 'sad'),
+                    'is_relaxed_music': int(emotions[hist_w_lyrics[track_id]['track_id']] == 'relaxed'),
                     'anger_lyrics': emotions_lyrics[k][0],
                     'anticipation_lyrics': emotions_lyrics[k][1],
                     'disgust_lyrics': emotions_lyrics[k][2],
@@ -181,7 +183,7 @@ class SongProcessing:
 
                 songs_info[hist_w_lyrics[track_id]['track_id']] = {
                     'track_name': hist_w_lyrics[track_id]['track_name'],
-                    'music_emotion': emotions[k],
+                    'music_emotion': emotions[hist_w_lyrics[track_id]['track_id']],
                     'lyrics_emotion': emotions_lyrics[k]
                 }
 

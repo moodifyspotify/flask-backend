@@ -276,24 +276,24 @@ def create_app(app_name='YAMOOD_API'):
                     'statusCode': 400
                 }), 400
 
-    # @app.route('/api/get_text_emotions_batch', methods=['POST'])
-    # @cross_origin()
-    # def text_emotions_batch():
-    #     if request.method == "POST":
-    #         request_data = request.get_json()
-    #         texts = request_data['texts']
-    #         fn = f'dl/data/data{uuid.uuid4()}.csv'
-    #         with open(fn, 'w') as f:
-    #             f.write('text\n')
-    #             for t in texts:
-    #                 f.write(t.replace("\n", " ")+"\n")
-    #         res = np.round(sd_model.classify(fn)[1], 2)
-    #
-    #         print(res)
-    #         return {'result': str(res)}, 200
-    #     return jsonify({
-    #         'statusCode': 400
-    #     }), 400
+    @app.route('/api/get_text_emotions_batch', methods=['POST'])
+    @cross_origin()
+    def text_emotions_batch():
+        if request.method == "POST":
+            request_data = request.get_json()
+            texts = request_data['texts']
+            fn = f'dl/data/data{uuid.uuid4()}.csv'
+            with open(fn, 'w') as f:
+                f.write('text\n')
+                for t in texts:
+                    f.write(t.replace("\n", " ")+"\n")
+            res = np.round(sd_model.classify(fn)[1], 2)
+
+            print(res)
+            return {'result': str(res)}, 200
+        return jsonify({
+            'statusCode': 400
+        }), 400
 
     def get_client(code):
         token_auth_uri = f"https://oauth.yandex.ru/token"

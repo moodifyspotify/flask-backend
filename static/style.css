@@ -294,9 +294,10 @@ border-radius: 20px;
 
 .tip-text {
     margin: 20px;
-    line-height: 1.6rem;
+    line-height: 1.3rem;
     display: flex;
     align-items: center;
+    font-size: 0.9rem;
 }
 
 @media screen and (max-width: 1020px) {

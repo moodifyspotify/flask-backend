@@ -3,11 +3,11 @@
   {% block head %}
   {% endblock %}
 </head>
-<title>{% block title %}{% endblock %} - Яндекс.Настроение</title>
+<title>{% block title %}{% endblock %} - Ловим Настроение</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <nav>
 <!--  <h1>Яндекс.Настроение</h1>-->
-  <img src="{{ url_for('static', filename='logo.svg') }}" width="260px" style="margin-left: 3%"/>
+  <img src="{{ url_for('static', filename='logo2.svg') }}" width="260px" style="margin-left: 3%"/>
   <ul style="margin-right: 3%">
     {% if g.user %}
       <li><span>{{ g.user['username'] }}</span>

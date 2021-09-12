@@ -17,5 +17,11 @@
 	<p>
 	    <input class="btn" type="submit" value="Войти">
 	</p>
+
     </form>
+<div style="display: flex; align-items: center; width: 100%; flex-direction: column">
+	<div class="btn" style="max-width:300px" onclick="window.open('{{spotify_auth_link}}')">
+		Войти через Spotify
+	</div>
+</div>
 {% endblock %}

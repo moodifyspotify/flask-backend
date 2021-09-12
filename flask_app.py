@@ -3,7 +3,9 @@ from flask import Flask, jsonify, request, render_template, session, redirect, g
 from flask_cors import CORS, cross_origin
 import requests
 import urllib
+import base64
 
+from spotify_client import SpotifyAuthClient, SpotifyUserClient, SpotifyAppClient
 from yandex_music import Client, exceptions
 from dl.models import SentimentDiscovery
 
@@ -29,6 +31,15 @@ import traceback
 
 client_id = 'none'
 client_secret = 'none'
+
+sp_client_id = '3561e398cf0e414da717da295a2c0e91'
+sp_client_secret = '7f7503a4c32e4878926a23f0eb06aaec'
+if __name__ == "__main__":
+    sp_redirect_uri = 'http://192.168.1.66:5000/spotify_auth'
+else:
+    sp_redirect_uri = 'https://music-mood-tracker,ml/spotify_auth'
+
+sp_client = SpotifyAuthClient(sp_client_id, sp_client_secret, sp_redirect_uri)
 
 sd_model = SentimentDiscovery()
 
@@ -189,56 +200,67 @@ def create_app(app_name='YAMOOD_API'):
 
     @app.route('/')
     def main_page():
-        at = request.cookies.get('access_token')
+        at = request.cookies.get('access_info')
         if at:
-            if request.args.get('n'):
-                num_tracks = int(request.args.get('n'))
-            else:
-                num_tracks = 20
-            y_clnt = Client(at)
-            g.user = {
-                    'username': y_clnt.me.account.login,
-                    'access_token': at
-                }
+            # if request.args.get('n'):
+            #     num_tracks = int(request.args.get('n'))
+            # else:
+            #     num_tracks = 20
+            # y_clnt = Client(at)
+            # g.user = {
+            #         'username': y_clnt.me.account.login,
+            #         'access_token': at
+            #     }
 
-            try:
-                data = SongProcessing.get_user_stats(at,
-                                        num_tracks,
-                                        sd_model)
-            except BaseException as e:
-                error = "Что-то пошло не так( Показываем тестовых рыбов"
+            # try:
+            #     data = SongProcessing.get_user_stats(at,
+            #                             num_tracks,
+            #                             sd_model)
+            # except BaseException as e:
+            #     error = "Что-то пошло не так( Показываем тестовых рыбов"
+            #
+            #     ex_type, ex_value, ex_traceback = sys.exc_info()
+            #
+            #     # Extract unformatter stack traces as tuples
+            #     trace_back = traceback.extract_tb(ex_traceback)
+            #
+            #     # Format stacktrace
+            #     stack_trace = list()
+            #
+            #     for trace in trace_back:
+            #         stack_trace.append("File : %s , Line : %d, Func.Name : %s, Message : %s" % (
+            #         trace[0], trace[1], trace[2], trace[3]))
+            #         flash("File : %s , Line : %d, Func.Name : %s, Message : %s" % (
+            #         trace[0], trace[1], trace[2], trace[3]))
+            #
+            #     data = test_data
+            #     flash(str(e))
+            #     flash(error)
+            #
+            #     print("Exception type : %s " % ex_type.__name__)
+            #     print("Exception message : %s" % ex_value)
+            #     print("Stack trace : %s" % stack_trace)
+            #
+            #     flash("Exception type : %s " % ex_type.__name__)
+            #     flash("Exception message : %s" % ex_value)
 
-                ex_type, ex_value, ex_traceback = sys.exc_info()
-
-                # Extract unformatter stack traces as tuples
-                trace_back = traceback.extract_tb(ex_traceback)
-
-                # Format stacktrace
-                stack_trace = list()
-
-                for trace in trace_back:
-                    stack_trace.append("File : %s , Line : %d, Func.Name : %s, Message : %s" % (
-                    trace[0], trace[1], trace[2], trace[3]))
-                    flash("File : %s , Line : %d, Func.Name : %s, Message : %s" % (
-                    trace[0], trace[1], trace[2], trace[3]))
-
-                data = test_data
-                flash(str(e))
-                flash(error)
-
-                print("Exception type : %s " % ex_type.__name__)
-                print("Exception message : %s" % ex_value)
-                print("Stack trace : %s" % stack_trace)
-
-                flash("Exception type : %s " % ex_type.__name__)
-                flash("Exception message : %s" % ex_value)
-
+            access_info = json.loads(at)
+            sp_user_clt = SpotifyUserClient(access_info, sp_client_id, sp_client_secret, sp_redirect_uri)
+            user_info = sp_user_clt.get_user_info()
+            data = test_data
+            flash('Показываем тестовых рыбов')
             pieJSON, barJSON, lineJSON = get_test_plot(data)
+
+            g.user = {
+                'username': user_info['display_name'],
+                'access_token': sp_user_clt.access_info['access_token']
+            }
+
             resp = make_response(render_template('notdash.html', pieJSON=pieJSON, barJSON=barJSON, lineJSON=lineJSON))
-            resp.set_cookie('access_token', at, max_age=60 * 60 * 24 * 365 * 2)
             return resp
         else:
-            return render_template('login.html')
+            link = sp_client.get_auth_url()
+            return render_template('login.html', spotify_auth_link=link)
 
     @app.route('/get_songs_history')
     def songs_history():
@@ -313,6 +335,21 @@ def create_app(app_name='YAMOOD_API'):
 
     def get_client_from_cred(un, pwd):
         return Client.from_credentials(un, pwd).token
+
+    @app.route('/spotify_auth', methods=['POST', 'GET'])
+    @cross_origin()
+    def spoti_auth():
+        if request.method == "GET":
+            error = request.args.get('error')
+            if error:
+                return redirect('/')
+
+            code = request.args.get('code')
+            token = sp_client.get_user_token(code)
+            print(token)
+            resp = make_response(redirect('/'))
+            resp.set_cookie('access_info', json.dumps(token), max_age=60 * 60 * 24 * 365 * 2)
+            return resp
 
     @app.route('/auth', methods=['POST', 'GET'])
     @cross_origin()

@@ -4,6 +4,7 @@ import urllib
 import base64
 import datetime
 
+
 class SpotifyAuthClient:
 
     def __init__(self, client_id, client_secret, redirect_uri):
@@ -93,6 +94,7 @@ class SpotifyUserClient:
         }
 
         resp = requests.get(self.base_api_url + method_url, headers=headers)
+        print(resp.text)
         rj = resp.json()
         return rj
 

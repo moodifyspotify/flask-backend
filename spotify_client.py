@@ -38,15 +38,20 @@ class SpotifyAuthClient:
             'Content-type': 'application/x-www-form-urlencoded',
             'Authorization': f'Basic {b_enc_secr}'
         }
+        code_type = 'code'
+        if grant_type == 'refresh_token':
+            code_type = 'refresh_token'
         query = {
             'grant_type': grant_type,
-            'code': code,
+            code_type: code,
             'redirect_uri': redirect_uri
         }
         query = urllib.parse.urlencode(query)
 
         resp = requests.post(base_url + token_url, data=query, headers=headers)
         rj = resp.json()
+        if 'access_token' not in rj:
+            raise Exception('Failed to log in.')
         rj['issued_dt'] = str(datetime.datetime.utcnow())
         return rj
 
@@ -81,6 +86,7 @@ class SpotifyUserClient:
 
     def refresh_access(self):
         token_issued_dt = datetime.datetime.strptime(self.access_info['issued_dt'], '%Y-%m-%d %H:%M:%S.%f')
+        print(self.access_info)
         if (datetime.datetime.utcnow() - token_issued_dt).seconds > self.access_info['expires_in']-10:
             auth_clt = SpotifyAuthClient(self.client_id, self.client_secret, self.redirect_uri)
             self.access_info = auth_clt.refresh_user_token(self.access_info['refresh_token'])

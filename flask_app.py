@@ -246,18 +246,24 @@ def create_app(app_name='YAMOOD_API'):
 
             access_info = json.loads(at)
             sp_user_clt = SpotifyUserClient(access_info, sp_client_id, sp_client_secret, sp_redirect_uri)
-            user_info = sp_user_clt.get_user_info()
-            data = test_data
-            flash('Показываем тестовых рыбов')
-            pieJSON, barJSON, lineJSON = get_test_plot(data)
+            try:
+                user_info = sp_user_clt.get_user_info()
+                data = test_data
+                flash('Показываем тестовых рыбов')
+                pieJSON, barJSON, lineJSON = get_test_plot(data)
 
-            g.user = {
-                'username': user_info['display_name'],
-                'access_token': sp_user_clt.access_info['access_token']
-            }
+                g.user = {
+                    'username': user_info['display_name'],
+                    'access_token': sp_user_clt.access_info['access_token']
+                }
 
-            resp = make_response(render_template('notdash.html', pieJSON=pieJSON, barJSON=barJSON, lineJSON=lineJSON))
-            return resp
+                resp = make_response(render_template('notdash.html', pieJSON=pieJSON, barJSON=barJSON, lineJSON=lineJSON))
+                return resp
+            except Exception as e:
+                print(str(e))
+                flash('Что-то пошло не так( Попробуйте зайти снова')
+                link = sp_client.get_auth_url()
+                return render_template('login.html', spotify_auth_link=link)
         else:
             link = sp_client.get_auth_url()
             return render_template('login.html', spotify_auth_link=link)
@@ -343,13 +349,19 @@ def create_app(app_name='YAMOOD_API'):
             error = request.args.get('error')
             if error:
                 return redirect('/')
+            try:
+                code = request.args.get('code')
+                token = sp_client.get_user_token(code)
+                print(token)
+                resp = make_response(redirect('/'))
+                resp.set_cookie('access_info', json.dumps(token), max_age=60 * 60 * 24 * 365 * 2)
+                return resp
+            except Exception as e:
+                error = "Не удалось войти..."
+                flash(error)
+                link = sp_client.get_auth_url()
+                return render_template('login.html', spotify_auth_link=link)
 
-            code = request.args.get('code')
-            token = sp_client.get_user_token(code)
-            print(token)
-            resp = make_response(redirect('/'))
-            resp.set_cookie('access_info', json.dumps(token), max_age=60 * 60 * 24 * 365 * 2)
-            return resp
 
     @app.route('/auth', methods=['POST', 'GET'])
     @cross_origin()
@@ -378,7 +390,7 @@ def create_app(app_name='YAMOOD_API'):
                     return resp
                 except Exception as e:
                     flash(str(e))
-                    error = "Неудалось войти... Вероятный диагноз -- неверный пароль("
+                    error = "Не удалось войти... Вероятный диагноз -- неверный пароль("
 
             flash(error)
             return render_template('login.html')
@@ -388,7 +400,7 @@ def create_app(app_name='YAMOOD_API'):
     def logout():
         session.clear()
         resp = make_response(redirect(url_for('main_page')))
-        resp.set_cookie('access_token', '', expires=0)
+        resp.set_cookie('access_info', '', expires=0)
         return resp
 
     return app

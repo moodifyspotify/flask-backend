@@ -5,20 +5,20 @@
 {% endblock %}
 
 {% block content %}
-<form action="/auth" method="post">
-        <p>
-	    <label for="username">Логин</label><br>
-	    <input type="text" name="username" required>
-	</p>
-	<p>
-	    <label for="password">Пароль</label><br>
-	    <input type="password" name="password" required>
-	</p>
-	<p>
-	    <input class="btn" type="submit" value="Войти">
-	</p>
+<!--<form action="/auth" method="post">-->
+<!--        <p>-->
+<!--	    <label for="username">Логин</label><br>-->
+<!--	    <input type="text" name="username" required>-->
+<!--	</p>-->
+<!--	<p>-->
+<!--	    <label for="password">Пароль</label><br>-->
+<!--	    <input type="password" name="password" required>-->
+<!--	</p>-->
+<!--	<p>-->
+<!--	    <input class="btn" type="submit" value="Войти">-->
+<!--	</p>-->
 
-    </form>
+<!--    </form>-->
 <div style="display: flex; align-items: center; width: 100%; flex-direction: column">
 	<div class="btn" style="max-width:300px" onclick="window.open('{{spotify_auth_link}}')">
 		Войти через Spotify

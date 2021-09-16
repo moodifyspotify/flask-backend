@@ -22,7 +22,7 @@ class SpotifyAuthClient:
             'response_type': 'code',
             'redirect_uri': self.redirect_uri,
             'show_dialog': 'true',
-            'scope': 'user-read-private user-read-email user-read-currently-playing user-library-read'
+            'scope': 'user-read-private user-read-email user-read-currently-playing user-library-read user-read-recently-played'
         })
 
         return self.base_url+self.auth_url+params

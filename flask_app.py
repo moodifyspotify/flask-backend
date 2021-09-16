@@ -7,7 +7,7 @@ import base64
 
 from spotify_client import SpotifyAuthClient, SpotifyUserClient, SpotifyAppClient
 from yandex_music import Client, exceptions
-from dl.models import SentimentDiscovery
+# from dl.models import SentimentDiscovery
 
 import multiprocessing as mp
 import numpy as np
@@ -35,13 +35,13 @@ client_secret = 'none'
 sp_client_id = '3561e398cf0e414da717da295a2c0e91'
 sp_client_secret = '7f7503a4c32e4878926a23f0eb06aaec'
 if __name__ == "__main__":
-    sp_redirect_uri = 'http://192.168.1.66:5000/spotify_auth'
+    sp_redirect_uri = 'http://192.168.1.65:5000/spotify_auth'
 else:
     sp_redirect_uri = 'https://music-mood-tracker.ml/spotify_auth'
 
 sp_client = SpotifyAuthClient(sp_client_id, sp_client_secret, sp_redirect_uri)
-
-sd_model = SentimentDiscovery()
+#
+# sd_model = SentimentDiscovery()
 
 test_data = {  "anger_lyrics": [    0.0,    0.0,    0.4400000050663948,    0.0,    0.0,    0.07000000153978665  ],  "anticipation_lyrics": [    0.0,    0.0,    0.0,    0.0,    0.0,    0.009999999776482582  ],  "disgust_lyrics": [    0.0,    0.0,    0.8350000083446503,    0.0,    0.0,    0.07444444422920544  ],  "fear_lyrics": [    0.15000000596046448,    0.0,    0.07500000018626451,    0.0,    0.0,    0.0  ],  "is_angry_music": [    0.0,    0.0,    0.0,    2.0,    0.0,    1.0  ],  "is_happy_music": [    0.0,    2.0,    2.0,    3.0,    1.0,    6.0  ],  "is_relaxed_music": [    0.0,    0.0,    0.0,    0.0,    0.0,    0.0  ],  "is_sad_music": [    1.0,    0.0,    0.0,    0.0,    0.0,    0.0  ],  "joy_lyrics": [    0.6899999976158142,    0.0,    0.0,    0.0,    0.0,    0.17222221692403158  ],  "main_mood": [    "joy",    "joy",    "disgust",    "joy",    "joy",    "joy"  ],  "sadness_lyrics": [    0.009999999776482582,    0.0,    0.635000005364418,    0.0,    0.0,    0.005555555431379212  ],  "surprise_lyrics": [    0.0,    0.0,    0.0,    0.0,    0.0,    0.0  ],  "timestamp": [    "2021-07-30",    "2021-07-31",    "2021-08-06",    "2021-08-08",    "2021-08-09",    "2021-08-21"  ],  "trust_lyrics": [    0.0,    0.0,    0.0,    0.0,    0.0,    0.0  ]}
 
@@ -268,58 +268,58 @@ def create_app(app_name='YAMOOD_API'):
             link = sp_client.get_auth_url()
             return render_template('login.html', spotify_auth_link=link)
 
-    @app.route('/get_songs_history')
-    def songs_history():
-        session['access_token'] = 'AgAAAAAh7Vk7AAG8XtDkZzG_PEYLjGVYMIVdDQE'
-        if 'access_token' in session:
-            num_tracks = int(request.args.get('n'))
-            final_chart_json = SongProcessing.get_user_stats(session['access_token'],
-                                                             num_tracks,
-                                                             sd_model)
+    # @app.route('/get_songs_history')
+    # def songs_history():
+    #     session['access_token'] = 'AgAAAAAh7Vk7AAG8XtDkZzG_PEYLjGVYMIVdDQE'
+    #     if 'access_token' in session:
+    #         num_tracks = int(request.args.get('n'))
+    #         final_chart_json = SongProcessing.get_user_stats(session['access_token'],
+    #                                                          num_tracks,
+    #                                                          sd_model)
+    #
+    #         return final_chart_json, 200
+    #     else:
+    #         return redirect('/')
 
-            return final_chart_json, 200
-        else:
-            return redirect('/')
-
-    @app.route('/dash_test', methods=['GET', 'POST'])
-    def notdash():
-        pieJSON, barJSON = get_test_plot(session['access_token'])
-        return render_template('notdash.html', pieJSON=pieJSON, barJSON=barJSON)
-
-    @app.route('/api/get_text_emotions', methods=['POST'])
-    @cross_origin()
-    def text_emotions():
-        if request.method == "POST":
-            request_data = request.get_json()
-            text = request_data['text']
-            fn = f'dl/data/data{uuid.uuid4()}.csv'
-            with open(fn, 'w') as f:
-                f.write('text\n'+text.replace("\n", " "))
-            res = sd_model.classify(fn)
-            print(res)
-            return {'result': str(res)}, 200
-        return jsonify({
-                    'statusCode': 400
-                }), 400
-
-    @app.route('/api/get_text_emotions_batch', methods=['POST'])
-    @cross_origin()
-    def text_emotions_batch():
-        if request.method == "POST":
-            request_data = request.get_json()
-            texts = request_data['texts']
-            fn = f'dl/data/data{uuid.uuid4()}.csv'
-            with open(fn, 'w') as f:
-                f.write('text\n')
-                for t in texts:
-                    f.write('"'+t.replace("\n", " ").replace('"', '\\"')+'"\n')
-            res = np.round(sd_model.classify(fn)[1], 2)
-
-            print(res)
-            return {'result': str(res)}, 200
-        return jsonify({
-            'statusCode': 400
-        }), 400
+    # @app.route('/dash_test', methods=['GET', 'POST'])
+    # def notdash():
+    #     pieJSON, barJSON = get_test_plot(session['access_token'])
+    #     return render_template('notdash.html', pieJSON=pieJSON, barJSON=barJSON)
+    #
+    # @app.route('/api/get_text_emotions', methods=['POST'])
+    # @cross_origin()
+    # def text_emotions():
+    #     if request.method == "POST":
+    #         request_data = request.get_json()
+    #         text = request_data['text']
+    #         fn = f'dl/data/data{uuid.uuid4()}.csv'
+    #         with open(fn, 'w') as f:
+    #             f.write('text\n'+text.replace("\n", " "))
+    #         res = sd_model.classify(fn)
+    #         print(res)
+    #         return {'result': str(res)}, 200
+    #     return jsonify({
+    #                 'statusCode': 400
+    #             }), 400
+    #
+    # @app.route('/api/get_text_emotions_batch', methods=['POST'])
+    # @cross_origin()
+    # def text_emotions_batch():
+    #     if request.method == "POST":
+    #         request_data = request.get_json()
+    #         texts = request_data['texts']
+    #         fn = f'dl/data/data{uuid.uuid4()}.csv'
+    #         with open(fn, 'w') as f:
+    #             f.write('text\n')
+    #             for t in texts:
+    #                 f.write('"'+t.replace("\n", " ").replace('"', '\\"')+'"\n')
+    #         res = np.round(sd_model.classify(fn)[1], 2)
+    #
+    #         print(res)
+    #         return {'result': str(res)}, 200
+    #     return jsonify({
+    #         'statusCode': 400
+    #     }), 400
 
     def get_client(code):
         token_auth_uri = f"https://oauth.yandex.ru/token"
@@ -361,6 +361,17 @@ def create_app(app_name='YAMOOD_API'):
                 flash(error)
                 link = sp_client.get_auth_url()
                 return render_template('login.html', spotify_auth_link=link)
+
+    @app.route('/get_spotify_history', methods=['POST', 'GET'])
+    @cross_origin()
+    def get_spotify_history():
+        at = request.cookies.get('access_info')
+        if at:
+            access_info = json.loads(at)
+            sp_user_clt = SpotifyUserClient(access_info, sp_client_id, sp_client_secret, sp_redirect_uri)
+            return sp_user_clt.get_user_recent_tracks()
+        return 'ne work'
+
 
 
     @app.route('/auth', methods=['POST', 'GET'])

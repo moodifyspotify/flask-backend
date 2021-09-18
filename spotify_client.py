@@ -132,6 +132,24 @@ class SpotifyUserClient:
 
         return last_day_tracks
 
+    def get_tracks_features(self,track_ids):
+        method_url = '/audio-features'
+        headers = {
+            'Content-type': 'application/x-www-form-urlencoded',
+            'Authorization': f'Bearer {self.access_info["access_token"]}'
+        }
+
+        resp = requests.get(self.base_api_url + method_url,
+                             params={
+                                 'ids': ','.join(list(set(track_ids)))
+                             },
+                             headers=headers)
+        tracks_audio_features = {}
+        for track in resp.json()['audio_features']:
+            tracks_audio_features[track['id']] = track
+
+        return tracks_audio_features
+
 
 class SpotifyAppClient:
 
@@ -170,3 +188,5 @@ class SpotifyAppClient:
 
         resp = requests.post(self.base_url + self.token_url, data=query, headers=headers)
         rj = resp.json()
+
+

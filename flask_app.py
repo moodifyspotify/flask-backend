@@ -7,6 +7,7 @@ import base64
 
 from spotify_client import SpotifyAuthClient, SpotifyUserClient, SpotifyAppClient
 from yandex_music import Client, exceptions
+from spotify_tracks_processing import MusicClassification,LyricsProcessing
 # from dl.models import SentimentDiscovery
 
 import multiprocessing as mp
@@ -369,7 +370,16 @@ def create_app(app_name='YAMOOD_API'):
         if at:
             access_info = json.loads(at)
             sp_user_clt = SpotifyUserClient(access_info, sp_client_id, sp_client_secret, sp_redirect_uri)
-            return sp_user_clt.get_user_recent_tracks()
+            tracks_history = sp_user_clt.get_user_recent_tracks()
+            track_features = sp_user_clt.get_tracks_features([i['track_id'].split(':')[-1] for i in tracks_history.values()])
+            mc = MusicClassification()
+            classes = mc.get_music_emotions(track_features)
+            lp = LyricsProcessing('NFtV-3Xxz9bcZ4Xo_9bfy7LKqrAhSTATV78SO3udcqHr1np-XZZmt53t3_ZS69X8')
+            to_l = {}
+            for l in tracks_history.values():
+                to_l[l['track_name']] = l['artist_names'][0]
+            lyrics = lp.get_lyrics(to_l)
+            return str(lyrics)
         return 'ne work'
 
 

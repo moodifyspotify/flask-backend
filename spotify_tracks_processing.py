@@ -71,12 +71,12 @@ class LyricsProcessing():
             lyrics = None
         return lyrics
 
-    def get_lyrics(self,tracks):
-        lyrics = []
-        for track_name, track_artist in tracks.items():
-            si = self.request_song_info(track_name, track_artist,self.genius_api_token)
+    def get_lyrics(self, tracks):
+        lyrics = {}
+        for trid, trinf in tracks.items():
+            si = self.request_song_info(trinf['track_name'], trinf['artist_name'], self.genius_api_token)
             if si is None:
-                lyrics.append(None)
+                lyrics[trid] = None
             else:
-                lyrics.append(self.scrape_lyrics(si['result']['url']))
+                lyrics[trid] = self.scrape_lyrics(si['result']['url'])
         return lyrics

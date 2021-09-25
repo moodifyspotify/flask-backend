@@ -45,3 +45,16 @@ class MongoConnector:
         return result
 
 
+    def create_spotify_track(self, track_id, source_name, track_name, artist_name,emotions,lyrics):
+        result = self.dbs.tracks.update_one({'track_id': track_id},
+                                           {
+                                               '$setOnInsert': {
+                                                    'track_id': track_id,
+                                                    'source_name': source_name,
+                                                    'track_name': track_name,
+                                                    'artist_name': artist_name,
+                                                    'emotions': emotions,
+                                                    'lyrics': lyrics
+                                               }
+                                           }, upsert=True)
+        return result

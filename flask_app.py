@@ -37,7 +37,7 @@ client_secret = 'none'
 sp_client_id = '3561e398cf0e414da717da295a2c0e91'
 sp_client_secret = '7f7503a4c32e4878926a23f0eb06aaec'
 if __name__ == "__main__":
-    sp_redirect_uri = 'http://192.168.1.66:5000/spotify_auth'
+    sp_redirect_uri = 'http://192.168.1.65:5000/spotify_auth'
 else:
     sp_redirect_uri = 'https://music-mood-tracker.ml/spotify_auth'
 
@@ -386,8 +386,38 @@ def create_app(app_name='YAMOOD_API'):
             lp = LyricsProcessing('NFtV-3Xxz9bcZ4Xo_9bfy7LKqrAhSTATV78SO3udcqHr1np-XZZmt53t3_ZS69X8')
             to_l = {}
             for l in tracks_history.values():
-                to_l[l['track_name']] = l['artist_names'][0]
+                to_l[l['track_id']] = {
+                    'track_name': l['track_name'],
+                    'artist_name': l['artist_names'][0]
+                }
             lyrics = lp.get_lyrics(to_l)
+
+            spoti_email = sp_user_clt.get_user_info()['email']
+            user_info = mongo_conn.get_user_by('email', spoti_email)
+            user_info_history = user_info['track_history']
+            user_info_mood_history = user_info['mood_history']
+
+            for track_timestamp,track_info in tracks_history.items():
+                ins = dict(track_id=track_info['track_id'],
+                    source_name='spotify',
+                    track_name=track_info['track_name'],
+                    artist_name=track_info['artist_names'],
+                    emotions={
+                        'music': list(map(float,classes[track_info['track_id'].split(':')[-1]]))
+                    },
+                    lyrics={
+                        'text': lyrics[track_info['track_id']]
+                    })
+
+                mongo_conn.create_spotify_track(**ins)
+                user_info_history[track_timestamp] = ins
+                user_info_mood_history[track_timestamp] = ins['emotions']
+
+            mongo_conn.update_user('email', spoti_email,{
+                'track_history': user_info_history,
+                'mood_history': user_info_mood_history
+            })
+
             return str(classes)
         return 'ne work'
 

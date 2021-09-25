@@ -379,7 +379,7 @@ def create_app(app_name='YAMOOD_API'):
             for l in tracks_history.values():
                 to_l[l['track_name']] = l['artist_names'][0]
             lyrics = lp.get_lyrics(to_l)
-            return str(lyrics)
+            return str(classes)
         return 'ne work'
 
 

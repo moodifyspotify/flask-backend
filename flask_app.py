@@ -27,6 +27,7 @@ from get_songs_data import SongProcessing
 import json
 from json import JSONEncoder
 
+from mongo_connector import MongoConnector
 import sys
 import traceback
 
@@ -36,7 +37,7 @@ client_secret = 'none'
 sp_client_id = '3561e398cf0e414da717da295a2c0e91'
 sp_client_secret = '7f7503a4c32e4878926a23f0eb06aaec'
 if __name__ == "__main__":
-    sp_redirect_uri = 'http://192.168.1.65:5000/spotify_auth'
+    sp_redirect_uri = 'http://192.168.1.66:5000/spotify_auth'
 else:
     sp_redirect_uri = 'https://music-mood-tracker.ml/spotify_auth'
 
@@ -199,6 +200,11 @@ def create_app(app_name='YAMOOD_API'):
     app.secret_key = 'rand'+str(random.random())
     CORS(app, resources={r"/api/*": {"origins": "*"}})
 
+    mongo_conn = MongoConnector('rc1a-zptn64g6pn8ylwgh.mdb.yandexcloud.net:27018',
+                                'mood_user',
+                                'MoodGfhjkm_017',
+                                'rs01', 'mood', 'mood')
+
     @app.route('/')
     def main_page():
         at = request.cookies.get('access_info')
@@ -356,6 +362,9 @@ def create_app(app_name='YAMOOD_API'):
                 print(token)
                 resp = make_response(redirect('/'))
                 resp.set_cookie('access_info', json.dumps(token), max_age=60 * 60 * 24 * 365 * 2)
+                sp_user_clt = SpotifyUserClient(token, sp_client_id, sp_client_secret, sp_redirect_uri)
+                user_info = sp_user_clt.get_user_info()
+                mongo_conn.create_spotify_user(user_info['email'], user_info['uri'], user_info, token)
                 return resp
             except Exception as e:
                 error = "Не удалось войти..."

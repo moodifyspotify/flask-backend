@@ -58,3 +58,14 @@ class MongoConnector:
                                                }
                                            }, upsert=True)
         return result
+
+    def check_processed_tracks(self,tracks):
+        result = self.dbs.tracks.find({
+            'track_id': {'$in': tracks}
+        })
+
+        processed_tracks = {}
+        for i in result:
+            processed_tracks[i['track_id']] = i
+
+        return processed_tracks

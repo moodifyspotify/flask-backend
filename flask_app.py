@@ -37,7 +37,7 @@ client_secret = 'none'
 sp_client_id = '3561e398cf0e414da717da295a2c0e91'
 sp_client_secret = '7f7503a4c32e4878926a23f0eb06aaec'
 if __name__ == "__main__":
-    sp_redirect_uri = 'http://192.168.1.65:5000/spotify_auth'
+    sp_redirect_uri = 'http://172.20.10.3:5000/spotify_auth'
 else:
     sp_redirect_uri = 'https://music-mood-tracker.ml/spotify_auth'
 
@@ -380,17 +380,23 @@ def create_app(app_name='YAMOOD_API'):
             access_info = json.loads(at)
             sp_user_clt = SpotifyUserClient(access_info, sp_client_id, sp_client_secret, sp_redirect_uri)
             tracks_history = sp_user_clt.get_user_recent_tracks()
-            track_features = sp_user_clt.get_tracks_features([i['track_id'].split(':')[-1] for i in tracks_history.values()])
-            mc = MusicClassification()
-            classes = mc.get_music_emotions(track_features)
-            lp = LyricsProcessing('NFtV-3Xxz9bcZ4Xo_9bfy7LKqrAhSTATV78SO3udcqHr1np-XZZmt53t3_ZS69X8')
-            to_l = {}
-            for l in tracks_history.values():
-                to_l[l['track_id']] = {
-                    'track_name': l['track_name'],
-                    'artist_name': l['artist_names'][0]
-                }
-            lyrics = lp.get_lyrics(to_l)
+            tracks_to_process = [i['track_id'] for i in tracks_history.values()]
+            processed_tracks = mongo_conn.check_processed_tracks(tracks_to_process)
+            unprocessed_tracks_ids = [i for i in tracks_to_process if i not in list(processed_tracks.keys())]
+
+            if len(unprocessed_tracks_ids) > 0:
+                track_features = sp_user_clt.get_tracks_features([i.split(':')[-1] for i in unprocessed_tracks_ids])
+                mc = MusicClassification()
+                classes = mc.get_music_emotions(track_features)
+                lp = LyricsProcessing('NFtV-3Xxz9bcZ4Xo_9bfy7LKqrAhSTATV78SO3udcqHr1np-XZZmt53t3_ZS69X8')
+                to_l = {}
+                for l in tracks_history.values():
+                    if l['track_id'] in unprocessed_tracks_ids:
+                        to_l[l['track_id']] = {
+                            'track_name': l['track_name'],
+                            'artist_name': l['artist_names'][0]
+                        }
+                lyrics = lp.get_lyrics(to_l)
 
             spoti_email = sp_user_clt.get_user_info()['email']
             user_info = mongo_conn.get_user_by('email', spoti_email)
@@ -403,13 +409,19 @@ def create_app(app_name='YAMOOD_API'):
                     track_name=track_info['track_name'],
                     artist_name=track_info['artist_names'],
                     emotions={
-                        'music': list(map(float,classes[track_info['track_id'].split(':')[-1]]))
+                        'music': list(map(float,classes[track_info['track_id'].split(':')[-1]])) \
+                            if track_info['track_id'] in unprocessed_tracks_ids \
+                            else processed_tracks[track_info['track_id']]['emotions']
                     },
                     lyrics={
-                        'text': lyrics[track_info['track_id']]
+                        'text': lyrics[track_info['track_id']]\
+                            if track_info['track_id'] in unprocessed_tracks_ids \
+                            else processed_tracks[track_info['track_id']]['lyrics']
                     })
+                if track_info['track_id'] in unprocessed_tracks_ids:
+                    mongo_conn.create_spotify_track(**ins)
 
-                mongo_conn.create_spotify_track(**ins)
+                del ins['lyrics']
                 user_info_history[track_timestamp] = ins
                 user_info_mood_history[track_timestamp] = ins['emotions']
 
@@ -418,7 +430,7 @@ def create_app(app_name='YAMOOD_API'):
                 'mood_history': user_info_mood_history
             })
 
-            return str(classes)
+            return str(processed_tracks)
         return 'ne work'
 
 

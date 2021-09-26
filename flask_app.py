@@ -125,7 +125,7 @@ def get_test_plot(data):
     for ts in data['date']:
         k = data[data['date'] == ts]['main_mood'].values[0]
         v = v_map[k]
-        l_d['Дата'].append(datetime.strptime(ts, '%Y-%m-%d'))
+        l_d['Дата'].append(ts)
         l_d['Настроение'].append(k)
         l_d['Величина'].append(v)
         l_d['z'].append(5)
@@ -212,51 +212,13 @@ def create_app(app_name='YAMOOD_API'):
         if at:
             # if request.args.get('n'):
             #     num_tracks = int(request.args.get('n'))
-            # else:
-            #     num_tracks = 20
-            # y_clnt = Client(at)
-            # g.user = {
-            #         'username': y_clnt.me.account.login,
-            #         'access_token': at
-            #     }
-
-            # try:
-            #     data = SongProcessing.get_user_stats(at,
-            #                             num_tracks,
-            #                             sd_model)
-            # except BaseException as e:
-            #     error = "Что-то пошло не так( Показываем тестовых рыбов"
-            #
-            #     ex_type, ex_value, ex_traceback = sys.exc_info()
-            #
-            #     # Extract unformatter stack traces as tuples
-            #     trace_back = traceback.extract_tb(ex_traceback)
-            #
-            #     # Format stacktrace
-            #     stack_trace = list()
-            #
-            #     for trace in trace_back:
-            #         stack_trace.append("File : %s , Line : %d, Func.Name : %s, Message : %s" % (
-            #         trace[0], trace[1], trace[2], trace[3]))
-            #         flash("File : %s , Line : %d, Func.Name : %s, Message : %s" % (
-            #         trace[0], trace[1], trace[2], trace[3]))
-            #
-            #     data = test_data
-            #     flash(str(e))
-            #     flash(error)
-            #
-            #     print("Exception type : %s " % ex_type.__name__)
-            #     print("Exception message : %s" % ex_value)
-            #     print("Stack trace : %s" % stack_trace)
-            #
-            #     flash("Exception type : %s " % ex_type.__name__)
-            #     flash("Exception message : %s" % ex_value)
 
             access_info = json.loads(at)
             sp_user_clt = SpotifyUserClient(access_info, sp_client_id, sp_client_secret, sp_redirect_uri)
             try:
                 user_info = sp_user_clt.get_user_info()
                 data = mongo_conn.get_mood_history_as_pandas(user_info['email'])
+                print(data)
                 if data is None:
                     data = test_data
                     flash('Показываем тестовых рыбов')
@@ -415,7 +377,7 @@ def create_app(app_name='YAMOOD_API'):
                     emotions={
                         'music': list(map(float,classes[track_info['track_id'].split(':')[-1]])) \
                             if track_info['track_id'] in unprocessed_tracks_ids \
-                            else processed_tracks[track_info['track_id']]['emotions']
+                            else processed_tracks[track_info['track_id']]['emotions']['music']
                     },
                     lyrics={
                         'text': lyrics[track_info['track_id']]\

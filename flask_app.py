@@ -66,37 +66,35 @@ class NumpyEncoder(JSONEncoder):
 
 
 def get_test_plot(data):
-    songs_count = sum(data['is_angry_music'])+\
-        sum(data['is_happy_music']) + \
-        sum(data['is_relaxed_music']) + \
-        sum(data['is_sad_music'])
+    songs_count = sum(data['is_calm']) + \
+        sum(data['is_energetic']) + \
+        sum(data['is_happy']) + \
+        sum(data['is_sad'])
 
+    data['day_sn'] = data['is_calm'] + data['is_energetic'] + data['is_happy'] + data['is_sad']
+    data['calm_perc'] = data['is_calm']/data['day_sn']
+    data['energetic_perc'] = data['is_energetic'] / data['day_sn']
+    data['happy_perc'] = data['is_happy'] / data['day_sn']
+    data['sad_perc'] = data['is_sad'] / data['day_sn']
 
-    data_df = pd.DataFrame(data)
-    data_df['day_sn'] = data_df['is_angry_music'] + data_df['is_happy_music'] + data_df['is_relaxed_music'] + data_df['is_sad_music']
-    data_df['angry_music_perc'] = data_df['is_angry_music']/data_df['day_sn']
-    data_df['happy_music_perc'] = data_df['is_happy_music'] / data_df['day_sn']
-    data_df['relaxed_music_perc'] = data_df['is_relaxed_music'] / data_df['day_sn']
-    data_df['sad_music_perc'] = data_df['is_sad_music'] / data_df['day_sn']
+    data['Спокойствие'] = data['calm']
+    # data['Ярость'] = data['energetic'] + data['sad']
+    # data['Восторг'] = data['happy']+data['energetic']
+    data['Счастье'] = data['happy']
+    data['Энергичность'] = data['energetic']
+    data['Грусть'] = data['sad']
+    # data['Неприязнь'] = data['disgust_lyrics']
+    # data['Страх'] = data_df['fear_lyrics']
+    # data['Удивление'] = data_df['surprise_lyrics']
+    # data['Грусть'] = data_df['sadness_lyrics'] + 0.25*data_df['sad_music_perc']
 
-    data_df['Спокойствие'] = data_df['trust_lyrics'] + 0.25*data_df['relaxed_music_perc']
-    data_df['Ярость'] = data_df['anger_lyrics'] + 0.25*data_df['angry_music_perc']
-    data_df['Восторг'] = data_df['anticipation_lyrics']
-    data_df['Веселье'] = data_df['joy_lyrics'] + 0.25*data_df['happy_music_perc']
-    data_df['Неприязнь'] = data_df['disgust_lyrics']
-    data_df['Страх'] = data_df['fear_lyrics']
-    data_df['Удивление'] = data_df['surprise_lyrics']
-    data_df['Грусть'] = data_df['sadness_lyrics'] + 0.25*data_df['sad_music_perc']
-
-    emts = ['Спокойствие', 'Ярость', 'Восторг', 'Веселье',
-            'Неприязнь', 'Страх', 'Удивление', 'Грусть']
+    emts = ['Спокойствие', 'Счастье', 'Энергичность', 'Грусть']
 
     def get_main_emotion(x):
         vls = list(x[emts])
         return emts[vls.index(max(vls))]
 
-    data_df['main_mood'] = data_df.apply(get_main_emotion, axis=1)
-
+    data['main_mood'] = data.apply(get_main_emotion, axis=1)
 
     v_map = {
         'Ярость': -3,
@@ -109,7 +107,14 @@ def get_test_plot(data):
         'Веселье': 4
     }
 
-    sms = [data_df[e].sum() for e in emts]
+    v_map = {
+        'Грусть': -1,
+        'Спокойствие': 0,
+        'Энергичность': 1,
+        'Счастье': 2
+    }
+
+    sms = [data[e].sum() for e in emts]
     pie_df = pd.DataFrame({
         "Настроение": emts,
         "Величина": sms
@@ -117,8 +122,8 @@ def get_test_plot(data):
 
     st_b_d = {'Дата': [], 'Настроение': [], 'Величина': []}
     l_d = {'Дата': [], 'Настроение': [], 'Величина': [], 'z':[]}
-    for ts in data['timestamp']:
-        k = data_df[data_df['timestamp'] == ts]['main_mood'].values[0]
+    for ts in data['date']:
+        k = data[data['date'] == ts]['main_mood'].values[0]
         v = v_map[k]
         l_d['Дата'].append(datetime.strptime(ts, '%Y-%m-%d'))
         l_d['Настроение'].append(k)
@@ -128,28 +133,24 @@ def get_test_plot(data):
         for e in emts:
             st_b_d['Дата'].append(ts)
             st_b_d['Настроение'].append(e)
-            st_b_d['Величина'].append(round(data_df[data_df['timestamp'] == ts][e].values[0], 2))
+            st_b_d['Величина'].append(round(data[data['date'] == ts][e].values[0], 2))
     bar_df = pd.DataFrame(st_b_d)
     line_df = pd.DataFrame(l_d)
 
     cdm = {
-        'Ярость': '#FF6F76',
-        'Страх': '#FFCA2D',
-        'Неприязнь': '#6DCE8A',
         'Грусть': '#8D92A5',
         'Спокойствие': '#97F3FD',
-        'Удивление': '#FDB5B5',
-        'Восторг': '#D076FF',
-        'Веселье': '#52A3FD'
+        'Энергичность': '#D076FF',
+        'Счастье': '#52A3FD'
     }
     color_scale = [
-        [0.0, '#FF6F76'],
-        [0.125, '#FFCA2D'],
-        [0.25, '#6DCE8A'],
-        [0.375, '#8D92A5'],
-        [0.625, '#97F3FD'],
-        [0.75, '#FDB5B5'],
-        [0.875, '#D076FF'],
+        # [0.0, '#FF6F76'],
+        # [0.125, '#FFCA2D'],
+        # [0.25, '#6DCE8A'],
+        [0.0, '#8D92A5'],
+        [0.33, '#97F3FD'],
+        # [0.75, '#FDB5B5'],
+        [0.67, '#D076FF'],
         [1.0, '#52A3FD']
     ]
 
@@ -255,8 +256,11 @@ def create_app(app_name='YAMOOD_API'):
             sp_user_clt = SpotifyUserClient(access_info, sp_client_id, sp_client_secret, sp_redirect_uri)
             try:
                 user_info = sp_user_clt.get_user_info()
-                data = test_data
-                flash('Показываем тестовых рыбов')
+                data = mongo_conn.get_mood_history_as_pandas(user_info['email'])
+                if data is None:
+                    data = test_data
+                    flash('Показываем тестовых рыбов')
+
                 pieJSON, barJSON, lineJSON = get_test_plot(data)
 
                 g.user = {

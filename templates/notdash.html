@@ -2,23 +2,86 @@
 {% block head %}
     <script src="https://cdn.plot.ly/plotly-2.3.1.js"></script>
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-      console.log('{{ g.user['access_token'] }}');
+              console.log('{{ g.user['access_token'] }}');
       $( document ).ready(function() {
-        console.log("keke")
+
+      let width, height, gradient;
+
+        function getKeyByValue(object, value) {
+          return Object.keys(object).find(key => object[key] === value);
+        }
+
+        function getGradient(ctx, chartArea) {
+          const chartWidth = chartArea.right - chartArea.left;
+          const chartHeight = chartArea.bottom - chartArea.top;
+          const gradient_vals = {{gradient_set | safe}};
+          if (gradient === null || width !== chartWidth || height !== chartHeight) {
+            width = chartWidth;
+            height = chartHeight;
+            gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+            for(var i = 0; i < gradient_vals.length; i++) {
+                gradient.addColorStop(gradient_vals[i][0],gradient_vals[i][1])
+            }
+          }
+
+          return gradient;
+        };
         var pie_graphs = {{pieJSON | safe}};
         var bar_graphs = {{barJSON | safe}};
         var line_graphs = {{lineJSON | safe}};
+
+
+        var bar_ful = {{bar_cfg | safe }};
+        var line_ful = {{line_cfg | safe}};
+        var pie_ful = {{pie_cfg | safe}};
+
+        console.log(line_ful.data.datasets)
+        line_ful.data.datasets[0]['borderColor'] = function(context) {
+            const chart = context.chart;
+            const {ctx, chartArea} = chart;
+            if (!chartArea) {
+              // This case happens on initial chart load
+              return null;
+            }
+            return getGradient(ctx, chartArea);
+      };
+        line_ful.options.plugins.tooltip['callbacks'] = {
+                  title: function(tooltipItem) {
+                    var v_map = {
+                        'Грусть': -1,
+                        'Спокойствие': 0,
+                        'Энергичность': 1,
+                        'Счастье': 2
+                    };
+                    return 'Настроение дня:\n' + getKeyByValue(v_map,tooltipItem[0].dataset.data[tooltipItem[0].dataIndex]);
+                },
+                label: function() {}
+              };
+
+
+
+
         pie_graphs.config={responsive: true};
         bar_graphs.config={responsive: true};
         line_graphs.config={responsive: true};
 
-        Plotly.newPlot("line-chart",line_graphs);
-        Plotly.newPlot("pie-chart",pie_graphs);
-        Plotly.newPlot("hist-chart",bar_graphs);
+<!--        Plotly.newPlot("line-chart",line_graphs);-->
+<!--        Plotly.newPlot("pie-chart",pie_graphs);-->
+<!--        Plotly.newPlot("hist-chart",bar_graphs);-->
+
+        var ctx_bar = document.getElementById('barChart').getContext('2d');
+        var bar_chart = new Chart(ctx_bar, bar_ful);
+
+        var ctx_line = document.getElementById('lineChart').getContext('2d');
+        var line_chart = new Chart(ctx_line, line_ful);
+
+        var ctx_pie = document.getElementById('pieChart').getContext('2d');
+        var pie_chart = new Chart(ctx_pie, pie_ful);
 
       });
-     </script>
+    </script>
 {% endblock %}
 {% block title %} MoodMap {% endblock %}
 {% block header %}
@@ -45,11 +108,12 @@
             </div>
 
         </div>
-        <div id="pie-chart" class="chart-60"></div>
+        <div class="chart-60"><canvas id="pieChart"></canvas></div>
     </div>
     <h2>Ведущее настроение дня</h2>
-    <div id="line-chart" class="chart-100"></div>
+    <div class="chart-100"><canvas id="lineChart" class="chart-100"></canvas></div>
     <h2>Соотношение по дням</h2>
-    <div id="hist-chart" class="chart-100"></div>
+    <div class="chart-100"><canvas id="barChart" class="chart-100"></canvas></div>
+
 </div>
 {% endblock %}

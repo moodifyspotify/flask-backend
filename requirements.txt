@@ -19,6 +19,7 @@ joblib
 keras
 tensorflow
 beautifulsoup4
+Flask-APScheduler
 
 #pytorch==1.0.1
 #torchvision==0.2.2

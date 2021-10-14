@@ -41,6 +41,12 @@ class MongoConnector:
         })
         return result
 
+    def get_all_users(self):
+        result = []
+        for u in self.dbs.users.find():
+            result.append(u)
+        return result
+
     def update_user(self, by_field, by_value, new_values_dict):
         result = self.dbs.users.update_one({by_field: by_value},
                                            {'$set': new_values_dict})

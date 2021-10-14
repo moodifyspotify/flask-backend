@@ -85,6 +85,14 @@ class MongoConnector:
         ret_df['date'] = ret_df.index
         return ret_df
 
+    def get_non_processed_lyrics(self):
+        return list(self.dbs.tracks.find({'emotions.lyrics': {'$exists': False}, 'lyrics.text': {'$ne': None}}))
+
+    def update_track(self, by_field, by_value, new_values_dict):
+        result = self.dbs.tracks.update_one({by_field: by_value},
+                                           {'$set': new_values_dict})
+        return result
+
     def check_processed_tracks(self, tracks):
         result = self.dbs.tracks.find({
             'track_id': {'$in': tracks}

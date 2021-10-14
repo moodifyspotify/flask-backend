@@ -137,7 +137,8 @@ def get_test_plot(data):
     })
 
     st_b_d = {'Дата': [], 'Настроение': [], 'Величина': []}
-    l_d = {'Дата': [], 'Настроение': [], 'Величина': [], 'z': []}
+    l_d = {'Дата': [], 'Настроение': [], 'Величина': [], 'z':[]}
+
     for ts in data['date']:
         k = data[data['date'] == ts]['main_mood'].values[0]
         v = v_map[k]
@@ -150,6 +151,8 @@ def get_test_plot(data):
             st_b_d['Дата'].append(ts)
             st_b_d['Настроение'].append(e)
             st_b_d['Величина'].append(round(data[data['date'] == ts][e].values[0], 2))
+
+
     bar_df = pd.DataFrame(st_b_d)
     line_df = pd.DataFrame(l_d)
 
@@ -204,9 +207,163 @@ def get_test_plot(data):
     line_fig.update_layout(template='plotly_dark')
     line_fig.update_traces(line_shape='spline')
 
+    res_values = []
+    res_labels = []
+    res_x = list(bar_df['Дата'].unique())
+
+    bar_datasets = []
+    v_map_rev = dict((v, k) for k, v in v_map.items())
+
+
+    pie_cfg = {
+        'type': 'pie',
+        'data': {
+            'labels': list(pie_df['Настроение']),
+            'datasets': [{
+                'data': list(pie_df['Величина']),
+                'backgroundColor': list(map(lambda x: cdm[x],list(pie_df['Настроение']))),
+                'hoverOffset': 4
+            }]
+        },
+        'options': {
+            'responsive': True,
+            'plugins': {
+                'legend': {
+                    'display': False,
+                },
+            },
+        },
+    }
+
+    line_cfg = {
+        'type': 'line',
+        'data': {
+            'labels': list(map(str,l_d['Дата'])),
+            'datasets': [{
+                'lineTension': 0.5,
+                'data': l_d['Величина'],
+                'pointBackgroundColor': list(map(lambda x: cdm[v_map_rev[x]],l_d['Величина']))
+            }]
+        },
+        'options': {
+            'responsive': True,
+            'borderWidth': 12,
+            'elements': {
+                'point': {
+                    'radius': 7,
+                    'borderWidth': 8,
+                    'hoverBorderWidth': 8
+                }
+            },
+            'bezierCurve': True,
+            'plugins': {
+                'legend': {
+                    'display': False,
+                },
+                'tooltip': {
+                    'displayColors': False
+                }
+            },
+            'scales': {
+                'x': {
+                    'grid': {
+                        'display': False,
+                        'drawBorder': False
+                    },
+                    'ticks': {
+                        'color': '#FFFFFF'
+                    }
+
+                },
+                'y': {
+                    'display': False,
+                    'grid': {
+                        'display': False
+                    }
+                },
+            },
+        },
+    }
+    gradient_set = []
+    def get_gradient_scale(gradient_set):
+        res = []
+        for i,val in enumerate(gradient_set):
+            if i == 0:
+                res.append([i,val[1]])
+            else:
+                res.append([i/(len(gradient_set)-1), val[1]])
+        return res
+
+
+    for i in sorted(list(set(line_cfg['data']['datasets'][0]['data']))):
+        gradient_set.append([i,cdm[v_map_rev[i]]])
+    gradient_set = get_gradient_scale(gradient_set)
+
+
+    bar_cfg = {
+        'type': 'bar',
+        'data': {},
+        'options': {
+            'plugins':{
+                'legend': {
+                    'display': False
+                }
+            },
+            # 'responsive': False,
+            'categoryPercentage': 1.0,
+            'barPercentage': 1.0,
+            'scales': {
+                'x': {
+                    'stacked': True,
+                    'grid': {
+                        'display': False,
+                        'drawBorder': False
+                    },
+                    'ticks': {
+                        'color': '#FFFFFF'
+                    }
+
+                },
+                'y': {
+                    'stacked': True,
+                    'display': False,
+                    'grid': {
+                        'display': False
+                    }
+                },
+            },
+
+        }
+    }
+
+    for i in bar_df['Настроение'].unique():
+        bar_datasets.append(
+            {
+                'label': i,
+                'data': list(bar_df[bar_df['Настроение'] == i].sort_values('Дата')['Величина']),
+                'backgroundColor': cdm[i]
+            }
+        )
+        res_labels.append(i)
+        res_values.append(list(bar_df[bar_df['Настроение'] == i].sort_values('Дата')['Величина']))
+
+    bar_cfg['data'] = {
+        'labels': list(map(str,bar_df[bar_df['Настроение'] == i].sort_values('Дата')['Дата'])),
+        'datasets': bar_datasets
+    }
+
+
+
+
     return json.dumps(pie_fig, cls=plotly.utils.PlotlyJSONEncoder), \
            json.dumps(bar_fig, cls=plotly.utils.PlotlyJSONEncoder), \
-           json.dumps(line_fig, cls=plotly.utils.PlotlyJSONEncoder)
+           json.dumps(line_fig, cls=plotly.utils.PlotlyJSONEncoder), \
+           json.dumps(line_cfg, ensure_ascii=False),\
+           json.dumps(bar_cfg, ensure_ascii=False),\
+           json.dumps(gradient_set, ensure_ascii=False),\
+           json.dumps(pie_cfg, ensure_ascii=False)
+
+
 
 
 def get_plots():
@@ -300,15 +457,19 @@ def create_app(app_name='YAMOOD_API'):
                     data = test_data
                     flash('Показываем тестовых рыбов')
 
-                pieJSON, barJSON, lineJSON = get_test_plot(data)
+                pieJSON, barJSON, lineJSON,line_cfg, bar_cfg, gradient_set, pie_cfg = get_test_plot(data)
 
                 g.user = {
                     'username': user_info['display_name'],
                     'access_token': sp_user_clt.access_info['access_token']
                 }
 
-                resp = make_response(
-                    render_template('notdash.html', pieJSON=pieJSON, barJSON=barJSON, lineJSON=lineJSON))
+                resp = make_response(render_template('notdash.html', pieJSON=pieJSON, barJSON=barJSON, lineJSON=lineJSON,
+                                                     bar_cfg=bar_cfg,
+                                                     line_cfg=line_cfg,
+                                                     gradient_set=gradient_set,
+                                                     pie_cfg=pie_cfg
+                                                     ))
                 return resp
             except Exception as e:
                 print(str(e))
@@ -318,6 +479,59 @@ def create_app(app_name='YAMOOD_API'):
         else:
             link = sp_client.get_auth_url()
             return render_template('login.html', spotify_auth_link=link)
+
+    # @app.route('/get_songs_history')
+    # def songs_history():
+    #     session['access_token'] = 'AgAAAAAh7Vk7AAG8XtDkZzG_PEYLjGVYMIVdDQE'
+    #     if 'access_token' in session:
+    #         num_tracks = int(request.args.get('n'))
+    #         final_chart_json = SongProcessing.get_user_stats(session['access_token'],
+    #                                                          num_tracks,
+    #                                                          sd_model)
+    #
+    #         return final_chart_json, 200
+    #     else:
+    #         return redirect('/')
+
+    # @app.route('/dash_test', methods=['GET', 'POST'])
+    # def notdash():
+    #     pieJSON, barJSON = get_test_plot(session['access_token'])
+    #     return render_template('notdash.html', pieJSON=pieJSON, barJSON=barJSON)
+    #
+    # @app.route('/api/get_text_emotions', methods=['POST'])
+    # @cross_origin()
+    # def text_emotions():
+    #     if request.method == "POST":
+    #         request_data = request.get_json()
+    #         text = request_data['text']
+    #         fn = f'dl/data/data{uuid.uuid4()}.csv'
+    #         with open(fn, 'w') as f:
+    #             f.write('text\n'+text.replace("\n", " "))
+    #         res = sd_model.classify(fn)
+    #         print(res)
+    #         return {'result': str(res)}, 200
+    #     return jsonify({
+    #                 'statusCode': 400
+    #             }), 400
+    #
+    # @app.route('/api/get_text_emotions_batch', methods=['POST'])
+    # @cross_origin()
+    # def text_emotions_batch():
+    #     if request.method == "POST":
+    #         request_data = request.get_json()
+    #         texts = request_data['texts']
+    #         fn = f'dl/data/data{uuid.uuid4()}.csv'
+    #         with open(fn, 'w') as f:
+    #             f.write('text\n')
+    #             for t in texts:
+    #                 f.write('"'+t.replace("\n", " ").replace('"', '\\"')+'"\n')
+    #         res = np.round(sd_model.classify(fn)[1], 2)
+    #
+    #         print(res)
+    #         return {'result': str(res)}, 200
+    #     return jsonify({
+    #         'statusCode': 400
+    #     }), 400
 
     def get_client(code):
         token_auth_uri = f"https://oauth.yandex.ru/token"

@@ -5,6 +5,7 @@ import requests
 import urllib
 import base64
 
+
 from spotify_client import SpotifyAuthClient, SpotifyUserClient, SpotifyAppClient
 from yandex_music import Client, exceptions
 from spotify_tracks_processing import MusicClassification, LyricsProcessing

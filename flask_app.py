@@ -387,7 +387,7 @@ def create_app(app_name='YAMOOD_API'):
                                 'MoodGfhjkm_017',
                                 'rs01', 'mood', 'mood')
 
-    @scheduler.task('cron', id='history_scarp', seconds=0, minutes=0, hours='*/2')
+    @scheduler.task('cron', id='history_scarp', second=0, minute=0, hour='*/2')
     def scarp_users_history():
         users = mongo_conn.get_all_users()
         mc = MusicClassification()

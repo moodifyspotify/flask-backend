@@ -28,10 +28,6 @@
 
           return gradient;
         };
-        var pie_graphs = {{pieJSON | safe}};
-        var bar_graphs = {{barJSON | safe}};
-        var line_graphs = {{lineJSON | safe}};
-
 
         var bar_ful = {{bar_cfg | safe }};
         var line_ful = {{line_cfg | safe}};
@@ -63,14 +59,6 @@
 
 
 
-        pie_graphs.config={responsive: true};
-        bar_graphs.config={responsive: true};
-        line_graphs.config={responsive: true};
-
-<!--        Plotly.newPlot("line-chart",line_graphs);-->
-<!--        Plotly.newPlot("pie-chart",pie_graphs);-->
-<!--        Plotly.newPlot("hist-chart",bar_graphs);-->
-
         var ctx_bar = document.getElementById('barChart').getContext('2d');
         var bar_chart = new Chart(ctx_bar, bar_ful);
 
@@ -92,27 +80,15 @@
 <div class="main-cont">
     <h1>Статистика</h1>
     <div class="cont-row">
-        <div id="tip" class="chart-30">
-            <div class="tip-text">
-                Привет, это Яндекс.Настроение!
-                <br>
-                Мы показываем инсайты твоего настроения, которые открыл наш очень эмпатичный ИИ :)
-                <br>
-                <br>
-                Он собрал статистику того, что ты слушал на Яндекс.Музыке,
-                посчитал настроение, которое транслировалось в этих треках,
-                а мы разложили все это на красивые графики.
-                <br>
-                <br>
-                Каждой эмоции соответствует свой цвет, чтобы разобраться изучи легенду у графиков.
-            </div>
-
+        <div class="chart-30"><canvas id="pieChart"></canvas></div>
+        <div class="chart-30">
+            {% for vl in legend %}
+                  <div class="dot-div"><span class="dot" style="background-color:{{vl[2]}};"></span>{{vl[0]}}</div>
+              {% endfor %}
         </div>
-        <div class="chart-60"><canvas id="pieChart"></canvas></div>
+         <div class="chart-30">Ваше основное настроение: <br>{{legend[0][0]}}!</div>
     </div>
-    <h2>Ведущее настроение дня</h2>
     <div class="chart-100"><canvas id="lineChart" class="chart-100"></canvas></div>
-    <h2>Соотношение по дням</h2>
     <div class="chart-100"><canvas id="barChart" class="chart-100"></canvas></div>
 
 </div>

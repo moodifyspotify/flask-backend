@@ -1,27 +1,9 @@
 {% extends 'base.html' %}
 
-{% block header %}
-  <h1>{% block title %}Авторизация{% endblock %}</h1>
-{% endblock %}
+
 
 {% block content %}
-<!--<form action="/auth" method="post">-->
-<!--        <p>-->
-<!--	    <label for="username">Логин</label><br>-->
-<!--	    <input type="text" name="username" required>-->
-<!--	</p>-->
-<!--	<p>-->
-<!--	    <label for="password">Пароль</label><br>-->
-<!--	    <input type="password" name="password" required>-->
-<!--	</p>-->
-<!--	<p>-->
-<!--	    <input class="btn" type="submit" value="Войти">-->
-<!--	</p>-->
-
-<!--    </form>-->
-<div style="display: flex; align-items: center; width: 100%; flex-direction: column">
-	<div class="btn" style="max-width:300px" onclick="window.open('{{spotify_auth_link}}')">
-		Войти через Spotify
-	</div>
+<div style="display: flex; align-items: center; width: 100%; flex-direction: column; margin-top: 300px; min-width:200px;">
+	<button class="glow-on-hover" type="button" onclick="window.open('{{spotify_auth_link}}')"><h3>Войти через Spotify</h3></button>
 </div>
 {% endblock %}

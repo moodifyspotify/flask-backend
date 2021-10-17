@@ -38,7 +38,7 @@ client_secret = 'none'
 sp_client_id = '3561e398cf0e414da717da295a2c0e91'
 sp_client_secret = '7f7503a4c32e4878926a23f0eb06aaec'
 if __name__ == "__main__":
-    sp_redirect_uri = 'http://172.20.10.3:5000/spotify_auth'
+    sp_redirect_uri = 'http://192.168.1.65:5000/spotify_auth'
 else:
     sp_redirect_uri = 'https://music-mood-tracker.ml/spotify_auth'
 
@@ -132,6 +132,7 @@ def get_test_plot(data):
     }
 
     sms = [data[e].sum() for e in emts]
+    sms = list(map(lambda x: x / sum(sms), sms))
     pie_df = pd.DataFrame({
         "Настроение": emts,
         "Величина": sms
@@ -247,7 +248,8 @@ def get_test_plot(data):
             }]
         },
         'options': {
-            'responsive': True,
+             'responsive': True,
+            'maintainAspectRatio': False,
             'borderWidth': 12,
             'elements': {
                 'point': {
@@ -310,7 +312,8 @@ def get_test_plot(data):
                     'display': False
                 }
             },
-            # 'responsive': False,
+            'responsive': True,
+            'maintainAspectRatio': False,
             'categoryPercentage': 1.0,
             'barPercentage': 1.0,
             'scales': {
@@ -362,7 +365,9 @@ def get_test_plot(data):
            json.dumps(line_cfg, ensure_ascii=False),\
            json.dumps(bar_cfg, ensure_ascii=False),\
            json.dumps(gradient_set, ensure_ascii=False),\
-           json.dumps(pie_cfg, ensure_ascii=False)
+           json.dumps(pie_cfg, ensure_ascii=False), \
+           sorted(list(zip(pie_cfg['data']['labels'], pie_cfg['data']['datasets'][0]['data'], pie_cfg['data']['datasets'][0]['backgroundColor'])),
+                  key=lambda x:x[2], reverse=True)
 
 
 
@@ -458,7 +463,7 @@ def create_app(app_name='YAMOOD_API'):
                     data = test_data
                     flash('Показываем тестовых рыбов')
 
-                pieJSON, barJSON, lineJSON,line_cfg, bar_cfg, gradient_set, pie_cfg = get_test_plot(data)
+                pieJSON, barJSON, lineJSON,line_cfg, bar_cfg, gradient_set, pie_cfg,legend = get_test_plot(data)
 
                 g.user = {
                     'username': user_info['display_name'],
@@ -469,7 +474,8 @@ def create_app(app_name='YAMOOD_API'):
                                                      bar_cfg=bar_cfg,
                                                      line_cfg=line_cfg,
                                                      gradient_set=gradient_set,
-                                                     pie_cfg=pie_cfg
+                                                     pie_cfg=pie_cfg,
+                                                     legend=legend
                                                      ))
                 return resp
             except Exception as e:

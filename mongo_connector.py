@@ -29,8 +29,8 @@ class MongoConnector:
                                                        'user': spotyfy_info,
                                                        'auth': auth_info
                                                    },
-                                                   'track_history': [],
-                                                   'mood_history': []
+                                                   'track_history': {},
+                                                   'mood_history': {}
                                                }
                                            }, upsert=True)
         return result

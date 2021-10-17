@@ -1,12 +1,15 @@
+numpy==1.19.2
+six==1.15.0
+certifi==2020.12.5
+idna==2.10
+requests==2.25.1
+urllib3==1.26.3
 flask
 flask_cors
-numpy
 pymongo
 pandas
 plotly
-numpy
 pytz
-requests
 datetime
 yandex_music
 librosa
@@ -20,6 +23,7 @@ keras
 tensorflow
 beautifulsoup4
 Flask-APScheduler
+
 
 #pytorch==1.0.1
 #torchvision==0.2.2

@@ -29,7 +29,7 @@ sp_client_secret = '7f7503a4c32e4878926a23f0eb06aaec'
 if __name__ == "__main__":
     sp_redirect_uri = 'http://192.168.1.65:5000/spotify_auth'
 else:
-    sp_redirect_uri = 'https://music-mood-tracker.ml/spotify_auth'
+    sp_redirect_uri = 'https://mude.ml/spotify_auth'
 
 sp_client = SpotifyAuthClient(sp_client_id, sp_client_secret, sp_redirect_uri)
 

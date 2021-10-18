@@ -21,13 +21,20 @@ from json import JSONEncoder
 
 from mongo_connector import MongoConnector
 
+import logging
+
 # client_id = 'none'
 # client_secret = 'none'
+
+logging.basicConfig(filename='logs.txt',
+                    level=logging.INFO,
+                    format='%(asctime)s %(levelname)s %(name)s : %(message)s')
+
 
 sp_client_id = '3561e398cf0e414da717da295a2c0e91'
 sp_client_secret = '7f7503a4c32e4878926a23f0eb06aaec'
 if __name__ == "__main__":
-    sp_redirect_uri = 'http://192.168.1.65:5000/spotify_auth'
+    sp_redirect_uri = 'http://192.168.1.66:5000/spotify_auth'
 else:
     sp_redirect_uri = 'https://mude.ml/spotify_auth'
 
@@ -379,7 +386,7 @@ def create_app(app_name='YAMOOD_API'):
                                 'MoodGfhjkm_017',
                                 'rs01', 'mood', 'mood')
 
-    @scheduler.task('cron', id='history_scarp', second=0, minute=0, hour='*')
+    @scheduler.task('cron', id='history_scarp', second=0, minute='*/30')
     def scarp_users_history():
         users = mongo_conn.get_all_users()
         mc = MusicClassification()
@@ -450,7 +457,7 @@ def create_app(app_name='YAMOOD_API'):
                     data = test_data
                     flash('Показываем тестовых рыбов')
 
-                pieJSON, barJSON, lineJSON,line_cfg, bar_cfg, gradient_set, pie_cfg,legend = get_test_plot(data)
+                pieJSON, barJSON, lineJSON,line_cfg, bar_cfg, gradient_set, pie_cfg, legend = get_test_plot(data)
 
                 g.user = {
                     'username': user_info['display_name'],

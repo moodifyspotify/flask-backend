@@ -115,20 +115,18 @@ class SpotifyUserClient:
             'Authorization': f'Bearer {self.access_info["access_token"]}'
         }
 
-        for i in range(1, 5, 1):
-
-            resp = requests.get(self.base_api_url + method_url,
-                                params={
-                                    'after': int(time.time() * 1000) - 3 * 60 * 60 - i * 6 * 60 * 60 * 1000,
+        resp = requests.get(self.base_api_url + method_url,
+                            params={
+                                    'after': int(time.time() * 1000)-40*60*1000,
                                     'limit': 50
                                 },
-                                headers=headers).json()
-            for lu in resp['items']:
-                last_day_tracks[lu['played_at']] = {
+                            headers=headers).json()
+        for lu in resp['items']:
+            last_day_tracks[lu['played_at']] = {
                     'track_name': lu['track']['name'],
                     'artist_names': [artist['name'] for artist in lu['track']['artists']],
                     'track_id': lu['track']['uri']
-                }
+            }
 
         return last_day_tracks
 

@@ -82,11 +82,11 @@
     <div class="cont-row">
         <div class="chart-30"><canvas id="pieChart"></canvas></div>
         <div class="chart-30">
-            {% for vl in legend %}
+            {% for vl in legend_list %}
                   <div class="dot-div"><span class="dot" style="background-color:{{vl[2]}};"></span>{{vl[0]}}</div>
               {% endfor %}
         </div>
-         <div class="chart-30">Ваше основное настроение: <br>{{legend[0][0]}}!</div>
+         <div class="chart-30">Ваше основное настроение: <br>{{legend_list[0][0]}}!</div>
     </div>
     <div class="chart-100"><canvas id="lineChart" class="chart-100"></canvas></div>
     <div class="chart-100"><canvas id="barChart" class="chart-100"></canvas></div>

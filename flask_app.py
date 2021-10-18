@@ -354,7 +354,7 @@ def get_test_plot(data):
            json.dumps(gradient_set, ensure_ascii=False),\
            json.dumps(pie_cfg, ensure_ascii=False), \
            sorted(list(zip(pie_cfg['data']['labels'], pie_cfg['data']['datasets'][0]['data'], pie_cfg['data']['datasets'][0]['backgroundColor'])),
-                  key=lambda x:x[2], reverse=True)
+                  key=lambda x:x[1], reverse=True)
 
 
 
@@ -462,7 +462,7 @@ def create_app(app_name='YAMOOD_API'):
                                                      line_cfg=line_cfg,
                                                      gradient_set=gradient_set,
                                                      pie_cfg=pie_cfg,
-                                                     legend=legend
+                                                     legend_list=legend
                                                      ))
                 return resp
             except Exception as e:

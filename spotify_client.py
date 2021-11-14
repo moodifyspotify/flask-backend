@@ -114,21 +114,23 @@ class SpotifyUserClient:
             'Content-type': 'application/x-www-form-urlencoded',
             'Authorization': f'Bearer {self.access_info["access_token"]}'
         }
+        try:
+            resp = requests.get(self.base_api_url + method_url,
+                                params={
+                                        'after': int(time.time() * 1000)-40*60*1000,
+                                        'limit': 50
+                                    },
+                                headers=headers).json()
+            for lu in resp['items']:
+                last_day_tracks[lu['played_at']] = {
+                        'track_name': lu['track']['name'],
+                        'artist_names': [artist['name'] for artist in lu['track']['artists']],
+                        'track_id': lu['track']['uri']
+                }
 
-        resp = requests.get(self.base_api_url + method_url,
-                            params={
-                                    'after': int(time.time() * 1000)-40*60*1000,
-                                    'limit': 50
-                                },
-                            headers=headers).json()
-        for lu in resp['items']:
-            last_day_tracks[lu['played_at']] = {
-                    'track_name': lu['track']['name'],
-                    'artist_names': [artist['name'] for artist in lu['track']['artists']],
-                    'track_id': lu['track']['uri']
-            }
-
-        return last_day_tracks
+            return last_day_tracks
+        except:
+            return {}
 
     def get_tracks_features(self,track_ids):
         method_url = '/audio-features'

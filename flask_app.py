@@ -34,7 +34,7 @@ logging.basicConfig(filename='logs.txt',
 sp_client_id = '3561e398cf0e414da717da295a2c0e91'
 sp_client_secret = '7f7503a4c32e4878926a23f0eb06aaec'
 if __name__ == "__main__":
-    sp_redirect_uri = 'http://192.168.1.66:5000/spotify_auth'
+    sp_redirect_uri = 'http://172.20.10.3:5000/spotify_auth'
 else:
     sp_redirect_uri = 'https://mude.ml/spotify_auth'
 
@@ -398,6 +398,12 @@ def create_app(app_name='YAMOOD_API'):
             processed_tracks = mongo_conn.check_processed_tracks(tracks_to_process)
             unprocessed_tracks_ids = [i for i in tracks_to_process if i not in list(processed_tracks.keys())]
 
+            for i in processed_tracks:
+                users_listened = i.get('users_listened', [])
+                if u['spotify_info']['user']['id'] not in users_listened:
+                    users_listened.append(u['spotify_info']['user']['id'])
+                    mongo_conn.update_track('track_id', 'users_listened', users_listened)
+
             if len(unprocessed_tracks_ids) > 0:
                 track_features = sp_user_clt.get_tracks_features([i.split(':')[-1] for i in unprocessed_tracks_ids])
                 classes = mc.get_music_emotions(track_features)
@@ -427,7 +433,8 @@ def create_app(app_name='YAMOOD_API'):
                                'text': lyrics[track_info['track_id']] \
                                    if track_info['track_id'] in unprocessed_tracks_ids \
                                    else processed_tracks[track_info['track_id']]['lyrics']
-                           })
+                           },
+                           users_listened=[u['spotify_info']['user']['id']])
                 if track_info['track_id'] in unprocessed_tracks_ids:
                     mongo_conn.create_spotify_track(**ins)
 
@@ -565,71 +572,6 @@ def create_app(app_name='YAMOOD_API'):
             return str(processed_tracks)
         return 'ne work'
 
-    # @app.route('/get_songs_history')
-    # def songs_history():
-    #     session['access_token'] = 'AgAAAAAh7Vk7AAG8XtDkZzG_PEYLjGVYMIVdDQE'
-    #     if 'access_token' in session:
-    #         num_tracks = int(request.args.get('n'))
-    #         final_chart_json = SongProcessing.get_user_stats(session['access_token'],
-    #                                                          num_tracks,
-    #                                                          sd_model)
-    #
-    #         return final_chart_json, 200
-    #     else:
-    #         return redirect('/')
-
-    # def get_client(code):
-    #     token_auth_uri = f"https://oauth.yandex.ru/token"
-    #     headers = {
-    #         'Content-type': 'application/x-www-form-urlencoded',
-    #     }
-    #     query = {
-    #         'grant_type': 'authorization_code',
-    #         'code': code,
-    #         'client_id': client_id,
-    #         'client_secret': client_secret,
-    #     }
-    #     query = urllib.parse.urlencode(query)
-    #
-    #     resp = requests.post(token_auth_uri, data=query, headers=headers)
-    #     print(resp.text)
-    #     rj = resp.json()
-    #     return rj['access_token']
-    #
-    # def get_client_from_cred(un, pwd):
-    #     return Client.from_credentials(un, pwd).token
-
-    # @app.route('/auth', methods=['POST', 'GET'])
-    # @cross_origin()
-    # def auth():
-    #     if request.method == "GET":
-    #         code = request.args.get('code')
-    #         token = get_client(code)
-    #         session['access_token'] = token
-    #         return redirect('/')
-    #     elif request.method == "POST":
-    #         username = request.form.get('username')
-    #         password = request.form.get('password')
-    #
-    #         error = None
-    #
-    #         if not username:
-    #             error = 'Введите логин'
-    #         elif not password:
-    #             error = 'Введите пароль'
-    #         if error is None:
-    #             try:
-    #                 token = get_client_from_cred(username, password)
-    #                 session['access_token'] = token
-    #                 resp = make_response(redirect('/'))
-    #                 resp.set_cookie('access_token', token, max_age=60 * 60 * 24 * 365 * 2)
-    #                 return resp
-    #             except Exception as e:
-    #                 flash(str(e))
-    #                 error = "Не удалось войти... Вероятный диагноз -- неверный пароль("
-    #
-    #         flash(error)
-    #         return render_template('login.html')
 
     @app.route('/logout', methods=['POST', 'GET'])
     @cross_origin()

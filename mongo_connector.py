@@ -52,7 +52,8 @@ class MongoConnector:
                                            {'$set': new_values_dict})
         return result
 
-    def create_spotify_track(self, track_id, source_name, track_name, artist_name,emotions,lyrics):
+
+    def create_spotify_track(self, track_id, source_name, track_name, artist_name,emotions,lyrics,users_listened):
         result = self.dbs.tracks.update_one({'track_id': track_id},
                                            {
                                                '$setOnInsert': {
@@ -61,7 +62,8 @@ class MongoConnector:
                                                     'track_name': track_name,
                                                     'artist_name': artist_name,
                                                     'emotions': emotions,
-                                                    'lyrics': lyrics
+                                                    'lyrics': lyrics,
+                                                    'users_listened': users_listened
                                                }
                                            }, upsert=True)
         return result
@@ -92,6 +94,7 @@ class MongoConnector:
         result = self.dbs.tracks.update_one({by_field: by_value},
                                            {'$set': new_values_dict})
         return result
+
 
     def check_processed_tracks(self, tracks):
         result = self.dbs.tracks.find({

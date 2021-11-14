@@ -18,6 +18,16 @@ logging.basicConfig(filename='job_logs.txt',
                     format='%(asctime)s %(levelname)s %(name)s : %(message)s')
 
 
+def update_users_tracks_history(user_ids,track_id,lyrics_emotions):
+    for i in user_ids:
+        user = mongo_conn.get_user_by('spotify_info.user.id',i)
+
+        for track_time in user['track_history'].keys():
+            if user['track_history'][track_time]['track_id'] == track_id:
+                user['track_history'][track_time]['emotions']['lyrics'] = lyrics_emotions
+
+        mongo_conn.update_user('spotify_info.user.id',i,{'track_history': user['track_history']})
+
 def job():
     logging.info('Job started')
     non_processed_tracks = mongo_conn.get_non_processed_lyrics()
@@ -36,6 +46,11 @@ def job():
             track_emotions = non_processed_tracks[i]['emotions']
             track_emotions['lyrics'] = [float(x) for x in classes]
             mongo_conn.update_track('_id', non_processed_tracks[i]['_id'], {'emotions': track_emotions})
+            update_users_tracks_history(
+                non_processed_tracks[i].get('users_listened',[]),
+                non_processed_tracks[i]['track_id'],
+                track_emotions['lyrics']
+            )
             print('Done:', non_processed_tracks[i]['track_name'], track_emotions['lyrics'])
             os.remove(fn)
         except Exception as e:

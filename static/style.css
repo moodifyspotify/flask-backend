@@ -314,7 +314,7 @@ border-radius: 20px;
 
 .chart-30 {
     min-width: 200px;
-    width: 27%;
+    width: 100%;
     border-radius: 20px;
     background: #292E43;
     display: flex;
@@ -351,7 +351,7 @@ border-radius: 20px;
     min-width: 245px;
     padding-top: 25px;
     padding-bottom: 25px;
-    width: 30%;
+    width: 100%;
     border-radius: 20px;
     background: #292E43;
     padding: 10px;

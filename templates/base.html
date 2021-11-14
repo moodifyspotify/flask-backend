@@ -1,28 +1,51 @@
 <!doctype html>
+
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{% block title %}{% endblock %} - Ловим Настроение</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   {% block head %}
   {% endblock %}
 </head>
-<title>{% block title %}{% endblock %} - Ловим Настроение</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<nav>
-<!--  <h1>Яндекс.Настроение</h1>-->
-  <img src="{{ url_for('static', filename='logo2.svg') }}" width="260px" style="margin-left: 3%"/>
-  <ul style="margin-right: 3%">
-    {% if g.user %}
-      <li><span>{{ g.user['username'] }}</span>
-      <li><a href="{{ url_for('logout') }}">Выйти</a>
-    {% else %}
-      <li><a href="{{ url_for('main_page') }}">Войти</a>
-    {% endif %}
-  </ul>
-</nav>
-<section class="content">
-  <header>
-    {% block header %}{% endblock %}
-  </header>
-  {% for message in get_flashed_messages() %}
+
+
+<body>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #333B59;">
+    <a class="navbar-brand" href="#">
+      <img src="{{ url_for('static', filename='logo3.svg') }}" width="50px" /> Mude
+    </a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav ml-auto my-2 my-lg-0 justify-content-between">
+        {% if g.user %}
+        <li class="nav-item"><span>{{ g.user['username'] }}</span>
+        <li class="nav-item active"><a href="{{ url_for('logout') }}">Выйти</a>
+          {% else %}
+        <li class="nav-item active"><a href="{{ url_for('main_page') }}">Войти</a>
+          {% endif %}
+      </ul>
+    </div>
+  </nav>
+  <section class="content">
+    <header>
+      {% block header %}{% endblock %}
+    </header>
+    {% for message in get_flashed_messages() %}
     <div class="flash">{{ message }}</div>
-  {% endfor %}
-  {% block content %}{% endblock %}
-</section>
+    {% endfor %}
+    {% block content %}{% endblock %}
+  </section>
+</body>

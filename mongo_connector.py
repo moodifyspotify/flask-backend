@@ -105,5 +105,5 @@ class MongoConnector:
         for i in result:
             processed_tracks[i['track_id']] = i
 
-        return processed_tracks
+        return processed_tracks,result
 

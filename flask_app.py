@@ -395,10 +395,10 @@ def create_app(app_name='YAMOOD_API'):
             sp_user_clt = SpotifyUserClient(access_info, sp_client_id, sp_client_secret, sp_redirect_uri)
             tracks_history = sp_user_clt.get_user_recent_tracks()
             tracks_to_process = [i['track_id'] for i in tracks_history.values()]
-            processed_tracks = mongo_conn.check_processed_tracks(tracks_to_process)
+            processed_tracks,processed_tracks_full = mongo_conn.check_processed_tracks(tracks_to_process)
             unprocessed_tracks_ids = [i for i in tracks_to_process if i not in list(processed_tracks.keys())]
 
-            for i in processed_tracks:
+            for i in processed_tracks_full:
                 users_listened = i.get('users_listened', [])
                 if u['spotify_info']['user']['id'] not in users_listened:
                     users_listened.append(u['spotify_info']['user']['id'])
@@ -446,6 +446,7 @@ def create_app(app_name='YAMOOD_API'):
                 'track_history': user_info_history,
                 'mood_history': user_info_mood_history
             })
+
 
     @app.route('/')
     def main_page():

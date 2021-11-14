@@ -137,3 +137,5 @@ dmypy.json
 mp3s
 dl/data/
 songs_files/
+
+logs.txt

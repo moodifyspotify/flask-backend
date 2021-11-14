@@ -515,3 +515,68 @@ KeyError: 'items'
 2021-11-14 16:03:11,298 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
 2021-11-14 16:03:11,307 WARNING werkzeug :  * Debugger is active!
 2021-11-14 16:03:11,329 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-11-14 17:50:51,907 INFO apscheduler.scheduler : Scheduler started
+2021-11-14 17:50:51,957 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-11-14 17:50:51,958 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-11-14 17:50:51,959 INFO werkzeug :  * Restarting with stat
+2021-11-14 17:50:57,215 INFO apscheduler.scheduler : Scheduler started
+2021-11-14 17:50:57,263 WARNING werkzeug :  * Debugger is active!
+2021-11-14 17:50:57,288 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-11-14 17:51:28,798 INFO werkzeug : 172.20.10.3 - - [14/Nov/2021 17:51:28] "GET / HTTP/1.1" 200 -
+2021-11-14 17:51:28,919 INFO werkzeug : 172.20.10.3 - - [14/Nov/2021 17:51:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-11-14 17:51:29,290 INFO werkzeug : 172.20.10.3 - - [14/Nov/2021 17:51:29] "[36mGET /static/logo2.svg HTTP/1.1[0m" 304 -
+2021-11-14 17:51:47,401 INFO werkzeug : 172.20.10.3 - - [14/Nov/2021 17:51:47] "[35m[1mGET /run_history_calc HTTP/1.1[0m" 500 -
+2021-11-14 17:51:47,477 INFO werkzeug : 172.20.10.3 - - [14/Nov/2021 17:51:47] "GET /run_history_calc?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2021-11-14 17:51:47,486 INFO werkzeug : 172.20.10.3 - - [14/Nov/2021 17:51:47] "GET /run_history_calc?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2021-11-14 17:51:47,525 INFO werkzeug : 172.20.10.3 - - [14/Nov/2021 17:51:47] "GET /run_history_calc?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-14 17:51:47,783 INFO werkzeug : 172.20.10.3 - - [14/Nov/2021 17:51:47] "GET /run_history_calc?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+2021-11-14 17:51:47,820 INFO werkzeug : 172.20.10.3 - - [14/Nov/2021 17:51:47] "GET /run_history_calc?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-14 17:53:29,275 INFO werkzeug :  * Detected change in '/Users/roma/Desktop/moodifyspotify/mongo_connector.py', reloading
+2021-11-14 17:53:30,530 INFO werkzeug :  * Restarting with stat
+2021-11-14 17:53:38,551 INFO apscheduler.scheduler : Scheduler started
+2021-11-14 17:53:38,611 WARNING werkzeug :  * Debugger is active!
+2021-11-14 17:53:38,627 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-11-14 17:55:54,228 INFO apscheduler.scheduler : Scheduler started
+2021-11-14 17:55:54,279 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-11-14 17:55:54,279 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-11-14 17:55:54,281 INFO werkzeug :  * Restarting with stat
+2021-11-14 17:55:59,351 INFO apscheduler.scheduler : Scheduler started
+2021-11-14 17:55:59,389 WARNING werkzeug :  * Debugger is active!
+2021-11-14 17:55:59,403 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-11-14 17:56:27,341 INFO werkzeug : 172.20.10.3 - - [14/Nov/2021 17:56:27] "[35m[1mGET /run_history_calc HTTP/1.1[0m" 500 -
+2021-11-14 17:56:27,419 INFO werkzeug : 172.20.10.3 - - [14/Nov/2021 17:56:27] "GET /run_history_calc?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2021-11-14 17:56:27,421 INFO werkzeug : 172.20.10.3 - - [14/Nov/2021 17:56:27] "GET /run_history_calc?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2021-11-14 17:56:27,493 INFO werkzeug : 172.20.10.3 - - [14/Nov/2021 17:56:27] "GET /run_history_calc?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-14 17:56:27,895 INFO werkzeug : 172.20.10.3 - - [14/Nov/2021 17:56:27] "GET /run_history_calc?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+2021-11-14 17:56:27,939 INFO werkzeug : 172.20.10.3 - - [14/Nov/2021 17:56:27] "GET /run_history_calc?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-14 17:57:43,099 INFO apscheduler.scheduler : Scheduler started
+2021-11-14 17:57:43,311 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-11-14 17:57:43,311 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-11-14 17:57:43,313 INFO werkzeug :  * Restarting with stat
+2021-11-14 17:57:51,988 INFO apscheduler.scheduler : Scheduler started
+2021-11-14 17:57:52,081 WARNING werkzeug :  * Debugger is active!
+2021-11-14 17:57:52,100 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-11-14 18:00:53,625 INFO apscheduler.scheduler : Scheduler started
+2021-11-14 18:00:53,676 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-11-14 18:00:53,676 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-11-14 18:00:53,678 INFO werkzeug :  * Restarting with stat
+2021-11-14 18:00:59,022 INFO apscheduler.scheduler : Scheduler started
+2021-11-14 18:00:59,063 WARNING werkzeug :  * Debugger is active!
+2021-11-14 18:00:59,072 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-11-14 18:01:11,736 INFO werkzeug : 172.20.10.3 - - [14/Nov/2021 18:01:11] "[35m[1mGET /run_history_calc HTTP/1.1[0m" 500 -
+2021-11-14 18:01:11,799 INFO werkzeug : 172.20.10.3 - - [14/Nov/2021 18:01:11] "GET /run_history_calc?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2021-11-14 18:01:11,807 INFO werkzeug : 172.20.10.3 - - [14/Nov/2021 18:01:11] "GET /run_history_calc?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2021-11-14 18:01:11,875 INFO werkzeug : 172.20.10.3 - - [14/Nov/2021 18:01:11] "GET /run_history_calc?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-14 18:01:12,036 INFO werkzeug : 172.20.10.3 - - [14/Nov/2021 18:01:12] "GET /run_history_calc?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+2021-11-14 18:01:12,356 INFO werkzeug : 172.20.10.3 - - [14/Nov/2021 18:01:12] "GET /run_history_calc?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-14 18:02:08,994 INFO werkzeug :  * Detected change in '/Users/roma/Desktop/moodifyspotify/flask_app.py', reloading
+2021-11-14 18:02:09,957 INFO werkzeug :  * Restarting with stat
+2021-11-14 18:02:15,971 INFO apscheduler.scheduler : Scheduler started
+2021-11-14 18:02:16,018 WARNING werkzeug :  * Debugger is active!
+2021-11-14 18:02:16,029 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-11-14 18:03:53,295 INFO werkzeug :  * Detected change in '/Users/roma/Desktop/moodifyspotify/flask_app.py', reloading
+2021-11-14 18:03:54,163 INFO werkzeug :  * Restarting with stat

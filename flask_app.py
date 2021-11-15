@@ -263,12 +263,17 @@ def get_test_plot(data):
             },
             'scales': {
                 'x': {
+                    'type': 'timeseries',
+                    'time': {
+                        'unit': 'day'
+                    },
                     'grid': {
                         'display': False,
                         'drawBorder': False
                     },
                     'ticks': {
-                        'color': '#FFFFFF'
+                        'color': '#FFFFFF',
+                        'source': 'data'
                     }
 
                 },
@@ -312,13 +317,18 @@ def get_test_plot(data):
             'barPercentage': 1.0,
             'scales': {
                 'x': {
+                    'type': 'timeseries',
+                    'time': {
+                        'unit': 'day'
+                    },
                     'stacked': True,
                     'grid': {
                         'display': False,
                         'drawBorder': False
                     },
                     'ticks': {
-                        'color': '#FFFFFF'
+                        'color': '#FFFFFF',
+                        'source': 'data'
                     }
 
                 },

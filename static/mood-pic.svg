@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient id="gradient-1" bx:pinned="true">
+      <title>redblue</title>
+      <stop offset="0.146" style="stop-color: rgb(253, 91, 91);"/>
+      <stop offset="0.489" style="stop-color: rgb(253, 91, 223);"/>
+      <stop offset="0.893" style="stop-color: rgb(91, 116, 253);"/>
+    </linearGradient>
+    <linearGradient id="gradient-2" bx:pinned="true">
+      <title>greenpurp</title>
+      <stop offset="0.112" style="stop-color: rgb(109, 255, 170);"/>
+      <stop offset="0.438" style="stop-color: rgb(243, 255, 109);"/>
+      <stop offset="0.719" style="stop-color: rgb(255, 210, 232);"/>
+      <stop offset="0.964" style="stop-color: rgb(205, 151, 255);"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="194.129" y1="212.121" x2="194.129" y2="285.985" id="gradient-1-1" spreadMethod="pad" gradientTransform="matrix(0.322214, -0.610761, 2.17093, 1.145299, -438.139153, 161.609217)" xlink:href="#gradient-1"/>
+    <linearGradient id="gradient-3" bx:pinned="true">
+      <title>1</title>
+      <stop offset="0.158" style="stop-color: rgb(251, 255, 142);"/>
+      <stop offset="0.49" style="stop-color: rgb(253, 200, 192);"/>
+      <stop offset="0.653" style="stop-color: rgb(254, 174, 216);"/>
+      <stop offset="0.857" style="stop-color: rgb(255, 142, 246);"/>
+    </linearGradient>
+    <linearGradient id="gradient-4" bx:pinned="true">
+      <title>2</title>
+      <stop offset="0" style="stop-color: rgb(255, 45, 223);"/>
+      <stop offset="0.214" style="stop-color: rgb(252, 123, 233);"/>
+      <stop offset="0.429" style="stop-color: rgb(254, 161, 240);"/>
+      <stop offset="0.618" style="stop-color: rgb(195, 161, 254);"/>
+      <stop offset="0.791" style="stop-color: rgb(159, 104, 255);"/>
+      <stop offset="1" style="stop-color: rgb(86, 80, 255);"/>
+    </linearGradient>
+    <linearGradient id="gradient-3-0" gradientUnits="userSpaceOnUse" x1="207.733" y1="208.942" x2="207.733" y2="253.765" gradientTransform="matrix(1.304788, -1.699206, -3.413407, -2.335022, 790.364689, 1137.394955)" xlink:href="#gradient-3"/>
+    <radialGradient id="gradient-2-1" gradientUnits="userSpaceOnUse" cx="111.399" cy="112.177" r="88.259" xlink:href="#gradient-2"/>
+    <linearGradient id="gradient-3-2" gradientUnits="userSpaceOnUse" x1="290.089" y1="38.51" x2="290.089" y2="460.227" gradientTransform="matrix(1.215972, 0, 0, 1.125749, -90.112846, -37.03931)" xlink:href="#gradient-3"/>
+    <linearGradient id="gradient-4-0" gradientUnits="userSpaceOnUse" x1="283.46" y1="134.47" x2="283.46" y2="206.44" gradientTransform="matrix(1.713112, 0, 0, -1.307008, -147.214859, 476.258698)" xlink:href="#gradient-4"/>
+  </defs>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 211.49 120.581"/>
+  <path d="M 104.066 115.01 Q 104.066 113.666 105.29 112.89 Q 106.597 112.062 108.306 112.562 Q 110.206 113.118 111.41 115.01 Q 112.763 117.135 112.546 119.906 Q 112.303 123.004 110.186 125.61 Q 107.841 128.496 104.066 129.698 Q 99.927 131.015 95.498 129.85 Q 90.686 128.584 87.106 124.802 Q 83.247 120.725 82.034 115.01 Q 80.736 108.891 82.866 102.77 Q 85.133 96.254 90.602 91.69 Q 96.395 86.855 104.066 85.634 Q 112.157 84.347 119.978 87.45 Q 128.196 90.711 133.746 97.874 Q 139.559 105.377 140.786 115.01 Q 142.067 125.07 137.986 134.594 Q 133.736 144.514 124.874 151.05 Q 115.664 157.843 104.066 159.074 Q 92.037 160.35 80.81 155.29 Q 69.187 150.052 61.666 139.49 Q 53.892 128.573 52.658 115.01 Q 51.385 101.013 57.426 88.082 Q 63.651 74.756 75.914 66.25 Q 88.537 57.494 104.066 56.258 Q 120.031 54.988 134.666 62.01 Q 149.695 69.22 159.186 83.186 Q 168.924 97.514 170.162 115.01 Q 171.43 132.943 163.426 149.282 Q 155.23 166.014 139.562 176.49 Q 123.529 187.21 104.066 188.45 Q 84.165 189.716 66.122 180.73 Q 47.686 171.549 36.225 154.178 Q 24.523 136.44 23.283 115.01 Q 22.017 93.142 31.985 73.394 Q 42.152 53.255 61.226 40.809 Q 80.669 28.124 104.066 26.883 Q 127.902 25.618 149.354 36.569 Q 171.197 47.721 184.627 68.498 Q 198.295 89.645 199.537 115.01 Q 200.801 140.814 188.867 163.97 Q 178.56 183.966 160.47 197.602" style="fill: none; stroke-width: 8px; stroke-linecap: round; stroke: url(#gradient-2-1);" transform="matrix(2.303488, 0, 0, 2.348723, -33.319714, -22.823462)" bx:shape="spiral 104.066 115.01 0 100.014 0 1225.67 1@65b9d744"/>
+  <line style="stroke-width: 40px; stroke-linecap: round; stroke: url(#gradient-1-1); paint-order: fill;" x1="85.228" y1="287.247" x2="237.374" y2="366.162"/>
+  <line style="fill: url(#gradient-3-0); stroke-linecap: round; stroke-width: 25px; stroke-opacity: 0.82; stroke: url(#gradient-4-0);" x1="206.44" y1="206.44" x2="470.329" y2="300.505"/>
+  <polyline style="fill: none; stroke-linecap: round; stroke-opacity: 0.67; stroke-width: 29px; stroke-linejoin: round; stroke: url(#gradient-3-2);" points="252.263 85.202 418.077 6.313 474.116 155.561 114.852 478.219 114.084 481.06 64.954 461.872 51.137 454.764"/>
+</svg>

@@ -4,7 +4,7 @@
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-              console.log('{{ g.user['access_token'] }}');
+      console.log("{{ g.user['access_token'] }}");
       $( document ).ready(function() {
 
       let width, height, gradient;
@@ -71,25 +71,60 @@
       });
     </script>
 {% endblock %}
-{% block title %} MoodMap {% endblock %}
+{% block title %} Stats {% endblock %}
 {% block header %}
 {% endblock %}
 
 {% block content %}
 
-<div class="main-cont">
-    <h1>Статистика</h1>
-    <div class="cont-row">
-        <div class="chart-30"><canvas id="pieChart"></canvas></div>
-        <div class="chart-30">
-            {% for vl in legend_list %}
-                  <div class="dot-div"><span class="dot" style="background-color:{{vl[2]}};"></span>{{vl[0]}}</div>
-              {% endfor %}
-        </div>
-         <div class="chart-30">Ваше основное настроение: <br>{{legend_list[0][0]}}!</div>
+<div class="container-fluid main">
+  <div class="row">
+    <div class="col-sm-12 heading">
+      <h1>Summary</h1>
     </div>
-    <div class="chart-100"><canvas id="lineChart" class="chart-100"></canvas></div>
-    <div class="chart-100"><canvas id="barChart" class="chart-100"></canvas></div>
+    <div class="col-sm-4 p-3">
+      <div class="subcard p-2">
+        <h2>Mood over period</h2>
+        <canvas id="pieChart" class="mx-auto" style="max-width: 250px;"></canvas>
+      </div>
+    </div>
+    <div class="col-sm-4 p-3">
+      <div class="subcard p-2">
+        <h2>Unique Mood Print</h2>
+        <img class="mx-auto d-block" src="{{ url_for('static', filename='mood-pic.svg') }}" style="width: 90%;" /> 
+      </div>
+      
+    </div>
+    <div class="col-sm-4 p-3">
+      <div class="subcard p-2">
+        <h2>Mood rank</h2>
+        {% for vl in legend_list %}
+          <div class="dot-div"><span class="dot" style="background-color:{{vl[2]}};"></span>{{vl[0]}}</div>
+        {% endfor %}
+      </div>
 
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid main">
+  <div class="row">
+    <div class="col-sm-12 heading">
+      <h1>Mude Flow</h1>
+    </div>
+
+    <div class="col-sm-12 p-3">
+      <div class="subcard p-2">
+        <div><canvas id="lineChart"></canvas></div>
+      </div>
+    </div>
+
+    <div class="col-sm-12 p-3">
+      <div class="subcard p-2">
+        <div><canvas id="barChart"></canvas></div>
+      </div>
+    </div>
+    
+  </div>
 </div>
 {% endblock %}

@@ -34,7 +34,7 @@ logging.basicConfig(filename='logs.txt',
 sp_client_id = '3561e398cf0e414da717da295a2c0e91'
 sp_client_secret = '7f7503a4c32e4878926a23f0eb06aaec'
 if __name__ == "__main__":
-    sp_redirect_uri = 'http://172.20.10.3:5000/spotify_auth'
+    sp_redirect_uri = 'http://192.168.1.70:5000/spotify_auth'
 else:
     sp_redirect_uri = 'https://mude.ml/spotify_auth'
 

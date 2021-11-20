@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 
-
+{% block title %} Login {% endblock %}
 {% block content %}
 <div style="display: flex; align-items: center; width: 100%; flex-direction: column; margin-top: 300px; min-width:200px;">
-	<button class="glow-on-hover" type="button" onclick="window.open('{{spotify_auth_link}}')"><h3>Войти через Spotify</h3></button>
+	<button class="glow-on-hover" type="button" onclick="window.open('{{spotify_auth_link}}')"><h2>Log in with Spotify</h2></button>
 </div>
 {% endblock %}

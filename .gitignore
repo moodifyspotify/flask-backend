@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+.vscode/
+logs.txt
+
 # C extensions
 *.so
 
@@ -138,4 +141,5 @@ mp3s
 dl/data/
 songs_files/
 
+logs.txt
 logs.txt

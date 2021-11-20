@@ -77,29 +77,37 @@ class NumpyEncoder(JSONEncoder):
 
 
 def get_test_plot(data):
-    songs_count = sum(data['is_calm']) + \
-                  sum(data['is_energetic']) + \
-                  sum(data['is_happy']) + \
-                  sum(data['is_sad'])
+    songs_count = sum(data['is_calm_music']) + \
+                  sum(data['is_energetic_music']) + \
+                  sum(data['is_happy_music']) + \
+                  sum(data['is_sad_music'])
 
-    data['day_sn'] = data['is_calm'] + data['is_energetic'] + data['is_happy'] + data['is_sad']
-    data['calm_perc'] = data['is_calm'] / data['day_sn']
-    data['energetic_perc'] = data['is_energetic'] / data['day_sn']
-    data['happy_perc'] = data['is_happy'] / data['day_sn']
-    data['sad_perc'] = data['is_sad'] / data['day_sn']
+    data['day_sn'] = data['is_calm_music'] + data['is_energetic_music'] + data['is_happy_music'] + data['is_sad_music']
+    data['calm_perc'] = data['is_calm_music'] / data['day_sn']
+    data['energetic_perc'] = data['is_energetic_music'] / data['day_sn']
+    data['happy_perc'] = data['is_happy_music'] / data['day_sn']
+    data['sad_perc'] = data['is_sad_music'] / data['day_sn']
 
-    data['Спокойствие'] = data['calm']
-    # data['Ярость'] = data['energetic'] + data['sad']
-    # data['Восторг'] = data['happy']+data['energetic']
-    data['Счастье'] = data['happy']
-    data['Энергичность'] = data['energetic']
-    data['Грусть'] = data['sad']
-    # data['Неприязнь'] = data['disgust_lyrics']
-    # data['Страх'] = data_df['fear_lyrics']
-    # data['Удивление'] = data_df['surprise_lyrics']
-    # data['Грусть'] = data_df['sadness_lyrics'] + 0.25*data_df['sad_music_perc']
+    # data['Спокойствие'] = data['trust_lyrics'] + 0.25* data['calm_perc']
+    # data['Ярость'] = data['anger_lyrics']
+    # data['Восторг'] = data['anticipation_lyrics']+data['energetic_perc']
+    # data['Энергичность'] = data['energetic']
+    # data['Грусть'] = data['sad']
+    # # data['Неприязнь'] = data['disgust_lyrics']
+    # # data['Страх'] = data_df['fear_lyrics']
+    # # data['Удивление'] = data_df['surprise_lyrics']
+    # # data['Грусть'] = data_df['sadness_lyrics'] + 0.25*data_df['sad_music_perc']
 
-    emts = ['Спокойствие', 'Счастье', 'Энергичность', 'Грусть']
+    data['Спокойствие'] = data['trust_lyrics'] + 0.25 * data['calm_perc']
+    data['Ярость'] = data['anger_lyrics']
+    data['Восторг'] = data['anticipation_lyrics'] + 0.25 * data['energetic_perc']
+    data['Веселье'] = data['joy_lyrics'] + 0.25 * data['happy_perc']
+    data['Неприязнь'] = data['disgust_lyrics']
+    data['Страх'] = data['fear_lyrics']
+    data['Удивление'] = data['surprise_lyrics']
+    data['Грусть'] = data['sadness_lyrics'] + 0.25 * data['sad_perc']
+
+    emts = ['Спокойствие', 'Ярость', 'Восторг', 'Веселье', 'Неприязнь', 'Страх', 'Удивление', 'Грусть']
 
     def get_main_emotion(x):
         vls = list(x[emts])
@@ -118,12 +126,12 @@ def get_test_plot(data):
         'Веселье': 4
     }
 
-    v_map = {
-        'Грусть': -1,
-        'Спокойствие': 0,
-        'Энергичность': 1,
-        'Счастье': 2
-    }
+    # v_map = {
+    #     'Грусть': -1,
+    #     'Спокойствие': 0,
+    #     'Энергичность': 1,
+    #     'Счастье': 2
+    # }
 
     sms = [data[e].sum() for e in emts]
     sms = list(map(lambda x: x / sum(sms), sms))
@@ -153,10 +161,16 @@ def get_test_plot(data):
     line_df = pd.DataFrame(l_d)
 
     cdm = {
+        'Ярость': '#FF6F76',
+        'Страх': '#FFCA2D',
+        'Неприязнь': '#6DCE8A',
         'Грусть': '#8D92A5',
         'Спокойствие': '#97F3FD',
-        'Энергичность': '#D076FF',
-        'Счастье': '#52A3FD'
+        'Удивление': '#FDB5B5',
+        'Восторг': '#D076FF',
+        'Веселье': '#52A3FD'
+
+
     }
     color_scale = [
         # [0.0, '#FF6F76'],
@@ -339,7 +353,8 @@ def get_test_plot(data):
             {
                 'label': i,
                 'data': list(bar_df[bar_df['Настроение'] == i].sort_values('Дата')['Величина']),
-                'backgroundColor': cdm[i]
+                'backgroundColor': cdm[i],
+                'normalize': True
             }
         )
         res_labels.append(i)

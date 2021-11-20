@@ -46,10 +46,14 @@
         line_ful.options.plugins.tooltip['callbacks'] = {
                   title: function(tooltipItem) {
                     var v_map = {
-                        'Грусть': -1,
-                        'Спокойствие': 0,
-                        'Энергичность': 1,
-                        'Счастье': 2
+                            'Ярость': -3,
+                            'Страх': -2,
+                            'Неприязнь': -1,
+                            'Грусть': 0,
+                            'Спокойствие': 1,
+                            'Удивление': 2,
+                            'Восторг': 3,
+                            'Веселье': 4
                     };
                     return 'Настроение дня:\n' + getKeyByValue(v_map,tooltipItem[0].dataset.data[tooltipItem[0].dataIndex]);
                 },

@@ -69,17 +69,30 @@ class MongoConnector:
         return result
 
     def get_mood_history_as_pandas(self, email):
+
+        def fill_empty_values(emotions):
+            if emotions.get('music',None) == None:
+                emotions['music'] = [0]*4
+            if emotions.get('lyrics',None) == None:
+                emotions['lyrics'] = [0]*8
+            return emotions
+
+
         res = list(self.dbs.users.find({'email': email},
-                                       {'mood_history': 1, '_id': 0}))
+                                       {'track_history': 1, '_id': 0}))
         if len(res) == 0:
             return None
-        res_df_init = pd.DataFrame.from_dict(res[0]['mood_history'], orient='index')
-        features = ['calm', 'energetic', 'happy', 'sad']
-        res_df = pd.DataFrame(res_df_init.music.tolist(), index=res_df_init.index, columns=features)
+
+        res_df_init = pd.DataFrame.from_dict({k: fill_empty_values(dict(v['emotions'])) for k, v in res[0]['track_history'].items()}, orient='index')
+        features = ['calm_music', 'energetic_music', 'happy_music', 'sad_music','anger_lyrics','anticipation_lyrics','disgust_lyrics',
+                    'fear_lyrics','joy_lyrics','sadness_lyrics','surprise_lyrics','trust_lyrics']
+        res_df = pd.DataFrame(res_df_init[['music','lyrics']].apply(lambda x: x[0]+x[1],axis=1).tolist(),
+                              index=res_df_init.index, columns=features)
         res_df.index = pd.to_datetime(res_df.index)
         res_df['date'] = res_df.index.date
         is_f = []
-        for i, f in enumerate(features):
+
+        for i, f in enumerate(features[:4]):
             is_f.append('is_' + f)
             res_df['is_' + f] = res_df[features].apply(lambda x: 1 if np.argmax(x) == i else 0, axis=1)
         ret_df = res_df[['date'] + features].groupby('date').mean()

@@ -1023,3 +1023,205 @@ json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 2021-11-18 18:16:49,425 INFO werkzeug : 172.20.10.3 - - [18/Nov/2021 18:16:49] "GET / HTTP/1.1" 200 -
 2021-11-18 18:16:49,503 INFO werkzeug : 172.20.10.3 - - [18/Nov/2021 18:16:49] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2021-11-18 18:16:49,512 INFO werkzeug : 172.20.10.3 - - [18/Nov/2021 18:16:49] "[36mGET /static/logo2.svg HTTP/1.1[0m" 304 -
+2021-11-25 00:09:32,222 INFO apscheduler.scheduler : Scheduler started
+2021-11-25 00:09:32,444 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-11-25 00:09:43,321 INFO werkzeug :  * Restarting with stat
+2021-11-25 00:09:58,390 INFO apscheduler.scheduler : Scheduler started
+2021-11-25 00:09:58,754 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-11-25 00:09:58,884 WARNING werkzeug :  * Debugger is active!
+2021-11-25 00:09:59,010 INFO werkzeug :  * Debugger PIN: 251-103-497
+2021-11-25 00:10:14,999 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-11-25 00:10:15,005 INFO werkzeug :  * Running on http://192.168.1.70:5000/ (Press CTRL+C to quit)
+2021-11-25 00:10:56,010 INFO werkzeug :  * Detected change in 'C:\\Users\\vladimir.shilov\\pycharm-proj\\mediahack\\flask-backend\\flask_app.py', reloading
+2021-11-25 00:10:57,108 INFO werkzeug :  * Restarting with stat
+2021-11-25 00:11:16,367 INFO apscheduler.scheduler : Scheduler started
+2021-11-25 00:11:16,465 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-11-25 00:11:16,491 INFO werkzeug :  * Restarting with stat
+2021-11-25 00:11:25,615 INFO apscheduler.scheduler : Scheduler started
+2021-11-25 00:11:25,680 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-11-25 00:11:25,691 WARNING werkzeug :  * Debugger is active!
+2021-11-25 00:11:25,705 INFO werkzeug :  * Debugger PIN: 251-103-497
+2021-11-25 00:11:26,473 INFO werkzeug :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-25 00:12:17,067 INFO werkzeug : 127.0.0.1 - - [25/Nov/2021 00:12:17] "GET / HTTP/1.1" 200 -
+2021-11-25 00:12:17,235 INFO werkzeug : 127.0.0.1 - - [25/Nov/2021 00:12:17] "GET /static/style.css HTTP/1.1" 200 -
+2021-11-25 00:12:17,700 INFO werkzeug : 127.0.0.1 - - [25/Nov/2021 00:12:17] "GET /static/logo3.svg HTTP/1.1" 200 -
+2021-11-25 00:12:18,077 INFO werkzeug : 127.0.0.1 - - [25/Nov/2021 00:12:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2021-11-25 00:12:48,821 INFO werkzeug :  * Detected change in 'C:\\Users\\vladimir.shilov\\pycharm-proj\\mediahack\\flask-backend\\flask_app.py', reloading
+2021-11-25 00:12:49,671 INFO werkzeug :  * Restarting with stat
+2021-11-25 00:13:12,707 INFO apscheduler.scheduler : Scheduler started
+2021-11-25 00:13:12,784 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-11-25 00:13:12,804 INFO werkzeug :  * Restarting with stat
+2021-11-25 00:13:28,016 INFO apscheduler.scheduler : Scheduler started
+2021-11-25 00:13:28,130 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-11-25 00:13:28,147 WARNING werkzeug :  * Debugger is active!
+2021-11-25 00:13:28,183 INFO werkzeug :  * Debugger PIN: 251-103-497
+2021-11-25 00:13:41,214 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-11-25 00:13:41,215 INFO werkzeug :  * Running on http://192.168.1.70:5000/ (Press CTRL+C to quit)
+2021-11-25 00:14:03,398 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 00:14:03] "GET / HTTP/1.1" 200 -
+2021-11-25 00:14:03,569 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 00:14:03] "GET /static/style.css HTTP/1.1" 200 -
+2021-11-25 00:14:03,570 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 00:14:03] "GET /static/logo3.svg HTTP/1.1" 200 -
+2021-11-25 00:14:14,872 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 00:14:14] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2021-11-25 00:15:12,438 INFO werkzeug :  * Detected change in 'C:\\Users\\vladimir.shilov\\pycharm-proj\\mediahack\\flask-backend\\flask_app.py', reloading
+2021-11-25 00:15:14,218 INFO werkzeug :  * Restarting with stat
+2021-11-25 00:15:27,067 INFO apscheduler.scheduler : Scheduler started
+2021-11-25 00:15:27,133 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-11-25 00:27:18,369 INFO apscheduler.scheduler : Scheduler started
+2021-11-25 00:27:18,495 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-11-25 00:27:29,436 INFO werkzeug :  * Restarting with stat
+2021-11-25 00:27:41,985 INFO apscheduler.scheduler : Scheduler started
+2021-11-25 00:27:42,254 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-11-25 00:27:42,273 WARNING werkzeug :  * Debugger is active!
+2021-11-25 00:27:42,371 INFO werkzeug :  * Debugger PIN: 251-103-497
+2021-11-25 00:27:59,259 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-11-25 00:27:59,260 INFO werkzeug :  * Running on http://192.168.1.70:5000/ (Press CTRL+C to quit)
+2021-11-25 00:28:00,263 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 00:28:00] "GET / HTTP/1.1" 200 -
+2021-11-25 00:28:00,382 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 00:28:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-11-25 00:28:00,424 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 00:28:00] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-11-25 00:28:15,406 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 00:28:15] "[32mGET /spotify_auth?code=AQAN2Ywc_5FhRQ5P3uo98ajfCHTAeg5PBA8D6EudMvPe6fJh_tL_NNKSYg6fyeoZGurPym6ncDMJlE-Jxf_ipQLyVDD9sK2YDU89ZYFdSq_oWj4ZGmoI-wu3_8L8MT4TomtrfF-vFRC2BCMNjC0QazLEnSWyfr-Dz9cU8wZybOPu4uV-QoKexWxc-uiOlirkOwTRbt54UPszP32KFawSgSLNglBL0bqrLTckmAru8uKCoamdRicNbwi2JQUzXoPwPN79uLCQ4IbUQvxjy-D34ouSsjy8SOENZgC-yG9MwLJROHXoJbm_YLqJTjEUDlBpRjqUDzTmoRs HTTP/1.1[0m" 302 -
+2021-11-25 00:28:22,047 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 00:28:22] "GET / HTTP/1.1" 200 -
+2021-11-25 00:28:22,268 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 00:28:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-11-25 00:28:25,286 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 00:28:25] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-11-25 00:28:33,585 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 00:28:33] "GET /static/mood-pic.svg HTTP/1.1" 200 -
+2021-11-25 00:30:00,006 INFO apscheduler.executors.default : Running job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-11-25 00:30:00 MSK)" (scheduled at 2021-11-25 00:30:00+03:00)
+2021-11-25 00:30:00,012 INFO apscheduler.executors.default : Running job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-11-25 00:30:00 MSK)" (scheduled at 2021-11-25 00:30:00+03:00)
+2021-11-25 00:30:03,152 ERROR apscheduler.executors.default : Job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-11-25 01:00:00 MSK)" raised an exception
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\flask-backend\lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "C:/Users/vladimir.shilov/pycharm-proj/mediahack/flask-backend/flask_app.py", line 419, in scarp_users_history
+    access_info = u['spotify_info']['auth']
+KeyError: 'spotify_info'
+2021-11-25 00:30:03,163 ERROR apscheduler.executors.default : Job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-11-25 01:00:00 MSK)" raised an exception
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\flask-backend\lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "C:\Users\vladimir.shilov\pycharm-proj\mediahack\flask-backend\flask_app.py", line 419, in scarp_users_history
+    access_info = u['spotify_info']['auth']
+KeyError: 'spotify_info'
+2021-11-25 00:35:02,784 INFO werkzeug :  * Detected change in 'C:\\Users\\vladimir.shilov\\pycharm-proj\\mediahack\\flask-backend\\flask_app.py', reloading
+2021-11-25 00:35:05,197 INFO werkzeug :  * Restarting with stat
+2021-11-25 00:35:19,987 INFO apscheduler.scheduler : Scheduler started
+2021-11-25 00:35:20,058 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-11-25 00:35:20,073 WARNING werkzeug :  * Debugger is active!
+2021-11-25 00:35:20,095 INFO werkzeug :  * Debugger PIN: 251-103-497
+2021-11-25 00:35:32,591 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-11-25 00:35:32,592 INFO werkzeug :  * Running on http://192.168.1.70:5000/ (Press CTRL+C to quit)
+2021-11-25 00:35:46,898 INFO werkzeug :  * Detected change in 'C:\\Users\\vladimir.shilov\\pycharm-proj\\mediahack\\flask-backend\\flask_app.py', reloading
+2021-11-25 00:35:47,664 INFO werkzeug :  * Restarting with stat
+2021-11-25 00:35:53,300 INFO apscheduler.scheduler : Scheduler started
+2021-11-25 00:35:53,345 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-11-25 00:35:53,353 WARNING werkzeug :  * Debugger is active!
+2021-11-25 00:35:53,362 INFO werkzeug :  * Debugger PIN: 251-103-497
+2021-11-25 00:36:05,673 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-11-25 00:36:05,673 INFO werkzeug :  * Running on http://192.168.1.70:5000/ (Press CTRL+C to quit)
+2021-11-25 00:53:18,293 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 00:53:18] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-11-25 00:53:18,297 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 00:53:18] "GET /static/style.css HTTP/1.1" 200 -
+2021-11-25 00:53:18,330 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 00:53:18] "[36mGET /static/mood-pic.svg HTTP/1.1[0m" 304 -
+2021-11-25 00:53:19,845 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 00:53:19] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2021-11-25 01:00:00,034 INFO apscheduler.executors.default : Running job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-11-25 01:00:00 MSK)" (scheduled at 2021-11-25 01:00:00+03:00)
+2021-11-25 01:00:00,095 INFO apscheduler.executors.default : Running job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-11-25 01:30:00 MSK)" (scheduled at 2021-11-25 01:00:00+03:00)
+2021-11-25 01:00:24,443 ERROR apscheduler.executors.default : Job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-11-25 01:30:00 MSK)" raised an exception
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\flask-backend\lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "C:/Users/vladimir.shilov/pycharm-proj/mediahack/flask-backend/flask_app.py", line 419, in scarp_users_history
+    access_info = u['spotify_info']['auth']
+KeyError: 'spotify_info'
+2021-11-25 01:00:24,456 ERROR apscheduler.executors.default : Job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-11-25 01:30:00 MSK)" raised an exception
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\flask-backend\lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "C:\Users\vladimir.shilov\pycharm-proj\mediahack\flask-backend\flask_app.py", line 419, in scarp_users_history
+    access_info = u['spotify_info']['auth']
+KeyError: 'spotify_info'
+2021-11-25 01:06:39,186 INFO werkzeug :  * Detected change in 'C:\\Users\\vladimir.shilov\\pycharm-proj\\mediahack\\flask-backend\\flask_app.py', reloading
+2021-11-25 01:06:43,127 INFO werkzeug :  * Restarting with stat
+2021-11-25 01:06:54,884 INFO apscheduler.scheduler : Scheduler started
+2021-11-25 01:06:54,972 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-11-25 01:06:54,987 WARNING werkzeug :  * Debugger is active!
+2021-11-25 01:06:55,011 INFO werkzeug :  * Debugger PIN: 251-103-497
+2021-11-25 01:07:17,793 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-11-25 01:07:17,793 INFO werkzeug :  * Running on http://192.168.1.70:5000/ (Press CTRL+C to quit)
+2021-11-25 01:07:29,029 INFO apscheduler.scheduler : Scheduler started
+2021-11-25 01:07:29,094 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-11-25 01:07:29,109 INFO werkzeug :  * Restarting with stat
+2021-11-25 01:07:38,683 INFO apscheduler.scheduler : Scheduler started
+2021-11-25 01:07:38,837 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-11-25 01:07:38,859 WARNING werkzeug :  * Debugger is active!
+2021-11-25 01:07:38,885 INFO werkzeug :  * Debugger PIN: 251-103-497
+2021-11-25 01:07:41,616 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-11-25 01:07:41,616 INFO werkzeug :  * Running on http://192.168.1.70:5000/ (Press CTRL+C to quit)
+2021-11-25 01:07:41,673 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:07:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-11-25 01:07:55,243 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:07:55] "GET / HTTP/1.1" 200 -
+2021-11-25 01:07:55,984 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:07:55] "GET / HTTP/1.1" 200 -
+2021-11-25 01:07:56,031 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:07:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-11-25 01:07:56,083 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:07:56] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-11-25 01:07:56,089 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:07:56] "[36mGET /static/mood-pic.svg HTTP/1.1[0m" 304 -
+2021-11-25 01:08:01,140 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:08:01] "[32mGET /logout HTTP/1.1[0m" 302 -
+2021-11-25 01:08:01,158 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:08:01] "GET / HTTP/1.1" 200 -
+2021-11-25 01:08:01,207 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:08:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-11-25 01:08:01,233 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:08:01] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-11-25 01:08:03,988 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:08:03] "GET / HTTP/1.1" 200 -
+2021-11-25 01:08:04,029 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:08:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-11-25 01:08:04,040 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:08:04] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-11-25 01:08:35,740 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:08:35] "GET / HTTP/1.1" 200 -
+2021-11-25 01:08:35,840 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:08:35] "GET /static/style.css HTTP/1.1" 200 -
+2021-11-25 01:08:35,919 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:08:35] "GET /static/logo3.svg HTTP/1.1" 200 -
+2021-11-25 01:08:47,087 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:08:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2021-11-25 01:11:16,047 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:11:16] "GET / HTTP/1.1" 200 -
+2021-11-25 01:11:16,218 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:11:16] "GET /static/style.css HTTP/1.1" 200 -
+2021-11-25 01:11:16,296 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:11:16] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-11-25 01:12:35,265 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:12:35] "GET /login?tg_id=52131344&token=b3e8591b-0896-4b35-bb47-fb11dcafcdce HTTP/1.1" 200 -
+2021-11-25 01:12:35,390 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:12:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-11-25 01:12:35,778 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:12:35] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-11-25 01:12:55,333 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:12:55] "[32mGET /spotify_auth?code=AQBsJgmVMpVBLU7SFc2w0eLCCk2MZyYf_w0Vq0xMjED9MqznYmCiJ125cj4akZJSIhFQh2ZQXi5SuZJf9eOthvwCnv9ByqZPe-48WH1sUsX_qqQMibzZ1uj4coMMmdM1CbyZ-B6OBIBe6cVsy-ZJOI2HpM-9dvKRbQi8EcPcH6hZpkXawClPOkuLqR6CIkZz1hcbm03eaQ6HnP426Gmr5JBj8mMF6E1FyUiIcQ-cc-UUBKvYF9lewxYjdHA3iEpwD1Dk6aml2AYKzryDKhayhmhhaHIq1PcQURZsGveJUgrg84ZQj1J6MB8nUwFpOyJS2VtiLZTj8vo HTTP/1.1[0m" 302 -
+2021-11-25 01:12:57,035 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:12:57] "GET / HTTP/1.1" 200 -
+2021-11-25 01:12:57,138 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:12:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-11-25 01:12:57,225 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:12:57] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-11-25 01:12:57,264 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:12:57] "[36mGET /static/mood-pic.svg HTTP/1.1[0m" 304 -
+2021-11-25 01:13:36,046 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:13:36] "[32mGET /logout HTTP/1.1[0m" 302 -
+2021-11-25 01:13:36,077 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:13:36] "GET / HTTP/1.1" 200 -
+2021-11-25 01:13:36,252 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:13:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-11-25 01:13:36,307 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:13:36] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-11-25 01:21:12,031 INFO werkzeug :  * Detected change in 'C:\\Users\\vladimir.shilov\\pycharm-proj\\mediahack\\flask-backend\\flask_app.py', reloading
+2021-11-25 01:21:15,144 INFO werkzeug :  * Restarting with stat
+2021-11-25 01:21:49,923 INFO apscheduler.scheduler : Scheduler started
+2021-11-25 01:21:50,230 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-11-25 01:22:01,028 INFO werkzeug :  * Restarting with stat
+2021-11-25 01:22:11,089 INFO apscheduler.scheduler : Scheduler started
+2021-11-25 01:22:11,229 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-11-25 01:22:11,242 WARNING werkzeug :  * Debugger is active!
+2021-11-25 01:22:11,295 INFO werkzeug :  * Debugger PIN: 251-103-497
+2021-11-25 01:22:24,805 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-11-25 01:22:24,808 INFO werkzeug :  * Running on http://192.168.1.70:5000/ (Press CTRL+C to quit)
+2021-11-25 01:22:25,533 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:22:25] "GET / HTTP/1.1" 200 -
+2021-11-25 01:22:25,688 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:22:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-11-25 01:22:25,700 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:22:25] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-11-25 01:22:41,458 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:22:41] "GET /login?tg_id=52131344&token=b3e8591b-0896-4b35-bb47-fb11dcafcdce HTTP/1.1" 200 -
+2021-11-25 01:22:41,597 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:22:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-11-25 01:22:41,748 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:22:41] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-11-25 01:23:03,507 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:23:03] "[32mGET /spotify_auth?code=AQA3yon6tT66WZ3GcsZIRX932ncZNmCNLQgVJ0nVe9v9O4YJJQmD1hfR1UnfRy2GWg_Xfj9Jlszhjy6aNdSkkAUFTnXKnbbO5XJzdRWpUGqolNqVdK7Jrf-COlFICkJmsvSwuX3DFhU7iyZXagdzXf3AXNyeAuSJsD9RmgOXfcrJl4xVkbGViiWZi9VJCrXaNweuisYbIBp6LVpSKelKj8T1pp4tuT10WnpRxqbsBF4YsWvFmqg53oPjLdLdqXNnRVljebTpetxsXa2yaERWbHsgbYZIYZAMCDT9WIrx3Yh_Hr1fBYd0hY9NJ-_mM6scyUCbTodHMPg HTTP/1.1[0m" 302 -
+2021-11-25 01:23:07,565 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:23:07] "GET / HTTP/1.1" 200 -
+2021-11-25 01:23:07,665 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:23:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-11-25 01:23:07,709 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:23:07] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-11-25 01:23:07,726 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:23:07] "[36mGET /static/mood-pic.svg HTTP/1.1[0m" 304 -
+2021-11-25 01:24:15,306 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:24:15] "[32mGET /login?tg_id=52131344&token=b3e8591b-0896-4b35-bb47-fb11dcafcdce HTTP/1.1[0m" 302 -
+2021-11-25 01:24:17,297 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:24:17] "GET / HTTP/1.1" 200 -
+2021-11-25 01:24:17,417 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:24:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-11-25 01:24:17,489 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:24:17] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-11-25 01:24:17,584 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:24:17] "[36mGET /static/mood-pic.svg HTTP/1.1[0m" 304 -
+2021-11-25 01:24:43,439 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:24:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-11-25 01:24:43,524 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:24:43] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-11-25 01:24:43,545 INFO werkzeug : 192.168.1.70 - - [25/Nov/2021 01:24:43] "[36mGET /static/mood-pic.svg HTTP/1.1[0m" 304 -
+2021-11-25 01:30:00,008 INFO apscheduler.executors.default : Running job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-11-25 01:30:00 MSK)" (scheduled at 2021-11-25 01:30:00+03:00)
+2021-11-25 01:30:00,027 INFO apscheduler.executors.default : Running job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-11-25 01:30:00 MSK)" (scheduled at 2021-11-25 01:30:00+03:00)
+2021-11-25 01:30:25,060 INFO apscheduler.executors.default : Job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-11-25 02:00:00 MSK)" executed successfully
+2021-11-25 01:30:25,141 INFO apscheduler.executors.default : Job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-11-25 02:00:00 MSK)" executed successfully

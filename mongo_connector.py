@@ -35,6 +35,24 @@ class MongoConnector:
                                            }, upsert=True)
         return result
 
+    def check_tg_token(self, tg_id, token):
+        user = self.get_user_by('tg_id', int(tg_id))
+        return token == user['token']
+
+    def add_spotify_info(self, tg_id, email, name, spotyfy_info, auth_info):
+        result = self.dbs.users.update_one({'tg_id': tg_id},
+                                           {
+                                               '$set': {
+                                                   'email': email,
+                                                   'spoty_name': name,
+                                                   'spotify_info': {
+                                                       'user': spotyfy_info,
+                                                       'auth': auth_info
+                                                   }
+                                               }
+                                           }, upsert=True)
+        return result
+
     def get_user_by(self, field, value):
         result = self.dbs.users.find_one({
             field: value

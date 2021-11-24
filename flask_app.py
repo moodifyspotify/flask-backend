@@ -472,6 +472,34 @@ def create_app(app_name='YAMOOD_API'):
                 'mood_history': user_info_mood_history
             })
 
+    @app.route('/login', methods=['POST', 'GET'])
+    @cross_origin()
+    def login_tg():
+        if request.method == "GET":
+            tg_id = request.args.get('tg_id')
+            token = request.args.get('token')
+            if not tg_id:
+                return redirect('/')
+            if not token:
+                return redirect('/')
+            if not mongo_conn.check_tg_token(int(tg_id), token):
+                return redirect('/')
+
+            resp = make_response(redirect('/'))
+            resp.set_cookie('tg_access', json.dumps({'tg_id': int(tg_id)}), max_age=60 * 60 * 24 * 365 * 2)
+            at = request.cookies.get('access_info')
+            if at:
+                return resp
+
+            try:
+                link = sp_client.get_auth_url()
+                resp = make_response(render_template('login.html', spotify_auth_link=link))
+                resp.set_cookie('tg_access', json.dumps({'tg_id': int(tg_id)}), max_age=60 * 60 * 24 * 365 * 2)
+                return resp
+            except Exception as e:
+                resp = make_response(redirect('/'))
+                resp.set_cookie('tg_access', json.dumps({'tg_id': int(tg_id)}), max_age=60 * 60 * 24 * 365 * 2)
+                return resp
 
     @app.route('/')
     def main_page():
@@ -479,7 +507,6 @@ def create_app(app_name='YAMOOD_API'):
         if at:
             # if request.args.get('n'):
             #     num_tracks = int(request.args.get('n'))
-
             access_info = json.loads(at)
             sp_user_clt = SpotifyUserClient(access_info, sp_client_id, sp_client_secret, sp_redirect_uri)
             try:
@@ -509,16 +536,19 @@ def create_app(app_name='YAMOOD_API'):
                 print(str(e))
                 flash('Что-то пошло не так( Попробуйте зайти снова')
                 link = sp_client.get_auth_url()
-                return render_template('login.html', spotify_auth_link=link)
+                return render_template('login_tg.html', spotify_auth_link=link)
         else:
             link = sp_client.get_auth_url()
-            return render_template('login.html', spotify_auth_link=link)
+            return render_template('login_tg.html', spotify_auth_link=link)
 
     @app.route('/spotify_auth', methods=['POST', 'GET'])
     @cross_origin()
     def spoti_auth():
         if request.method == "GET":
             error = request.args.get('error')
+            tg = request.cookies.get('tg_access')
+            if not tg:
+                return redirect('/')
             if error:
                 return redirect('/')
             try:
@@ -529,7 +559,8 @@ def create_app(app_name='YAMOOD_API'):
                 resp.set_cookie('access_info', json.dumps(token), max_age=60 * 60 * 24 * 365 * 2)
                 sp_user_clt = SpotifyUserClient(token, sp_client_id, sp_client_secret, sp_redirect_uri)
                 user_info = sp_user_clt.get_user_info()
-                mongo_conn.create_spotify_user(user_info['email'], user_info['uri'], user_info, token)
+                tg_id = json.loads(tg)['tg_id']
+                mongo_conn.add_spotify_info(tg_id, user_info['email'], user_info['uri'], user_info, token)
                 return resp
             except Exception as e:
                 error = "Не удалось войти..."

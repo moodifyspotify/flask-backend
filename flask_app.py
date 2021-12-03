@@ -34,7 +34,7 @@ logging.basicConfig(filename='logs.txt',
 sp_client_id = '3561e398cf0e414da717da295a2c0e91'
 sp_client_secret = '7f7503a4c32e4878926a23f0eb06aaec'
 if __name__ == "__main__":
-    sp_redirect_uri = 'http://192.168.1.70:5000/spotify_auth'
+    sp_redirect_uri = 'http://172.20.10.3:5000/spotify_auth'
 else:
     sp_redirect_uri = 'https://mude.ml/spotify_auth'
 
@@ -76,7 +76,7 @@ class NumpyEncoder(JSONEncoder):
             return JSONEncoder.default(self, obj)
 
 
-def get_test_plot(data):
+def get_test_plot(data,reply_history):
     songs_count = sum(data['is_calm_music']) + \
                   sum(data['is_energetic_music']) + \
                   sum(data['is_happy_music']) + \
@@ -88,15 +88,6 @@ def get_test_plot(data):
     data['happy_perc'] = data['is_happy_music'] / data['day_sn']
     data['sad_perc'] = data['is_sad_music'] / data['day_sn']
 
-    # data['Спокойствие'] = data['trust_lyrics'] + 0.25* data['calm_perc']
-    # data['Ярость'] = data['anger_lyrics']
-    # data['Восторг'] = data['anticipation_lyrics']+data['energetic_perc']
-    # data['Энергичность'] = data['energetic']
-    # data['Грусть'] = data['sad']
-    # # data['Неприязнь'] = data['disgust_lyrics']
-    # # data['Страх'] = data_df['fear_lyrics']
-    # # data['Удивление'] = data_df['surprise_lyrics']
-    # # data['Грусть'] = data_df['sadness_lyrics'] + 0.25*data_df['sad_music_perc']
 
     data['Спокойствие'] = data['trust_lyrics'] + 0.25 * data['calm_perc']
     data['Ярость'] = data['anger_lyrics']
@@ -126,12 +117,14 @@ def get_test_plot(data):
         'Веселье': 4
     }
 
-    # v_map = {
-    #     'Грусть': -1,
-    #     'Спокойствие': 0,
-    #     'Энергичность': 1,
-    #     'Счастье': 2
-    # }
+    v_map_reply = {
+        'mood_terrible': -2,
+        'mood_bad': -1,
+        'mood_ok': 0,
+        'mood_good': 1,
+        'mood_excellent': 2,
+    }
+
 
     sms = [data[e].sum() for e in emts]
     sms = list(map(lambda x: x / sum(sms), sms))
@@ -172,16 +165,14 @@ def get_test_plot(data):
 
 
     }
-    color_scale = [
-        # [0.0, '#FF6F76'],
-        # [0.125, '#FFCA2D'],
-        # [0.25, '#6DCE8A'],
-        [0.0, '#8D92A5'],
-        [0.33, '#97F3FD'],
-        # [0.75, '#FDB5B5'],
-        [0.67, '#D076FF'],
-        [1.0, '#52A3FD']
-    ]
+    cdm_reply = {
+        'mood_terrible': '#FF6F76',
+        'mood_bad': '#FFCA2D',
+        'mood_ok': '#6DCE8A',
+        'mood_good': '#8D92A5',
+        'mood_excellent': '#97F3FD'
+    }
+
 
     pie_fig = px.pie(pie_df, values="Величина", names="Настроение",
                      template='plotly_dark',
@@ -223,6 +214,7 @@ def get_test_plot(data):
 
     bar_datasets = []
     v_map_rev = dict((v, k) for k, v in v_map.items())
+    v_map_reply_rev = dict((v, k) for k, v in v_map_reply.items())
 
 
     pie_cfg = {
@@ -300,7 +292,21 @@ def get_test_plot(data):
             },
         },
     }
+
+    line_cfg_reply = dict(line_cfg)
+
+    line_cfg_reply['data'] = {
+            'labels': list(map(str,reply_history.index)),
+            'datasets': [{
+                'lineTension': 0.5,
+                'data': list(reply_history.values),
+                'pointBackgroundColor': list(map(lambda x: cdm_reply[v_map_reply_rev[x]],reply_history.values))
+            }]
+        }
+
+
     gradient_set = []
+    gradient_set_reply = []
     def get_gradient_scale(gradient_set):
         res = []
         for i,val in enumerate(gradient_set):
@@ -314,6 +320,10 @@ def get_test_plot(data):
     for i in sorted(list(set(line_cfg['data']['datasets'][0]['data']))):
         gradient_set.append([i,cdm[v_map_rev[i]]])
     gradient_set = get_gradient_scale(gradient_set)
+
+    for i in sorted(list(set(line_cfg_reply['data']['datasets'][0]['data']))):
+        gradient_set_reply.append([i, cdm_reply[v_map_reply_rev[i]]])
+    gradient_set_reply = get_gradient_scale(gradient_set)
 
 
     bar_cfg = {
@@ -386,7 +396,10 @@ def get_test_plot(data):
            json.dumps(gradient_set, ensure_ascii=False),\
            json.dumps(pie_cfg, ensure_ascii=False), \
            sorted(list(zip(pie_cfg['data']['labels'], pie_cfg['data']['datasets'][0]['data'], pie_cfg['data']['datasets'][0]['backgroundColor'])),
-                  key=lambda x:x[1], reverse=True)
+                  key=lambda x:x[1], reverse=True),\
+           json.dumps(gradient_set_reply, ensure_ascii=False),\
+            json.dumps(line_cfg_reply, ensure_ascii=False),
+
 
 
 
@@ -511,13 +524,13 @@ def create_app(app_name='YAMOOD_API'):
             sp_user_clt = SpotifyUserClient(access_info, sp_client_id, sp_client_secret, sp_redirect_uri)
             try:
                 user_info = sp_user_clt.get_user_info()
-                data = mongo_conn.get_mood_history_as_pandas(user_info['email'])
+                data,reply_history = mongo_conn.get_mood_history_as_pandas(user_info['email'])
                 print(data)
                 if data is None:
                     data = test_data
                     flash('Показываем тестовых рыбов')
 
-                pieJSON, barJSON, lineJSON,line_cfg, bar_cfg, gradient_set, pie_cfg, legend = get_test_plot(data)
+                pieJSON, barJSON, lineJSON,line_cfg, bar_cfg, gradient_set, pie_cfg, legend,gradient_set_reply,line_cfg_reply = get_test_plot(data,reply_history)
 
                 g.user = {
                     'username': user_info['display_name'],
@@ -529,7 +542,9 @@ def create_app(app_name='YAMOOD_API'):
                                                      line_cfg=line_cfg,
                                                      gradient_set=gradient_set,
                                                      pie_cfg=pie_cfg,
-                                                     legend_list=legend
+                                                     legend_list=legend,
+                                                     gradient_set_reply=gradient_set_reply,
+                                                     line_cfg_reply=line_cfg_reply
                                                      ))
                 return resp
             except Exception as e:

@@ -86,6 +86,29 @@ class MongoConnector:
                                            }, upsert=True)
         return result
 
+    def get_reply_history_df(self,res):
+
+        if res.get('reply_history',None) == None:
+            return pd.DataFrame()
+
+        mood_map = {
+            'mood_terrible': -2,
+            'mood_bad': -1,
+            'mood_ok': 0,
+            'mood_good': 1,
+            'mood_excellent': 2,
+
+        }
+
+        df_rply = pd.DataFrame.from_dict(res['reply_history'], orient='index')
+        df_rply.index = df_rply.index.to_datetime().date
+        df_rply.columns = ['mood']
+        df_rply['mood'] = df_rply['mood'].map(mood_map)
+        df_rply['date'] = df_rply.index
+        res = df_rply.groupby('date')['mood'].mean()
+        reply_mood_df = res.round().map(dict((v, k) for k, v in mood_map.items()))
+        return reply_mood_df
+
     def get_mood_history_as_pandas(self, email):
 
         def fill_empty_values(emotions):
@@ -102,6 +125,8 @@ class MongoConnector:
             return None
 
         res_df_init = pd.DataFrame.from_dict({k: fill_empty_values(dict(v['emotions'])) for k, v in res[0]['track_history'].items()}, orient='index')
+        reply_history_df = self.get_reply_history_df(res[0])
+
         features = ['calm_music', 'energetic_music', 'happy_music', 'sad_music','anger_lyrics','anticipation_lyrics','disgust_lyrics',
                     'fear_lyrics','joy_lyrics','sadness_lyrics','surprise_lyrics','trust_lyrics']
         res_df = pd.DataFrame(res_df_init[['music','lyrics']].apply(lambda x: x[0]+x[1],axis=1).tolist(),
@@ -116,7 +141,7 @@ class MongoConnector:
         ret_df = res_df[['date'] + features].groupby('date').mean()
         ret_df[is_f] = res_df[['date'] + is_f].groupby('date').sum()
         ret_df['date'] = ret_df.index
-        return ret_df
+        return ret_df,reply_history_df
 
     def get_non_processed_lyrics(self):
         return list(self.dbs.tracks.find({'emotions.lyrics': {'$exists': False}, 'lyrics.text': {'$ne': None}}))

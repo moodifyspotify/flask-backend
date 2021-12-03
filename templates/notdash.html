@@ -31,9 +31,26 @@
           return gradient;
         };
 
+        function getGradientReply(ctx, chartArea) {
+          const chartWidth = chartArea.right - chartArea.left;
+          const chartHeight = chartArea.bottom - chartArea.top;
+          const gradient_vals = {{gradient_set_reply | safe}};
+          if (gradient === null || width !== chartWidth || height !== chartHeight) {
+            width = chartWidth;
+            height = chartHeight;
+            gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+            for(var i = 0; i < gradient_vals.length; i++) {
+                gradient.addColorStop(gradient_vals[i][0],gradient_vals[i][1])
+            }
+          }
+
+          return gradient;
+        };
+
         var bar_ful = {{bar_cfg | safe }};
         var line_ful = {{line_cfg | safe}};
         var pie_ful = {{pie_cfg | safe}};
+        var line_ful_reply = {{line_cfg_reply | safe}};
 
         console.log(line_ful.data.datasets)
         line_ful.data.datasets[0]['borderColor'] = function(context) {
@@ -45,6 +62,18 @@
             }
             return getGradient(ctx, chartArea);
       };
+
+       line_ful_reply.data.datasets[0]['borderColor'] = function(context) {
+            const chart = context.chart;
+            const {ctx, chartArea} = chart;
+            if (!chartArea) {
+              // This case happens on initial chart load
+              return null;
+            }
+            return getGradientReply(ctx, chartArea);
+      };
+
+
         line_ful.options.plugins.tooltip['callbacks'] = {
                   title: function(tooltipItem) {
                     var v_map = {
@@ -62,6 +91,20 @@
                 label: function() {}
               };
 
+              line_ful_reply.options.plugins.tooltip['callbacks'] = {
+                  title: function(tooltipItem) {
+                    var v_map = {
+                        'mood_terrible': -2,
+                        'mood_bad': -1,
+                        'mood_ok': 0,
+                        'mood_good': 1,
+                        'mood_excellent': 2,
+                    };
+                    return 'Настроение дня:\n' + getKeyByValue(v_map,tooltipItem[0].dataset.data[tooltipItem[0].dataIndex]);
+                },
+                label: function() {}
+              };
+
 
 
 
@@ -70,6 +113,9 @@
 
         var ctx_line = document.getElementById('lineChart').getContext('2d');
         var line_chart = new Chart(ctx_line, line_ful);
+
+        var ctx_line_reply = document.getElementById('lineChartReply').getContext('2d');
+        var line_chart_reply = new Chart(ctx_line_reply, line_ful_reply);
 
         var ctx_pie = document.getElementById('pieChart').getContext('2d');
         var pie_chart = new Chart(ctx_pie, pie_ful);
@@ -130,9 +176,17 @@
 
     <div class="col-sm-12 p-3">
       <div class="subcard p-2">
+        <div><canvas id="lineChartReply"></canvas></div>
+      </div>
+    </div>
+
+    <div class="col-sm-12 p-3">
+      <div class="subcard p-2">
         <div><canvas id="barChart"></canvas></div>
       </div>
     </div>
+
+
     
   </div>
 </div>

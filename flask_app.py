@@ -491,7 +491,7 @@ def create_app(app_name='YAMOOD_API'):
             sp_user_clt = SpotifyUserClient(access_info, sp_client_id, sp_client_secret, sp_redirect_uri)
             try:
                 user_info = sp_user_clt.get_user_info()
-                data,reply_history = mongo_conn.get_mood_history_as_pandas(user_info['email'])
+                data, reply_history = mongo_conn.get_mood_history_as_pandas(user_info['email'])
                 print(data)
                 if data is None:
                     data = test_data
@@ -515,7 +515,7 @@ def create_app(app_name='YAMOOD_API'):
                                                      ))
                 return resp
             except Exception as e:
-                print(str(e))
+                logging.error(str(e))
                 flash('Что-то пошло не так( Попробуйте зайти снова')
                 link = sp_client.get_auth_url()
                 return render_template('login.html', spotify_auth_link=link)

@@ -1382,3 +1382,324 @@ TypeError: 'NoneType' object is not subscriptable
 2021-12-02 13:30:00,032 INFO apscheduler.executors.default : Running job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-12-02 14:00:00 MSK)" (scheduled at 2021-12-02 13:30:00+03:00)
 2021-12-02 13:30:05,427 INFO apscheduler.executors.default : Job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-12-02 14:00:00 MSK)" executed successfully
 2021-12-02 13:30:06,766 INFO apscheduler.executors.default : Job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-12-02 14:00:00 MSK)" executed successfully
+2021-12-03 18:23:07,967 WARNING apscheduler.executors.default : Run time of job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-12-03 18:30:00 MSK)" was missed by 0:23:07.966579
+2021-12-03 18:23:07,977 WARNING apscheduler.executors.default : Run time of job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-12-03 18:30:00 MSK)" was missed by 0:23:07.975813
+2021-12-03 18:31:22,377 WARNING apscheduler.executors.default : Run time of job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-12-03 19:00:00 MSK)" was missed by 0:01:22.376976
+2021-12-03 18:31:22,395 WARNING apscheduler.executors.default : Run time of job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-12-03 19:00:00 MSK)" was missed by 0:01:22.394877
+2021-12-03 18:39:03,196 INFO apscheduler.scheduler : Scheduler started
+2021-12-03 18:39:07,192 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-03 18:39:07,372 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-12-03 18:39:07,372 INFO werkzeug :  * Running on http://192.168.1.67:5000/ (Press CTRL+C to quit)
+2021-12-03 18:39:07,379 INFO werkzeug :  * Restarting with stat
+2021-12-03 18:41:44,356 INFO apscheduler.scheduler : Scheduler started
+2021-12-03 18:41:49,651 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-03 18:41:49,725 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-12-03 18:41:49,729 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-12-03 18:41:49,734 INFO werkzeug :  * Restarting with stat
+2021-12-03 18:43:35,138 INFO apscheduler.scheduler : Scheduler started
+2021-12-03 18:43:40,783 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-03 18:43:41,051 WARNING werkzeug :  * Debugger is active!
+2021-12-03 18:43:41,087 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-12-05 14:52:47,958 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 14:52:48,512 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 14:52:48,531 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-12-05 14:52:48,531 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-12-05 14:52:48,533 INFO werkzeug :  * Restarting with stat
+2021-12-05 14:53:01,320 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 14:53:01,754 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 14:53:01,771 WARNING werkzeug :  * Debugger is active!
+2021-12-05 14:53:01,783 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-12-05 14:54:25,413 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 14:54:25,705 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 14:54:25,726 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-12-05 14:54:25,726 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-12-05 14:54:25,730 INFO werkzeug :  * Restarting with stat
+2021-12-05 14:54:35,841 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 14:54:36,116 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 14:54:36,134 WARNING werkzeug :  * Debugger is active!
+2021-12-05 14:54:36,147 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-12-05 14:55:08,719 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 14:55:08] "GET / HTTP/1.1" 200 -
+2021-12-05 14:55:08,829 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 14:55:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-12-05 14:55:08,922 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 14:55:08] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-12-05 14:55:09,242 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 14:55:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2021-12-05 14:58:42,320 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 14:58:42,414 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 14:58:42,425 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-12-05 14:58:42,425 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-12-05 14:58:42,427 INFO werkzeug :  * Restarting with stat
+2021-12-05 14:58:49,019 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 14:58:49,142 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 14:58:49,167 WARNING werkzeug :  * Debugger is active!
+2021-12-05 14:58:49,192 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-12-05 14:58:52,194 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 14:58:52] "GET / HTTP/1.1" 200 -
+2021-12-05 14:58:52,249 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 14:58:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-12-05 14:58:52,295 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 14:58:52] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-12-05 14:59:26,936 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 14:59:27,185 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 14:59:27,204 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-12-05 14:59:27,204 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-12-05 14:59:27,207 INFO werkzeug :  * Restarting with stat
+2021-12-05 14:59:37,190 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 14:59:37,500 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 14:59:37,519 WARNING werkzeug :  * Debugger is active!
+2021-12-05 14:59:37,537 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-12-05 15:00:00,005 INFO apscheduler.executors.default : Running job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-12-05 15:00:00 MSK)" (scheduled at 2021-12-05 15:00:00+03:00)
+2021-12-05 15:00:00,005 INFO apscheduler.executors.default : Running job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-12-05 15:00:00 MSK)" (scheduled at 2021-12-05 15:00:00+03:00)
+2021-12-05 15:00:12,858 ERROR apscheduler.executors.default : Job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-12-05 15:30:00 MSK)" raised an exception
+Traceback (most recent call last):
+  File "/Users/roma/Desktop/moodifyspotify/venv/lib/python3.8/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/roma/Desktop/moodifyspotify/flask_app.py", line 433, in scarp_users_history
+    sp_user_clt = SpotifyUserClient(access_info, sp_client_id, sp_client_secret, sp_redirect_uri)
+  File "/Users/roma/Desktop/moodifyspotify/spotify_client.py", line 84, in __init__
+    self.access_info = auth_clt.refresh_user_token(access_info['refresh_token'])
+  File "/Users/roma/Desktop/moodifyspotify/spotify_client.py", line 67, in refresh_user_token
+    return SpotifyAuthClient.get_token(code,
+  File "/Users/roma/Desktop/moodifyspotify/spotify_client.py", line 55, in get_token
+    raise Exception('Failed to log in.')
+Exception: Failed to log in.
+2021-12-05 15:00:12,896 ERROR apscheduler.executors.default : Job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-12-05 15:30:00 MSK)" raised an exception
+Traceback (most recent call last):
+  File "/Users/roma/Desktop/moodifyspotify/venv/lib/python3.8/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/roma/Desktop/moodifyspotify/flask_app.py", line 433, in scarp_users_history
+    sp_user_clt = SpotifyUserClient(access_info, sp_client_id, sp_client_secret, sp_redirect_uri)
+  File "/Users/roma/Desktop/moodifyspotify/spotify_client.py", line 84, in __init__
+    self.access_info = auth_clt.refresh_user_token(access_info['refresh_token'])
+  File "/Users/roma/Desktop/moodifyspotify/spotify_client.py", line 67, in refresh_user_token
+    return SpotifyAuthClient.get_token(code,
+  File "/Users/roma/Desktop/moodifyspotify/spotify_client.py", line 55, in get_token
+    raise Exception('Failed to log in.')
+Exception: Failed to log in.
+2021-12-05 15:02:18,449 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:02:18] "GET / HTTP/1.1" 200 -
+2021-12-05 15:02:18,508 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:02:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-12-05 15:02:18,516 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:02:18] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-12-05 15:03:13,814 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:03:13] "[32mGET /login?tg_id=127845987&token=22a4a1d5-23c5-47d6-aa5f-dafcad6a7c8c HTTP/1.1[0m" 302 -
+2021-12-05 15:03:24,681 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:03:24] "GET / HTTP/1.1" 200 -
+2021-12-05 15:03:24,747 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:03:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-12-05 15:03:24,820 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:03:24] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-12-05 15:03:44,460 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:03:44,563 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:03:44,574 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-12-05 15:03:44,574 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-12-05 15:03:44,576 INFO werkzeug :  * Restarting with stat
+2021-12-05 15:03:52,559 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:03:52,696 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:03:52,706 WARNING werkzeug :  * Debugger is active!
+2021-12-05 15:03:52,722 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-12-05 15:03:55,497 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:03:55] "GET / HTTP/1.1" 200 -
+2021-12-05 15:03:55,541 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:03:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-12-05 15:03:55,551 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:03:55] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-12-05 15:04:56,481 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:04:56,966 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:04:57,004 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-12-05 15:04:57,004 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-12-05 15:04:57,009 INFO werkzeug :  * Restarting with stat
+2021-12-05 15:05:08,451 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:05:08,741 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:05:08,762 WARNING werkzeug :  * Debugger is active!
+2021-12-05 15:05:08,776 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-12-05 15:07:21,828 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:07:21] "GET / HTTP/1.1" 200 -
+2021-12-05 15:07:21,895 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:07:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-12-05 15:07:21,897 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:07:21] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-12-05 15:08:58,185 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:08:58,287 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:08:58,296 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-12-05 15:08:58,296 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-12-05 15:08:58,298 INFO werkzeug :  * Restarting with stat
+2021-12-05 15:09:05,917 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:09:06,023 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:09:06,034 WARNING werkzeug :  * Debugger is active!
+2021-12-05 15:09:06,049 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-12-05 15:09:08,809 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:09:08] "GET / HTTP/1.1" 200 -
+2021-12-05 15:09:08,884 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:09:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-12-05 15:09:08,959 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:09:08] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-12-05 15:09:59,965 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:10:00,211 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:10:00,234 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-12-05 15:10:00,235 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-12-05 15:10:00,238 INFO werkzeug :  * Restarting with stat
+2021-12-05 15:10:11,311 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:10:11,615 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:10:11,648 WARNING werkzeug :  * Debugger is active!
+2021-12-05 15:10:11,663 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-12-05 15:13:35,049 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:13:35,148 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:13:35,158 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-12-05 15:13:35,158 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-12-05 15:13:35,160 INFO werkzeug :  * Restarting with stat
+2021-12-05 15:13:41,518 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:13:41,615 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:13:41,624 WARNING werkzeug :  * Debugger is active!
+2021-12-05 15:13:41,636 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-12-05 15:14:11,126 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:14:11] "GET / HTTP/1.1" 200 -
+2021-12-05 15:14:11,208 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:14:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-12-05 15:14:11,282 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:14:11] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-12-05 15:14:11,347 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:14:11] "[36mGET /static/mood-pic.svg HTTP/1.1[0m" 304 -
+2021-12-05 15:18:47,445 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:18:47,710 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:18:47,729 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-12-05 15:18:47,729 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-12-05 15:18:47,732 INFO werkzeug :  * Restarting with stat
+2021-12-05 15:18:57,455 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:18:57,721 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:18:57,751 WARNING werkzeug :  * Debugger is active!
+2021-12-05 15:18:57,777 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-12-05 15:21:31,971 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:21:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-12-05 15:27:21,533 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:27:21,659 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:27:21,669 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-12-05 15:27:21,669 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-12-05 15:27:21,670 INFO werkzeug :  * Restarting with stat
+2021-12-05 15:27:28,754 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:27:28,865 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:27:28,876 WARNING werkzeug :  * Debugger is active!
+2021-12-05 15:27:28,892 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-12-05 15:27:32,700 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:27:32] "GET / HTTP/1.1" 200 -
+2021-12-05 15:27:32,705 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:27:32] "GET / HTTP/1.1" 200 -
+2021-12-05 15:27:32,824 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:27:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-12-05 15:27:32,984 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:27:32] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-12-05 15:27:33,062 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:27:33] "[36mGET /static/mood-pic.svg HTTP/1.1[0m" 304 -
+2021-12-05 15:29:55,268 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:29:55,587 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:29:55,604 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-12-05 15:29:55,604 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-12-05 15:29:55,609 INFO werkzeug :  * Restarting with stat
+2021-12-05 15:30:00,004 INFO apscheduler.executors.default : Running job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-12-05 15:30:00 MSK)" (scheduled at 2021-12-05 15:30:00+03:00)
+2021-12-05 15:30:05,650 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:30:05,940 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:30:05,965 WARNING werkzeug :  * Debugger is active!
+2021-12-05 15:30:05,981 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-12-05 15:30:11,859 ERROR apscheduler.executors.default : Job "create_app.<locals>.scarp_users_history (trigger: cron[minute='*/30', second='0'], next run at: 2021-12-05 16:00:00 MSK)" raised an exception
+Traceback (most recent call last):
+  File "/Users/roma/Desktop/moodifyspotify/venv/lib/python3.8/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/roma/Desktop/moodifyspotify/flask_app.py", line 433, in scarp_users_history
+    sp_user_clt = SpotifyUserClient(access_info, sp_client_id, sp_client_secret, sp_redirect_uri)
+  File "/Users/roma/Desktop/moodifyspotify/spotify_client.py", line 84, in __init__
+    self.access_info = auth_clt.refresh_user_token(access_info['refresh_token'])
+  File "/Users/roma/Desktop/moodifyspotify/spotify_client.py", line 67, in refresh_user_token
+    return SpotifyAuthClient.get_token(code,
+  File "/Users/roma/Desktop/moodifyspotify/spotify_client.py", line 55, in get_token
+    raise Exception('Failed to log in.')
+Exception: Failed to log in.
+2021-12-05 15:31:18,718 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:31:18,801 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:31:18,810 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-12-05 15:31:18,811 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-12-05 15:31:18,812 INFO werkzeug :  * Restarting with stat
+2021-12-05 15:31:24,401 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:31:24,496 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:31:24,505 WARNING werkzeug :  * Debugger is active!
+2021-12-05 15:31:24,518 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-12-05 15:31:27,832 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:31:27] "GET / HTTP/1.1" 200 -
+2021-12-05 15:31:27,960 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:31:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-12-05 15:31:28,202 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:31:28] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-12-05 15:31:28,242 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:31:28] "[36mGET /static/mood-pic.svg HTTP/1.1[0m" 304 -
+2021-12-05 15:36:05,408 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:36:05,653 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:36:05,672 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-12-05 15:36:05,672 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-12-05 15:36:05,675 INFO werkzeug :  * Restarting with stat
+2021-12-05 15:36:17,299 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:36:17,575 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:36:17,591 WARNING werkzeug :  * Debugger is active!
+2021-12-05 15:36:17,608 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-12-05 15:38:26,268 INFO werkzeug :  * Detected change in '/Users/roma/Desktop/moodifyspotify/flask_app.py', reloading
+2021-12-05 15:43:20,938 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:43:21,039 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:43:21,048 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-12-05 15:43:21,048 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-12-05 15:43:21,049 INFO werkzeug :  * Restarting with stat
+2021-12-05 15:43:27,634 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:43:27,741 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:43:27,750 WARNING werkzeug :  * Debugger is active!
+2021-12-05 15:43:27,765 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-12-05 15:43:30,093 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:43:30] "GET / HTTP/1.1" 200 -
+2021-12-05 15:43:30,191 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:43:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-12-05 15:43:30,201 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:43:30] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-12-05 15:45:05,160 INFO werkzeug :  * Detected change in '/Users/roma/Desktop/moodifyspotify/flask_app.py', reloading
+2021-12-05 15:45:06,106 INFO werkzeug :  * Restarting with stat
+2021-12-05 15:45:13,882 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:45:13,989 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:45:13,999 WARNING werkzeug :  * Debugger is active!
+2021-12-05 15:45:14,016 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-12-05 15:45:43,193 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:45:43,288 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:45:43,298 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-12-05 15:45:43,298 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-12-05 15:45:43,300 INFO werkzeug :  * Restarting with stat
+2021-12-05 15:45:51,603 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:45:51,720 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:45:51,729 WARNING werkzeug :  * Debugger is active!
+2021-12-05 15:45:51,747 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-12-05 15:45:54,987 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:45:54] "GET / HTTP/1.1" 200 -
+2021-12-05 15:45:55,084 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:45:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-12-05 15:45:55,206 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:45:55] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-12-05 15:45:55,393 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:45:55] "[36mGET /static/mood-pic.svg HTTP/1.1[0m" 304 -
+2021-12-05 15:47:28,668 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:47:28,981 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:47:29,007 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-12-05 15:47:29,007 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-12-05 15:47:29,010 INFO werkzeug :  * Restarting with stat
+2021-12-05 15:47:39,424 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:47:39,757 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:47:39,778 WARNING werkzeug :  * Debugger is active!
+2021-12-05 15:47:39,795 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-12-05 15:49:20,287 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:49:20,383 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:49:20,393 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-12-05 15:49:20,393 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-12-05 15:49:20,395 INFO werkzeug :  * Restarting with stat
+2021-12-05 15:49:28,701 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:49:28,800 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:49:28,809 WARNING werkzeug :  * Debugger is active!
+2021-12-05 15:49:28,826 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-12-05 15:49:31,567 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:49:31] "GET / HTTP/1.1" 200 -
+2021-12-05 15:49:31,671 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:49:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-12-05 15:49:31,871 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:49:31] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-12-05 15:49:32,039 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:49:32] "[36mGET /static/mood-pic.svg HTTP/1.1[0m" 304 -
+2021-12-05 15:50:04,697 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:50:04,807 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:50:04,816 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-12-05 15:50:04,816 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-12-05 15:50:04,818 INFO werkzeug :  * Restarting with stat
+2021-12-05 15:50:12,757 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:50:12,861 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:50:12,870 WARNING werkzeug :  * Debugger is active!
+2021-12-05 15:50:12,881 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-12-05 15:50:18,920 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:50:19,023 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:50:19,031 WARNING werkzeug :  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-12-05 15:50:19,031 INFO werkzeug :  * Running on http://172.20.10.3:5000/ (Press CTRL+C to quit)
+2021-12-05 15:50:19,032 INFO werkzeug :  * Restarting with stat
+2021-12-05 15:50:24,747 INFO apscheduler.scheduler : Scheduler started
+2021-12-05 15:50:24,842 INFO apscheduler.scheduler : Added job "create_app.<locals>.scarp_users_history" to job store "default"
+2021-12-05 15:50:24,848 WARNING werkzeug :  * Debugger is active!
+2021-12-05 15:50:24,867 INFO werkzeug :  * Debugger PIN: 142-798-951
+2021-12-05 15:50:27,324 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:50:27] "GET / HTTP/1.1" 200 -
+2021-12-05 15:50:27,404 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:50:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2021-12-05 15:50:27,428 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:50:27] "[36mGET /static/logo3.svg HTTP/1.1[0m" 304 -
+2021-12-05 15:50:27,438 INFO werkzeug : 172.20.10.3 - - [05/Dec/2021 15:50:27] "[36mGET /static/mood-pic.svg HTTP/1.1[0m" 304 -

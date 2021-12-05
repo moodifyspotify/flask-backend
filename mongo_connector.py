@@ -101,7 +101,8 @@ class MongoConnector:
         }
 
         df_rply = pd.DataFrame.from_dict(res['reply_history'], orient='index')
-        df_rply.index = df_rply.index.to_datetime().date
+        df_rply.index = pd.to_datetime(df_rply.index).date
+
         df_rply.columns = ['mood']
         df_rply['mood'] = df_rply['mood'].map(mood_map)
         df_rply['date'] = df_rply.index
@@ -120,7 +121,7 @@ class MongoConnector:
 
 
         res = list(self.dbs.users.find({'email': email},
-                                       {'track_history': 1, '_id': 0}))
+                                       {'track_history': 1, 'reply_history': 1, '_id': 0}))
         if len(res) == 0:
             return None
 

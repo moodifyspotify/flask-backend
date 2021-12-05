@@ -105,7 +105,7 @@ def get_test_plot(data,reply_history):
         return emts[vls.index(max(vls))]
 
     data['main_mood'] = data.apply(get_main_emotion, axis=1)
-
+    data[emts] = data[emts].div(data[emts].sum(axis=1),axis=0)
     v_map = {
         'Ярость': -3,
         'Страх': -2,
@@ -147,11 +147,10 @@ def get_test_plot(data,reply_history):
         for e in emts:
             st_b_d['Дата'].append(ts)
             st_b_d['Настроение'].append(e)
-            st_b_d['Величина'].append(round(data[data['date'] == ts][e].values[0], 2))
+            st_b_d['Величина'].append(data[data['date'] == ts][e].values[0])
 
 
     bar_df = pd.DataFrame(st_b_d)
-    line_df = pd.DataFrame(l_d)
 
     cdm = {
         'Ярость': '#FF6F76',
@@ -174,43 +173,10 @@ def get_test_plot(data,reply_history):
     }
 
 
-    pie_fig = px.pie(pie_df, values="Величина", names="Настроение",
-                     template='plotly_dark',
-                     color="Настроение",
-                     color_discrete_map=cdm)
-    pie_fig.update_traces(textinfo='none', hoverinfo='label')
-    pie_fig.layout.plot_bgcolor = "#292E43"
-    pie_fig.layout.paper_bgcolor = "#292E43"
 
-    bar_fig = px.bar(bar_df, x="Дата", y="Величина",
-                     template='plotly_dark',
-                     color="Настроение",
-                     color_discrete_map=cdm)
-    bar_fig.layout.plot_bgcolor = "#292E43"
-    bar_fig.layout.paper_bgcolor = "#292E43"
-    bar_fig.update_yaxes(visible=False)
-    bar_fig.update_layout(barnorm="percent")
-
-    fig1 = px.line(line_df, x="Дата", y="Величина")
-    fig1.update_traces(line=dict(color='#ECF8F7'))
-    fig2 = px.scatter(line_df, x='Дата', y='Величина',
-                      template='plotly_dark',
-                      color='Настроение',
-                      color_discrete_map=cdm,
-                      size='z'
-                      # trendline="rolling",
-                      # trendline_options=dict(window=1)
-                      )
-    line_fig = go.Figure(data=fig1.data + fig2.data)
-    line_fig.layout.plot_bgcolor = "#292E43"
-    line_fig.layout.paper_bgcolor = "#292E43"
-    line_fig.update_yaxes(visible=False)
-    line_fig.update_layout(template='plotly_dark')
-    line_fig.update_traces(line_shape='spline')
 
     res_values = []
     res_labels = []
-    res_x = list(bar_df['Дата'].unique())
 
     bar_datasets = []
     v_map_rev = dict((v, k) for k, v in v_map.items())
@@ -299,8 +265,8 @@ def get_test_plot(data,reply_history):
             'labels': list(map(str,reply_history.index)),
             'datasets': [{
                 'lineTension': 0.5,
-                'data': list(reply_history.values),
-                'pointBackgroundColor': list(map(lambda x: cdm_reply[v_map_reply_rev[x]],reply_history.values))
+                'data': list(map(lambda x: v_map_reply[x], reply_history.values)),
+                'pointBackgroundColor': list(map(lambda x: cdm_reply[x],reply_history.values))
             }]
         }
 
@@ -323,7 +289,7 @@ def get_test_plot(data,reply_history):
 
     for i in sorted(list(set(line_cfg_reply['data']['datasets'][0]['data']))):
         gradient_set_reply.append([i, cdm_reply[v_map_reply_rev[i]]])
-    gradient_set_reply = get_gradient_scale(gradient_set)
+    gradient_set_reply = get_gradient_scale(gradient_set_reply)
 
 
     bar_cfg = {
@@ -373,8 +339,7 @@ def get_test_plot(data,reply_history):
             {
                 'label': i,
                 'data': list(bar_df[bar_df['Настроение'] == i].sort_values('Дата')['Величина']),
-                'backgroundColor': cdm[i],
-                'normalize': True
+                'backgroundColor': cdm[i]
             }
         )
         res_labels.append(i)
@@ -388,10 +353,7 @@ def get_test_plot(data,reply_history):
 
 
 
-    return json.dumps(pie_fig, cls=plotly.utils.PlotlyJSONEncoder), \
-           json.dumps(bar_fig, cls=plotly.utils.PlotlyJSONEncoder), \
-           json.dumps(line_fig, cls=plotly.utils.PlotlyJSONEncoder), \
-           json.dumps(line_cfg, ensure_ascii=False),\
+    return json.dumps(line_cfg, ensure_ascii=False),\
            json.dumps(bar_cfg, ensure_ascii=False),\
            json.dumps(gradient_set, ensure_ascii=False),\
            json.dumps(pie_cfg, ensure_ascii=False), \
@@ -530,14 +492,14 @@ def create_app(app_name='YAMOOD_API'):
                     data = test_data
                     flash('Показываем тестовых рыбов')
 
-                pieJSON, barJSON, lineJSON,line_cfg, bar_cfg, gradient_set, pie_cfg, legend,gradient_set_reply,line_cfg_reply = get_test_plot(data,reply_history)
+                line_cfg, bar_cfg, gradient_set, pie_cfg, legend,gradient_set_reply,line_cfg_reply = get_test_plot(data,reply_history)
 
                 g.user = {
                     'username': user_info['display_name'],
                     'access_token': sp_user_clt.access_info['access_token']
                 }
 
-                resp = make_response(render_template('notdash.html', pieJSON=pieJSON, barJSON=barJSON, lineJSON=lineJSON,
+                resp = make_response(render_template('notdash.html',
                                                      bar_cfg=bar_cfg,
                                                      line_cfg=line_cfg,
                                                      gradient_set=gradient_set,
@@ -551,10 +513,10 @@ def create_app(app_name='YAMOOD_API'):
                 print(str(e))
                 flash('Что-то пошло не так( Попробуйте зайти снова')
                 link = sp_client.get_auth_url()
-                return render_template('login_tg.html', spotify_auth_link=link)
+                return render_template('login.html', spotify_auth_link=link)
         else:
             link = sp_client.get_auth_url()
-            return render_template('login_tg.html', spotify_auth_link=link)
+            return render_template('login.html', spotify_auth_link=link)
 
     @app.route('/spotify_auth', methods=['POST', 'GET'])
     @cross_origin()

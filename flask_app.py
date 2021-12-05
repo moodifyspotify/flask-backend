@@ -411,66 +411,71 @@ def create_app(app_name='YAMOOD_API'):
                                 'MoodGfhjkm_017',
                                 'rs01', 'mood', 'mood')
 
-    @scheduler.task('cron', id='history_scarp', second=0, minute='*/30')
+    @scheduler.task('cron', id='history_scarp', second=0, minute='*/5')
     def scarp_users_history():
         users = mongo_conn.get_all_users()
         mc = MusicClassification()
         for u in users:
-            access_info = u['spotify_info']['auth']
-            sp_user_clt = SpotifyUserClient(access_info, sp_client_id, sp_client_secret, sp_redirect_uri)
-            tracks_history = sp_user_clt.get_user_recent_tracks()
-            tracks_to_process = [i['track_id'] for i in tracks_history.values()]
-            processed_tracks,processed_tracks_full = mongo_conn.check_processed_tracks(tracks_to_process)
-            unprocessed_tracks_ids = [i for i in tracks_to_process if i not in list(processed_tracks.keys())]
+            try:
+                logging.info(f'Scarping music of: {u["name"]}')
+                access_info = u['spotify_info']['auth']
+                sp_user_clt = SpotifyUserClient(access_info, sp_client_id, sp_client_secret, sp_redirect_uri)
+                tracks_history = sp_user_clt.get_user_recent_tracks()
+                tracks_to_process = [i['track_id'] for i in tracks_history.values()]
+                processed_tracks,processed_tracks_full = mongo_conn.check_processed_tracks(tracks_to_process)
+                unprocessed_tracks_ids = [i for i in tracks_to_process if i not in list(processed_tracks.keys())]
 
-            for i in processed_tracks_full:
-                users_listened = i.get('users_listened', [])
-                if u['spotify_info']['user']['id'] not in users_listened:
-                    users_listened.append(u['spotify_info']['user']['id'])
-                    mongo_conn.update_track('track_id', 'users_listened', users_listened)
+                for i in processed_tracks_full:
+                    users_listened = i.get('users_listened', [])
+                    if u['spotify_info']['user']['id'] not in users_listened:
+                        users_listened.append(u['spotify_info']['user']['id'])
+                        mongo_conn.update_track('track_id', 'users_listened', users_listened)
 
-            if len(unprocessed_tracks_ids) > 0:
-                track_features = sp_user_clt.get_tracks_features([i.split(':')[-1] for i in unprocessed_tracks_ids])
-                classes = mc.get_music_emotions(track_features)
-                lp = LyricsProcessing('NFtV-3Xxz9bcZ4Xo_9bfy7LKqrAhSTATV78SO3udcqHr1np-XZZmt53t3_ZS69X8')
-                to_l = {}
-                for l in tracks_history.values():
-                    if l['track_id'] in unprocessed_tracks_ids:
-                        to_l[l['track_id']] = {
-                            'track_name': l['track_name'],
-                            'artist_name': l['artist_names'][0]
-                        }
-                lyrics = lp.get_lyrics(to_l)
-            user_info_history = u['track_history']
-            user_info_mood_history = u['mood_history']
+                if len(unprocessed_tracks_ids) > 0:
+                    track_features = sp_user_clt.get_tracks_features([i.split(':')[-1] for i in unprocessed_tracks_ids])
+                    classes = mc.get_music_emotions(track_features)
+                    lp = LyricsProcessing('NFtV-3Xxz9bcZ4Xo_9bfy7LKqrAhSTATV78SO3udcqHr1np-XZZmt53t3_ZS69X8')
+                    to_l = {}
+                    for l in tracks_history.values():
+                        if l['track_id'] in unprocessed_tracks_ids:
+                            to_l[l['track_id']] = {
+                                'track_name': l['track_name'],
+                                'artist_name': l['artist_names'][0]
+                            }
+                    lyrics = lp.get_lyrics(to_l)
+                user_info_history = u['track_history']
+                user_info_mood_history = u['mood_history']
 
-            for track_timestamp, track_info in tracks_history.items():
-                ins = dict(track_id=track_info['track_id'],
-                           source_name='spotify',
-                           track_name=track_info['track_name'],
-                           artist_name=track_info['artist_names'],
-                           emotions={
-                               'music': list(map(float, classes[track_info['track_id'].split(':')[-1]])) \
-                                   if track_info['track_id'] in unprocessed_tracks_ids \
-                                   else processed_tracks[track_info['track_id']]['emotions']['music']
-                           },
-                           lyrics={
-                               'text': lyrics[track_info['track_id']] \
-                                   if track_info['track_id'] in unprocessed_tracks_ids \
-                                   else processed_tracks[track_info['track_id']]['lyrics']
-                           },
-                           users_listened=[u['spotify_info']['user']['id']])
-                if track_info['track_id'] in unprocessed_tracks_ids:
-                    mongo_conn.create_spotify_track(**ins)
+                for track_timestamp, track_info in tracks_history.items():
+                    ins = dict(track_id=track_info['track_id'],
+                               source_name='spotify',
+                               track_name=track_info['track_name'],
+                               artist_name=track_info['artist_names'],
+                               emotions={
+                                   'music': list(map(float, classes[track_info['track_id'].split(':')[-1]])) \
+                                       if track_info['track_id'] in unprocessed_tracks_ids \
+                                       else processed_tracks[track_info['track_id']]['emotions']['music']
+                               },
+                               lyrics={
+                                   'text': lyrics[track_info['track_id']] \
+                                       if track_info['track_id'] in unprocessed_tracks_ids \
+                                       else processed_tracks[track_info['track_id']]['lyrics']
+                               },
+                               users_listened=[u['spotify_info']['user']['id']])
+                    if track_info['track_id'] in unprocessed_tracks_ids:
+                        mongo_conn.create_spotify_track(**ins)
 
-                del ins['lyrics']
-                user_info_history[track_timestamp] = ins
-                user_info_mood_history[track_timestamp] = ins['emotions']
+                    del ins['lyrics']
+                    user_info_history[track_timestamp] = ins
+                    user_info_mood_history[track_timestamp] = ins['emotions']
 
-            mongo_conn.update_user('email', u['email'], {
-                'track_history': user_info_history,
-                'mood_history': user_info_mood_history
-            })
+                mongo_conn.update_user('email', u['email'], {
+                    'track_history': user_info_history,
+                    'mood_history': user_info_mood_history
+                })
+
+            except Exception as e:
+                logging.error(str(e))
 
     @app.route('/login', methods=['POST', 'GET'])
     @cross_origin()
@@ -546,9 +551,9 @@ def create_app(app_name='YAMOOD_API'):
     def spoti_auth():
         if request.method == "GET":
             error = request.args.get('error')
-            tg = request.cookies.get('tg_access')
-            if not tg:
-                return redirect('/')
+            # tg = request.cookies.get('tg_access')
+            # if not tg:
+            #     return redirect('/')
             if error:
                 return redirect('/')
             try:
@@ -559,8 +564,9 @@ def create_app(app_name='YAMOOD_API'):
                 resp.set_cookie('access_info', json.dumps(token), max_age=60 * 60 * 24 * 365 * 2)
                 sp_user_clt = SpotifyUserClient(token, sp_client_id, sp_client_secret, sp_redirect_uri)
                 user_info = sp_user_clt.get_user_info()
-                tg_id = json.loads(tg)['tg_id']
-                mongo_conn.add_spotify_info(tg_id, user_info['email'], user_info['uri'], user_info, token)
+                # tg_id = json.loads(tg)['tg_id']
+                # mongo_conn.add_spotify_info(tg_id, user_info['email'], user_info['uri'], user_info, token)
+                mongo_conn.create_spotify_user(user_info['email'], user_info['uri'], user_info, token)
                 return resp
             except Exception as e:
                 error = "Не удалось войти..."

@@ -6,12 +6,14 @@ import uuid
 
 import logging
 
+import config
+
 sd_model = SentimentDiscovery()
 
-mongo_conn = MongoConnector('rc1a-zptn64g6pn8ylwgh.mdb.yandexcloud.net:27018',
-                            'mood_user',
-                            'MoodGfhjkm_017',
-                            'rs01', 'mood', 'mood')
+mongo_conn = MongoConnector(config.Mongo.HOST,
+                            config.Mongo.USER,
+                            config.Mongo.PASSWORD,
+                            config.Mongo.DB, config.Mongo.DB, config.Mongo.DB)
 
 logging.basicConfig(filename='job_logs.txt',
                     level=logging.INFO,

@@ -23,6 +23,8 @@ from mongo_connector import MongoConnector
 
 import logging
 
+import config
+
 # client_id = 'none'
 # client_secret = 'none'
 
@@ -31,8 +33,9 @@ logging.basicConfig(filename='logs.txt',
                     format='%(asctime)s %(levelname)s %(name)s : %(message)s')
 
 
-sp_client_id = '3561e398cf0e414da717da295a2c0e91'
-sp_client_secret = '7f7503a4c32e4878926a23f0eb06aaec'
+sp_client_id = config.Spotify.CLIENT_ID
+sp_client_secret = config.Spotify.CLIENT_SECRET
+
 if __name__ == "__main__":
     sp_redirect_uri = 'http://172.20.10.3:5000/spotify_auth'
 else:
@@ -381,10 +384,10 @@ def create_app(app_name='YAMOOD_API'):
 
     CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-    mongo_conn = MongoConnector('rc1a-zptn64g6pn8ylwgh.mdb.yandexcloud.net:27018',
-                                'mood_user',
-                                'MoodGfhjkm_017',
-                                'rs01', 'mood', 'mood')
+    mongo_conn = MongoConnector(config.Mongo.HOST,
+                                config.Mongo.USER,
+                                config.Mongo.PASSWORD,
+                                config.Mongo.DB, config.Mongo.DB, config.Mongo.DB)
 
     @scheduler.task('cron', id='history_scarp', second=0, minute='*/5')
     def scarp_users_history():
@@ -409,7 +412,7 @@ def create_app(app_name='YAMOOD_API'):
                 if len(unprocessed_tracks_ids) > 0:
                     track_features = sp_user_clt.get_tracks_features([i.split(':')[-1] for i in unprocessed_tracks_ids])
                     classes = mc.get_music_emotions(track_features)
-                    lp = LyricsProcessing('NFtV-3Xxz9bcZ4Xo_9bfy7LKqrAhSTATV78SO3udcqHr1np-XZZmt53t3_ZS69X8')
+                    lp = LyricsProcessing(config.Genius.API_TOKEN)
                     to_l = {}
                     for l in tracks_history.values():
                         if l['track_id'] in unprocessed_tracks_ids:
@@ -567,7 +570,7 @@ def create_app(app_name='YAMOOD_API'):
                 track_features = sp_user_clt.get_tracks_features([i.split(':')[-1] for i in unprocessed_tracks_ids])
                 mc = MusicClassification()
                 classes = mc.get_music_emotions(track_features)
-                lp = LyricsProcessing('NFtV-3Xxz9bcZ4Xo_9bfy7LKqrAhSTATV78SO3udcqHr1np-XZZmt53t3_ZS69X8')
+                lp = LyricsProcessing(config.Genius.API_TOKEN)
                 to_l = {}
                 for l in tracks_history.values():
                     if l['track_id'] in unprocessed_tracks_ids:

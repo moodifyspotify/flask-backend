@@ -36,7 +36,7 @@ class LyricsProcessing():
 
     def __init__(self,genius_api_token):
         self.genius_api_token = genius_api_token
-        # 'NFtV-3Xxz9bcZ4Xo_9bfy7LKqrAhSTATV78SO3udcqHr1np-XZZmt53t3_ZS69X8'
+        
 
     @staticmethod
     def request_song_info(track_name, track_artist,genius_api_token):
